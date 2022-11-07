@@ -1,6 +1,6 @@
 import React, {useEffect} from "react"
 import "./_modal.scss"
-import galleryHandler from "../Gallery/_Helper";
+import galleryHelper from "../Gallery/_Helper";
 
 export default function Modal() {
 	const populateModal = (projectData, modal) => {
@@ -62,7 +62,7 @@ export default function Modal() {
 			if (images) {
 				galleryHtml += `
 					<div class="gallery__showcase">
-						<img src="${images[0].publicURL}" class="gallery__image js-gallery-target-image" alt="">
+						<img src="/default-test.png" data-src="${images[0].publicURL}" class="gallery__image js-gallery-target-image js-lazyload" alt="">
 					</div>
 				`
 			}
@@ -112,9 +112,10 @@ export default function Modal() {
 				let modalData = JSON.parse(project.dataset.modal)
 				populateModal(modalData, modal)
 				showModal(modal)
+				galleryHelper.lazyload()
 
 				// -- handling the project gallery
-				galleryHandler(modal)
+				galleryHelper.thumbsHandler(modal)
 			})
 		})
 	}
@@ -127,7 +128,7 @@ export default function Modal() {
 		closeModal(modal, closeBtns)
 
 		// TODO: Maybe another function to make it clean
-		document.addEventListener('keydown', (event) => {
+		document.addEventListener("keydown", (event) => {
 			if (event.key === 'Escape') {
 				modal.classList.remove("modal-is-open")
 			}
@@ -151,7 +152,7 @@ export default function Modal() {
 
 						// Generated structure from JS
 						<div class="gallery__showcase">
-							<img src="img1.png" class="gallery__image js-gallery-target-image" alt="">
+							<img src="img1.png" class="gallery__image js-gallery-target-image js-lazyload" alt="">
 						</div>
 						<div class="gallery__thumbs">
 							<a href="img1.png" class="gallery__link js-gallery-switch-image">

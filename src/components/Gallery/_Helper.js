@@ -1,9 +1,8 @@
 import "./_gallery.scss"
 
-const galleryHandler = (modal) => {
+const thumbsHandler = (modal) => {
 	if (!modal) return
 
-	// TODO: Lazyload
 	const thumbLinks = modal.querySelectorAll(".js-gallery-switch-image")
 	const bigImage = modal.querySelector(".js-gallery-target-image")
 
@@ -11,10 +10,24 @@ const galleryHandler = (modal) => {
 		link.addEventListener("click", (e) => {
 			e.preventDefault()
 
-			bigImage.setAttribute("src", link.getAttribute("href"))
+			bigImage.setAttribute("data-src", link.getAttribute("href"))
+
+			lazyload()
 		})
 	})
 
 }
 
-export default galleryHandler
+const lazyload = () => {
+	const gallery = document.getElementById("gallery")
+	const image = gallery.querySelector(".js-lazyload")
+
+	if (!gallery) return
+	if (!image) return
+
+	image.setAttribute("src", image.dataset.src)
+}
+
+const galleryHelper = {thumbsHandler, lazyload}
+
+export default galleryHelper
