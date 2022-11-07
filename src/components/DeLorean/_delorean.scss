@@ -1,0 +1,130 @@
+.deloreans {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.delorean__holder {
+	position: relative;
+	width: 300px;
+	height: 100vh;
+}
+
+.delorean__mask {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	clip: rect(0, auto, auto, 0);
+}
+
+.delorean__container {
+
+	// TODO: Maybe use CSS variables ...?
+	$dcwidth: 85px;
+	$dcheight: 180px;
+
+	position: fixed;
+	left: 3rem;
+	top: 50%;
+	width: $dcwidth;
+	height: $dcheight;
+	translate: 0 -50%;
+	padding: 0;
+	//box-shadow: 0 0 30px 5px black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	scale: 1;
+	rotate: 0;
+	transition: scale 1000ms ease-in-out, rotate 750ms ease-in-out, top 1500ms ease-in-out;
+	transform-origin: calc($dcwidth / 2) $dcheight;
+
+	&.is-hovering {
+		scale: 1.2;
+		//box-shadow: 0 0 50px 5px white;
+
+		.delorean__car {
+			animation: hovering 4s ease-in-out infinite both;
+		}
+	}
+
+	&.is-going-back {
+		rotate: 180deg;
+	}
+}
+
+// TODO: Numbers --> Timeperiods
+.delorean__container-1 {
+	//background-color: tomato;
+	top: 5vh;
+
+	&.started {
+		top: 50%;
+	}
+
+	.delorean__car {
+		// temp
+		background: transparent url("/delorean-test.png") no-repeat center center;
+		background-size: contain;
+	}
+}
+
+.delorean__container-2{
+	.delorean__car {
+		// temp
+		background: transparent url("/delorean-test.png") no-repeat center center;
+		background-size: contain;
+	}
+}
+
+.delorean__container-3 {
+	.delorean__car {
+		// temp
+		background: transparent url("/delorean-test-history.png") no-repeat center center;
+		background-size: contain;
+	}
+}
+
+.delorean__car {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+@keyframes driving {
+	0% {
+		translate: 0 -50%;
+	}
+	30% {
+		translate: -.05rem -50%;
+		//scale: 1.001;
+	}
+	60% {
+		translate: .05rem -50%;
+		//scale: .999;
+	}
+	100% {
+		translate: 0 -50%;
+	}
+}
+
+@keyframes hovering {
+	0% {
+		scale: 1.0
+	}
+	20% {
+		scale: 1.01;
+	}
+	40% {
+		scale: 1.0;
+	}
+	60% {
+		scale: 1.05;
+	}
+	100% {
+		scale: 1.0;
+	}
+}

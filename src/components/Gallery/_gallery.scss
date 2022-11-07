@@ -1,0 +1,16 @@
+@use "../../styles" as *;
+
+.gallery__image {
+	max-width: 350px;
+	height: auto;
+}
+
+.gallery__thumbs {
+	display: flex;
+	justify-content: center;
+}
+
+.gallery__thumb {
+	max-width: 150px;
+	height: auto;
+}

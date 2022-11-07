@@ -1,0 +1,60 @@
+@use "../../styles" as *;
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%; // iOS landscape fix
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	//background: $color-black url("images/bg--asphalt.jpg") repeat 0 0;
+	//background-size: 500px 500px;
+	//color: white;
+	font-family: sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	margin: 0;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+main {
+	//min-height: 100rem;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+	margin-top: ($gap);
+	margin-bottom: 0;
+}

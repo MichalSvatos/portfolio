@@ -1,0 +1,18 @@
+@use "../../styles" as *;
+
+.time {
+	padding: ($gap) ($gap) ($gap) 250px;
+
+	&--present {
+		background-color: #8db0cd;
+	}
+
+	&--past {
+		background-color: #bebebe;
+	}
+
+	&--history {
+		background-color: #cdb557;
+	}
+}
+
