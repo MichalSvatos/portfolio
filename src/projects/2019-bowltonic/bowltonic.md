@@ -8,7 +8,7 @@ url:
   link: https://bowltonic.cz
 - title: Source code (original template)
   link: https://bowltonic.cz
-timeperiod: present
+timeperiod: past
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/red.png"]
 collection: ["images/collection/red.png"]

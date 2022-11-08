@@ -1,3 +1,5 @@
+@use "../../styles" as *;
+
 .deloreans {
 	position: absolute;
 	left: 0;
@@ -35,8 +37,8 @@
 	align-items: center;
 	justify-content: center;
 	scale: 1;
-	rotate: 0;
-	transition: scale 1000ms ease-in-out, rotate 750ms ease-in-out, top 1500ms ease-in-out;
+	rotate: 0deg;
+	transition: scale 1000ms $easeOutBack, rotate 1500ms $easeOutExpo, top 1500ms ease-in-out;
 	transform-origin: calc($dcwidth / 2) $dcheight;
 
 	&.is-hovering {

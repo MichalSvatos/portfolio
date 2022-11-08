@@ -53,7 +53,7 @@ export default function Homepage({data}) {
 
 export const query = graphql`
 query AllProjects {
-  allMarkdownRemark {
+  allMarkdownRemark(sort: {fields: frontmatter___year, order: DESC}) {
     nodes {
       frontmatter {
         title
