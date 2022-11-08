@@ -20,7 +20,6 @@
 }
 
 .delorean__container {
-
 	// TODO: Maybe use CSS variables ...?
 	$dcwidth: 85px;
 	$dcheight: 180px;
@@ -32,7 +31,6 @@
 	height: $dcheight;
 	translate: 0 -50%;
 	padding: 0;
-	//box-shadow: 0 0 30px 5px black;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -43,7 +41,6 @@
 
 	&.is-hovering {
 		scale: 1.2;
-		//box-shadow: 0 0 50px 5px white;
 
 		.delorean__car {
 			animation: hovering 4s ease-in-out infinite both;
@@ -57,7 +54,6 @@
 
 // TODO: Numbers --> Timeperiods
 .delorean__container-1 {
-	//background-color: tomato;
 	top: 5vh;
 
 	&.started {
@@ -85,6 +81,10 @@
 		background: transparent url("/delorean-test-history.png") no-repeat center center;
 		background-size: contain;
 	}
+}
+
+.is-time-travelling {
+	outline: 5px solid rgb(30 30 255 / 30%);
 }
 
 .delorean__car {

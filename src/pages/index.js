@@ -38,7 +38,7 @@ export default function Homepage({data}) {
 				<Projects projectsData={projectSorter("present")} />
 			</Time>
 
-			<Time timePeriod="past">
+			<Time timePeriod="past" customClass="js-time-travel-checking">
 				<Projects projectsData={projectSorter("past")} />
 			</Time>
 

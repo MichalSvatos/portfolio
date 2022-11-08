@@ -20,17 +20,17 @@ export default function DeLorean() {
 	let scrollPos = 0
 
 	window.addEventListener('scroll', () => {
-		const deloreanContainers = document.querySelectorAll(".delorean__container")
-		const deloreanLandingThreshold = document.querySelector(".time--present").offsetHeight - (window.innerHeight / 2)
+		const deLoreanContainers = document.querySelectorAll(".delorean__container")
+		const deLoreanLandingThreshold = document.querySelector(".time--present").offsetHeight - (window.innerHeight / 2)
 
 		if ((document.body.getBoundingClientRect()).top > scrollPos) {
 			// -- when you go BACK TO THE FUTURE!
-			deloreanContainers.forEach(delorean => {
+			deLoreanContainers.forEach(delorean => {
 				delorean.classList.add('is-going-back')
 			})
 
 			// -- “A flying DeLorean? I haven’t seen one of those in 30 years”
-			if (window.scrollY < (deloreanLandingThreshold + 350)) {
+			if (window.scrollY < (deLoreanLandingThreshold + 350)) {
 				document.querySelector(".delorean__container-2").classList.add("is-hovering")
 			}
 
@@ -42,7 +42,7 @@ export default function DeLorean() {
 			// -- when you go back in time
 
 			// -- turn Deloreans back to facing dowm
-			deloreanContainers.forEach(delorean => {
+			deLoreanContainers.forEach(delorean => {
 				delorean.classList.remove('is-going-back')
 			})
 
@@ -52,7 +52,7 @@ export default function DeLorean() {
 			}
 
 			// -- after timetravel, land Delorean
-			if (window.scrollY > deloreanLandingThreshold) {
+			if (window.scrollY > deLoreanLandingThreshold) {
 				document.querySelector(".delorean__container-2").classList.remove("is-hovering")
 			}
 

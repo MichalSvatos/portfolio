@@ -45,7 +45,6 @@ export default function Modal() {
 				tags.innerHTML = tagsHtml
 			}
 
-
 			// -- images
 			createGallery(data.images, gallery)
 
