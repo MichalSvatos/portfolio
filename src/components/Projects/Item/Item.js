@@ -32,6 +32,7 @@ export default function Project({ timeperiod, projectData }) {
 				href="/"
 				className={`project-item project-item--${timeperiod} js-modal-show`}
 				data-modal={JSON.stringify(projectDetailData)}
+				data-year={year}
 				key={id}
 			>
 				{

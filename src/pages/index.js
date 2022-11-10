@@ -5,7 +5,8 @@ import Time from "../components/Time/Time"
 import Projects from "../components/Projects/Projects"
 import Modal from "../components/Modal/Modal"
 import Intro from "../components/Intro/Intro"
-import DeLorean from "../components/DeLorean/DeLorean";
+import DeLorean from "../components/DeLorean/DeLorean"
+import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
 
 export default function Homepage({data}) {
 	// const {title, description} = data.site.siteMetadata;
@@ -32,6 +33,7 @@ export default function Homepage({data}) {
 	return (
 		<Layout>
 			<DeLorean />
+			<TimeCircuits />
 
 			<Time timePeriod="present">
 				<Intro />

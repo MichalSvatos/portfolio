@@ -34,7 +34,7 @@ export default function DeLorean() {
 				document.querySelector(".delorean__container-2").classList.add("is-hovering")
 			}
 
-			if (window.scrollY < ((window.innerHeight / 2) + 10)) {
+			if (window.scrollY < ((window.innerHeight / 2) + 10 )) {
 				document.querySelector(".delorean__container-1").classList.remove("started")
 			}
 

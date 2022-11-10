@@ -1,0 +1,19 @@
+@use "../../styles" as *;
+
+.timecircuits {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	padding: 1rem;
+	background-color: $color-black;
+	color: red;
+	width: 130px;
+	text-align: center;
+	font-family: "Courier New", serif;
+	font-weight: 600;
+	font-size: 1rem;
+	display: flex;
+	justify-content: space-between;
+	letter-spacing: .15rem;
+}
+
