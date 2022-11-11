@@ -22,15 +22,15 @@
 }
 
 .delorean__container {
-	// TODO: Maybe use CSS variables ...?
-	$dcwidth: 85px;
-	$dcheight: 180px;
+	//aspect-ratio: 17/36;
+	--delorean-width: 35px;
+	--delorean-height: 74px;
 
 	position: fixed;
-	left: 3rem;
+	left: ($gap * .5);
 	top: 50%;
-	width: $dcwidth;
-	height: $dcheight;
+	width: var(--delorean-width);
+	height: var(--delorean-height);
 	translate: 0 -50%;
 	padding: 0;
 	display: flex;
@@ -39,7 +39,17 @@
 	scale: 1;
 	rotate: 0deg;
 	transition: scale 1000ms $easeOutBack, rotate 1500ms $easeOutExpo, top 1500ms ease-in-out;
-	transform-origin: calc($dcwidth / 2) $dcheight;
+	transform-origin: calc(var(--delorean-width) / 2) var(--delorean-height);
+
+	@media (min-width: $bp-md) {
+		--delorean-width: 50px;
+		--delorean-height: 106px;
+	}
+
+	@media (min-width: $bp-lg) {
+		--delorean-width: 85px;
+		--delorean-height: 180px;
+	}
 
 	&.is-hovering {
 		scale: 1.2;
