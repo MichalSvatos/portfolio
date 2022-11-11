@@ -9,7 +9,8 @@ $time-circuit-highlights: rgb(255 255 255 / 15%);
 
 .timecircuits {
 	position: fixed;
-	right: ($gap * .125);
+	//right: ($gap * .125);
+	left: 0;
 	bottom: 0;
 	padding: ($gap * 1) ($gap * .5) ($gap * .25) ($gap * .5);
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAfCAMAAABeSlSAAAAAclBMVEVHRktFREhMS087Oj5JSE4/PUNPTlRTUlpQT1VBQUU6Nz1BP0NSUFZFRUpNTFE3NTtMTFNVVVs9O0E+PUFCP0hFQktKSEo6ODtLSlFLSE5BPUY2MzhXVl1EQkdTU1c0MjZQTlE9OEFaWV9CREgwLTNdXWKzHGnkAAACoUlEQVQ4yx2RibqqMAyEk+6lG23ZEVHPue//inc8+RQF/k5mEtJaX/sr03VM00xKzdNE8/Ge53nC32PSpFsLu8n7fBwHEJq0no73e1bb/CWON62rDCqrdGl5zNlwH4b2fh/zTsfwfp/lTfddOMecgvZqjDWzbrprnZ04yjCUoqmUlV8x0+QpjfXfk3xgvsLrtbRShib/iLAIpSj9/GzPTyXm10ss4rX3dW2+dzrPc0hZqM0IUmP+8T4JIRQvC7e1+8vTeZ8lkEhMu8iKvP8hFLNaGAI9dCpnKUUuRvAi8nc6nkiIhC+x1m0oNMDwoFlEsSw7r8jqhXPqS4TudRioyeGWLfACYvH3fa6rz/UJV9/RdEaW+/4t5wpkwTFZUD3lTagU5DBIOdD9+3uj03qJ1zNS+T0HqWFWqdS/BHwAKE3KzgJjuO4itf/5EoK0RHWJLGeBVmN446CL9AkhpKoPESRmpglSQEsLCWPSXeJXpD6EHMXVsNZGQZ4n2knGo+SD1Amb9s0z+0u33hvtl0ZJj2XCvdSsssvERAk9ewiBpPTsg1fuGZWHsRQfNXPXKbpLrgEoCGLP5Gp9CmaZ6r9/kbhxhmYPF/8RPgQWLjoYIVE/D2cAt3Yxc/ojfBsGFlnkLBQp41x81pq1DBjATnCUUhskGWxrNONmrHXO1ip8gzK5nXAqIcykxk2p0ZgYo7U2GpX4ay87MnhD06SnpMxobLUG5ZwTShF87AuN22iNmg6t5/HvZYwu2vp4ZqwaxE44Zz81jqOayNjocP94VPd5IE4IKVraxhEio7UGNuzj86iwaRHnmcmzsJGs2RQ6VRCjMhjXx8KGMfiMRApOozOjg7J1JhoHBVwtrlCOap73iC7uYx2eAkJQRN5sBFJhRqVE+T8NBjAcuCYPTwAAAABJRU5ErkJggg==');
@@ -29,9 +30,14 @@ $time-circuit-highlights: rgb(255 255 255 / 15%);
 	border-radius: 3px 3px 0 0;
 	box-shadow: 0 0 20px -5px $color-black, inset 0 -6px 10px 0 rgb(0 0 0 / 50%);
 	border-top: 1px solid $time-circuit-highlights;
-	transition: color 120ms $easeOutBack;
+	transition: color 120ms $easeOutBack, translate 1500ms $easeOutExpo;
 	cursor: default;
 	user-select: none;
+	translate: calc(50vw - 50%) 0;
+
+	@media (min-width: $bp-md) {
+		translate: calc(100vw - 110%) 0;
+	}
 
 	// -- labels
 	&:before,
