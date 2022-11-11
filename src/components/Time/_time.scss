@@ -4,15 +4,19 @@
 	padding: ($gap) ($gap) ($gap) 250px;
 
 	&--present {
-		background-color: #8db0cd;
+		background-color: #526480;
+		font-family: $font-family-present-text;
 	}
 
 	&--past {
-		background-color: #bebebe;
+		background-color: #1C1C1C;
+		font-family: $font-family-past-text;
+		color: white
 	}
 
 	&--history {
 		background-color: #cdb557;
+		font-family: $font-family-history-text;
 	}
 }
 

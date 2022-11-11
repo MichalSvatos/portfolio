@@ -1,19 +1,99 @@
 @use "../../styles" as *;
 
+$time-circuit-bg: #2E1414;
+$time-circuit-font-bg: #651010;
+$time-circuit-font: #FF2F2F;
+$time-circuit-font-glitching: #FF8222;
+$time-circuit-font-label: #A68A8B;
+$time-circuit-highlights: rgb(255 255 255 / 15%);
+
 .timecircuits {
 	position: fixed;
-	right: 0;
+	right: ($gap * .125);
 	bottom: 0;
-	padding: 1rem;
-	background-color: $color-black;
-	color: red;
-	width: 130px;
-	text-align: center;
-	font-family: "Courier New", serif;
-	font-weight: 600;
-	font-size: 1rem;
+	padding: ($gap * 1) ($gap * .5) ($gap * .25) ($gap * .5);
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAfCAMAAABeSlSAAAAAclBMVEVHRktFREhMS087Oj5JSE4/PUNPTlRTUlpQT1VBQUU6Nz1BP0NSUFZFRUpNTFE3NTtMTFNVVVs9O0E+PUFCP0hFQktKSEo6ODtLSlFLSE5BPUY2MzhXVl1EQkdTU1c0MjZQTlE9OEFaWV9CREgwLTNdXWKzHGnkAAACoUlEQVQ4yx2RibqqMAyEk+6lG23ZEVHPue//inc8+RQF/k5mEtJaX/sr03VM00xKzdNE8/Ge53nC32PSpFsLu8n7fBwHEJq0no73e1bb/CWON62rDCqrdGl5zNlwH4b2fh/zTsfwfp/lTfddOMecgvZqjDWzbrprnZ04yjCUoqmUlV8x0+QpjfXfk3xgvsLrtbRShib/iLAIpSj9/GzPTyXm10ss4rX3dW2+dzrPc0hZqM0IUmP+8T4JIRQvC7e1+8vTeZ8lkEhMu8iKvP8hFLNaGAI9dCpnKUUuRvAi8nc6nkiIhC+x1m0oNMDwoFlEsSw7r8jqhXPqS4TudRioyeGWLfACYvH3fa6rz/UJV9/RdEaW+/4t5wpkwTFZUD3lTagU5DBIOdD9+3uj03qJ1zNS+T0HqWFWqdS/BHwAKE3KzgJjuO4itf/5EoK0RHWJLGeBVmN446CL9AkhpKoPESRmpglSQEsLCWPSXeJXpD6EHMXVsNZGQZ4n2knGo+SD1Amb9s0z+0u33hvtl0ZJj2XCvdSsssvERAk9ewiBpPTsg1fuGZWHsRQfNXPXKbpLrgEoCGLP5Gp9CmaZ6r9/kbhxhmYPF/8RPgQWLjoYIVE/D2cAt3Yxc/ojfBsGFlnkLBQp41x81pq1DBjATnCUUhskGWxrNONmrHXO1ip8gzK5nXAqIcykxk2p0ZgYo7U2GpX4ay87MnhD06SnpMxobLUG5ZwTShF87AuN22iNmg6t5/HvZYwu2vp4ZqwaxE44Zz81jqOayNjocP94VPd5IE4IKVraxhEio7UGNuzj86iwaRHnmcmzsJGs2RQ6VRCjMhjXx8KGMfiMRApOozOjg7J1JhoHBVwtrlCOap73iC7uYx2eAkJQRN5sBFJhRqVE+T8NBjAcuCYPTwAAAABJRU5ErkJggg==');
+	background-repeat: repeat;
+	background-size: 30px 30px;
 	display: flex;
 	justify-content: space-between;
+	color: $time-circuit-font;
+	width: ($gap * 6.75);
+	font-family: $font-family-time-circuits;
 	letter-spacing: .15rem;
+	text-align: center;
+	font-weight: normal;
+	font-size: font-size(default);
+	line-height: 1;
+	z-index: 5;
+	border-radius: 3px 3px 0 0;
+	box-shadow: 0 0 20px -5px $color-black, inset 0 -6px 10px 0 rgb(0 0 0 / 50%);
+	border-top: 1px solid $time-circuit-highlights;
+	transition: color 120ms $easeOutBack;
+	cursor: default;
+	user-select: none;
+
+	// -- labels
+	&:before,
+	&:after {
+		background-color: $time-circuit-font-bg;
+		padding: ($gap * .125) ($gap * .25);
+		position: absolute;
+		top: 0;
+		left: ($gap * .5);
+		font-family: $font-family-history-text;
+		color: $time-circuit-font-label;
+		font-size: .5rem;
+		text-transform: uppercase;
+		translate: 0 ($gap * .125);
+	}
+
+	&:before {
+		content: 'MONTH';
+	}
+
+	&:after {
+		content: 'YEAR';
+		left: auto;
+		right: ($gap * .5);
+	}
+
+	&.is-glitching {
+		color: $time-circuit-font-glitching;
+	}
+}
+
+// -- displays
+.timecircuits__month,
+.timecircuits__year {
+	position: relative;
+	background-color: $time-circuit-bg;
+	border: ($gap * .25) solid $time-circuit-bg;
+	border-bottom: 1px solid $time-circuit-highlights;
+	overflow: hidden;
+
+	// -- displays numbers/letters background
+	&:before {
+		content: '888';
+		color: $time-circuit-font-bg;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 0;
+	}
+}
+
+.timecircuits__year {
+	text-align: right;
+
+	&:before {
+		content: '8888';
+	}
+}
+
+.timecircuits__inner {
+	text-shadow: 0 0 5px $time-circuit-font;
+	position: relative;
+	z-index: 1;
 }
 

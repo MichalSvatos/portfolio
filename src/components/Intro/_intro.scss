@@ -1,0 +1,26 @@
+@use "../../styles" as *;
+
+// TODO
+.intro__title {
+	text-align: center;
+	color: white;
+
+	h1 {
+		font-family: $font-family-present-heading;
+		font-size: font-size(xl5);
+		text-transform: uppercase;
+		text-shadow: 1px 2px 0px rgb(0 0 0 / 40%);
+		font-weight: normal;
+
+		&:after {
+			//content: attr(data-text);
+		}
+	}
+
+	h2 {
+		font-family: $font-family-present-heading;
+		font-size: font-size(xl2);
+		text-shadow: 1px 2px 0px rgb(0 0 0 / 40%);
+		font-weight: normal;
+	}
+}

@@ -65,13 +65,29 @@ export default function TimeCircuits() {
 	}
 
 	useEffect(() => {
-		const yearCircuit = document.querySelector(".timecircuits__year")
-		const monthCircuit = document.querySelector(".timecircuits__month")
+		const timecircuits = document.querySelector(".timecircuits")
+		const yearCircuit = document.querySelector(".timecircuits__year .timecircuits__inner")
+		const monthCircuit = document.querySelector(".timecircuits__month .timecircuits__inner")
 		const projectItem = document.querySelectorAll(".project-item")
 		const yearsArray = []
 
 		projectItem.forEach(item => {
 			yearsArray.push(item.dataset.year)
+		})
+
+		timecircuits.addEventListener("click", () => {
+			let originalYear = yearCircuit.innerHTML
+			let originalMonth = monthCircuit.innerHTML
+
+			timecircuits.classList.add("is-glitching")
+			yearCircuit.innerHTML = "1885"
+			monthCircuit.innerHTML = "JAN"
+
+			setTimeout(() => {
+				timecircuits.classList.remove("is-glitching")
+				yearCircuit.innerHTML = originalYear
+				monthCircuit.innerHTML = originalMonth
+			}, 300)
 		})
 
 		timeCircuits(yearCircuit, monthCircuit, yearsArray)
@@ -83,9 +99,16 @@ export default function TimeCircuits() {
 
 	return (
 		<>
+			{/* TODO: Timecircuits - go "BACK TO THE FUTURE" (up) */}
 			<div className="timecircuits">
-				<div className="timecircuits__year">2022</div>
-				<div className="timecircuits__month">JAN</div>
+				<div className="timecircuits__month">
+					{/*TODO: [NTH] Timecircuits - dynamic month?*/}
+					<span className="timecircuits__inner">JAN</span>
+				</div>
+				<div className="timecircuits__year">
+					{/*TODO: [NTH] Timecircuits - dynamic year*/}
+					<span className="timecircuits__inner">2022</span>
+				</div>
 			</div>
 		</>
 	)

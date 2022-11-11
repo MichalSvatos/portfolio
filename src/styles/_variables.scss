@@ -1,10 +1,56 @@
+@use "sass:map";
+
 $color-black: #000000;
 
 $color-primary: #1D1077;
 
 $gap: 1rem;
 
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1500px;
+$bp-xxxl: 1800px;
+
+$bp-sm-max: $bp-sm - 1;
+$bp-md-max: $bp-md - 1;
+$bp-lg-max: $bp-lg - 1;
+$bp-xl-max: $bp-xl - 1;
+$bp-xxl-max: $bp-xxl - 1;
+
+// Typography
+$font-family-default: "Lexend", sans-serif;
+$font-family-time-circuits: 'Digital-7 Mono', "Courier New", monospace;
+//$font-family-present-heading: "Senilita", "Impact", sans-serif;
+$font-family-present-heading: "TeXGyreAdventor", "Verdana", sans-serif;
+$font-family-present-text: $font-family-default;
+$font-family-past-heading: "Times New Roman", serif;
+$font-family-past-text: "Times New Roman", serif;
+$font-family-history-heading: "Courier New", monospace;
+$font-family-history-text: "Courier New", monospace;
+
+// -- scale 1.333 - perfect fourth
+$font-size: (
+		xs: 0.69rem,
+		sm: 0.83rem,
+		md: 1rem,
+		lg: 1.2rem,
+		xl: 1.44rem,
+		xl2: 1.73rem,
+		xl3: 2.07rem,
+		xl4: 2.49rem,
+		xl5: 2.99rem
+);
+
 // Animations
-// Thanks https://easings.net
+// -- thanks https://easings.net
 $easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
 $easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Functions
+@function font-size($size) {
+	@return map-get($font-size, $size);
+}
+

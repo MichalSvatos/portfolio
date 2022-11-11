@@ -1,5 +1,35 @@
 @use "../../styles" as *;
 
+@font-face {
+	font-family: 'Senilita';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url(/fonts/senilitaregular.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: 'Digital-7 Mono';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url(/fonts/subset-digital-7monoItalic.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: 'Lexend';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/lexend-v17-latin-ext_latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'TeXGyreAdventor';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/TeXGyreAdventor-Regular.woff2') format('woff2');
+}
+
 *,
 ::before,
 ::after {
@@ -7,16 +37,21 @@
 }
 
 html {
+	font-size: 1rem;
 	-webkit-text-size-adjust: 100%; // iOS landscape fix
+
+	@media (min-width: $bp-md) {
+		font-size: 1.125rem; // 18px
+	}
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	//background: $color-black url("images/bg--asphalt.jpg") repeat 0 0;
-	//background-size: 500px 500px;
-	//color: white;
-	font-family: sans-serif;
+	line-height: 1.65;
+	font-family: $font-family-default;
+	font-size: font-size(default);
+
 }
 
 button,
@@ -55,6 +90,51 @@ h4,
 .h4,
 h5,
 .h5 {
-	margin-top: ($gap);
+	margin-top: ($gap * 2);
 	margin-bottom: 0;
+	word-break: break-word;
+	line-height: 1.15;
+}
+
+h1,
+.h1 {
+	font-size: font-size(xl5);
+	margin-top: 0;
+}
+
+h2,
+.h2 {
+	font-size: font-size(xl4);
+}
+
+h3,
+.h3 {
+	font-size: font-size(xl3);
+}
+
+h4,
+.h4 {
+	font-size: font-size(xl2);
+	margin-top: ($gap);
+}
+
+h5,
+.h5 {
+	font-size: font-size(xl);
+	margin-top: ($gap);
+}
+
+// DEV!
+.just-typo {
+	.deloreans {
+		display: none;
+	}
+
+	.time {
+		padding-left: ($gap);
+	}
+
+	.intro {
+		//display: none;
+	}
 }

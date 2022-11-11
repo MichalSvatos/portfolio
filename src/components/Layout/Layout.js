@@ -7,7 +7,7 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<Navbar />
-			<main>{children}</main>
+			<main className="just-typo">{children}</main>
 			<Footer />
 		</>
 	)
