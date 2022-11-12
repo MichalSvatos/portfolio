@@ -1,9 +1,8 @@
 import React from "react"
 import "./_item.scss"
 
-export default function Item(data) {
-	// TODO: Why again array in array?
-	const {url, name, icon} = data.data
+export default function Item({data}) {
+	const {url, name, icon} = data
 
 	return (
 		<>
