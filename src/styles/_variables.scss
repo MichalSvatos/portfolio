@@ -44,6 +44,22 @@ $font-size: (
 		xl5: 2.99rem
 );
 
+// -- thanks https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=320&minRatio=1.25&maxFontSize=22&maxWidth=1280&maxRatio=1.333&steps=xxs%2Cxs%2C+sm%2Cdefault%2Cmd%2Clg%2Cxl%2Cxl2%2Cxl3%2Cxl4%2Cxl5%2Cxl6&baseStep=sm&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Inter
+$font-fluid: (
+		xxs: clamp(1.13rem, 0.42vw + 1.04rem, 1.38rem),
+		xs: clamp(1.41rem, 0.71vw + 1.26rem, 1.83rem),
+		sm: clamp(1.76rem, 1.14vw + 1.53rem, 2.44rem),
+		default: clamp(2.2rem, 1.77vw + 1.84rem, 3.26rem),
+		md: clamp(2.75rem, 2.66vw + 2.21rem, 4.34rem),
+		lg: clamp(3.43rem, 3.92vw + 2.65rem, 5.79rem),
+		xl: clamp(4.29rem, 5.7vw + 3.15rem, 7.71rem),
+		xl2: clamp(5.36rem, 8.2vw + 3.72rem, 10.28rem),
+		xl3: clamp(6.71rem, 11.67vw + 4.37rem, 13.71rem),
+		xl4: clamp(8.38rem, 16.48vw + 5.09rem, 18.27rem),
+		xl5: clamp(10.48rem, 23.13vw + 5.85rem, 24.36rem),
+		xl6: clamp(13.1rem, 32.28vw + 6.64rem, 32.47rem)
+);
+
 // Animations
 // -- thanks https://easings.net
 $easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -52,5 +68,9 @@ $easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
 // Functions
 @function font-size($size) {
 	@return map-get($font-size, $size);
+}
+
+@function font-fluid($size) {
+	@return map-get($font-fluid, $size);
 }
 

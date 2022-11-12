@@ -14,7 +14,7 @@ export default function Projects({ projectsData }) {
 		<>
 			{projectsData.length ?
 				<section className={`section section--${timeperiod}`}>
-					<h2>Projects - {timeperiod}</h2>
+					{/*<h2>Projects - {timeperiod}</h2>*/}
 					{
 						projectsData.map((project) => {
 							return <Item projectData={project} timeperiod={timeperiod} key={project.id} />

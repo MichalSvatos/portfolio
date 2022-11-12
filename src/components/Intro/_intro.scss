@@ -1,26 +1,95 @@
 @use "../../styles" as *;
 
-// TODO
-.intro__title {
+$intro-text-color: #FFCE4F;
+$intro-text-shadow: rgb(0 0 0 / 40%);
+
+.intro {
+	// no flex because of the animation
+	min-height: 100vh;
+	position: relative;
+}
+.intro__inner {
 	text-align: center;
-	color: white;
+	color: $intro-text-color;
+	display: flex;
+	flex-direction: column;
+	max-width: ($gap * 35);
+	width: 100%;
+	position: absolute;
+	translate: -50% -50%;
+	top: 50%;
+	left: 50%;
 
-	h1 {
-		font-family: $font-family-present-heading;
-		font-size: font-size(xl5);
-		text-transform: uppercase;
-		text-shadow: 1px 2px 0px rgb(0 0 0 / 40%);
-		font-weight: normal;
+	&.is-scrolled {
+		// TODO: Intro - pin it on top after scroll
+	}
 
-		&:after {
-			//content: attr(data-text);
+	// TODO: [NTH] - alternative logo easter egg - on X clicks?
+	&:after {
+		display: none;
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: url("../../../static/logo-alternative.svg");
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+	}
+}
+
+// -- titles
+.intro__title,
+.intro__subtitle,
+.intro__hashtags {
+	font-family: $font-family-present-heading;
+	text-shadow: 1px 2px 0 $intro-text-shadow;
+	font-weight: normal;
+}
+
+.intro__title {
+	font-size: font-fluid(md);
+	text-transform: uppercase;
+	margin-top: ($gap);
+}
+
+.intro__subtitle {
+	font-size: font-fluid(xxs);
+	order: -1;
+	margin-top: 0;
+	letter-spacing: ($gap * .05);
+	line-height: 1.35;
+}
+
+// -- contact links
+.intro__links {
+	display: flex;
+	justify-content: center;
+	gap: ($gap);
+
+	li {
+		list-style: none;
+
+		&::marker {
+			display: none;
+			content: '';
 		}
 	}
+}
 
-	h2 {
-		font-family: $font-family-present-heading;
-		font-size: font-size(xl2);
-		text-shadow: 1px 2px 0px rgb(0 0 0 / 40%);
-		font-weight: normal;
+.intro__link {
+	display: block;
+	width: ($gap * 3);
+	height: ($gap * 3);
+	background-color: rgb(255 255 255 / 30%);
+
+	@media (min-width: $bp-lg) {
+		width: ($gap * 2);
+		height: ($gap * 2);
 	}
+}
+
+// -- tags
+.intro__hashtags {
+	font-size: font-fluid(xxs);
+	letter-spacing: ($gap * .05);
 }
