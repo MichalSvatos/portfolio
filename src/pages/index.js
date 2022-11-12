@@ -30,12 +30,21 @@ export default function Homepage({data}) {
 		return nodesFiltered
 	}
 
+	// TODO: [NTH] - Relocate to gatsby-config.js
+	const timePeriods = {
+		"present" : "present",
+		"past" : "past",
+		"history" : "history"
+	}
+
+	const {present, past, history} = timePeriods
+
 	return (
 		<Layout>
-			<DeLorean />
+			<DeLorean timePeriods={timePeriods} />
 			<TimeCircuits />
 
-			<Time timePeriod="present">
+			<Time timePeriod={present}>
 				<Intro />
 				{/*<h1>This is heavy, doc</h1>
 				<p>Get your meat hooks off of me. Marty you gotta come back with me. But, what are you blind McFly, it's there. How else do you explain that wreck out there? Mom, is that you? Doc, she's beautiful. She's crazy about me. Look at this, look what she wrote me, Doc. That says it all. Doc, you're my only hope.</p>
@@ -48,7 +57,7 @@ export default function Homepage({data}) {
 				<Projects projectsData={projectSorter("present")} />
 			</Time>
 
-			<Time timePeriod="past" customClass="js-time-travel-checking">
+			<Time timePeriod={past} customClass="js-time-travel-checking">
 				{/*<h1>This is heavy, doc</h1>
 				<p>Get your meat hooks off of me. Marty you gotta come back with me. But, what are you blind McFly, it's there. How else do you explain that wreck out there? Mom, is that you? Doc, she's beautiful. She's crazy about me. Look at this, look what she wrote me, Doc. That says it all. Doc, you're my only hope.</p>
 				<h2>You wanna a Pepsi, pall, you're gonna pay for it.</h2>
@@ -60,7 +69,7 @@ export default function Homepage({data}) {
 				<Projects projectsData={projectSorter("past")} />
 			</Time>
 
-			<Time timePeriod="history">
+			<Time timePeriod={history}>
 				{/*<h1>This is heavy, doc</h1>
 				<p>Get your meat hooks off of me. Marty you gotta come back with me. But, what are you blind McFly, it's there. How else do you explain that wreck out there? Mom, is that you? Doc, she's beautiful. She's crazy about me. Look at this, look what she wrote me, Doc. That says it all. Doc, you're my only hope.</p>
 				<h2>You wanna a Pepsi, pall, you're gonna pay for it.</h2>

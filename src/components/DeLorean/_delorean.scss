@@ -67,8 +67,7 @@
 	}
 }
 
-// TODO: Numbers --> Timeperiods
-.delorean__container-1 {
+.delorean__container--present {
 	top: 5vh;
 
 	&.started {
@@ -82,7 +81,7 @@
 	}
 }
 
-.delorean__container-2{
+.delorean__container--past {
 	.delorean__car {
 		// temp
 		background: transparent url("/delorean-test.png") no-repeat center center;
@@ -90,7 +89,7 @@
 	}
 }
 
-.delorean__container-3 {
+.delorean__container--history {
 	.delorean__car {
 		// temp
 		background: transparent url("/delorean-test-history.png") no-repeat center center;

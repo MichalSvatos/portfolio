@@ -1,7 +1,9 @@
 import React, {useEffect} from "react"
 import "./_delorean.scss"
+import DeLoreanTimeVariant from "./DeLoreanTimeVariant";
 
-export default function DeLorean() {
+export default function DeLorean({timePeriods}) {
+	const {present, past, history} = timePeriods
 
 	// Make clip slices same height as sections to make the time travel "seamless"
 	const makePreciseSlices = () => {
@@ -31,11 +33,11 @@ export default function DeLorean() {
 
 			// -- “A flying DeLorean? I haven’t seen one of those in 30 years”
 			if (window.scrollY < (deLoreanLandingThreshold + 350)) {
-				document.querySelector(".delorean__container-2").classList.add("is-hovering")
+				document.querySelector(".delorean__container--past").classList.add("is-hovering")
 			}
 
-			if (window.scrollY < ((window.innerHeight / 2) + 10 )) {
-				document.querySelector(".delorean__container-1").classList.remove("started")
+			if (window.scrollY < ((window.innerHeight / 2) + 10)) {
+				document.querySelector(".delorean__container--present").classList.remove("started")
 			}
 
 		} else {
@@ -48,12 +50,12 @@ export default function DeLorean() {
 
 			// -- fly the Delorean to the middle of the screen
 			if (window.scrollY > 100) {
-				document.querySelector(".delorean__container-1").classList.add("started", "is-hovering")
+				document.querySelector(".delorean__container--present").classList.add("started", "is-hovering")
 			}
 
 			// -- after timetravel, land Delorean
 			if (window.scrollY > deLoreanLandingThreshold) {
-				document.querySelector(".delorean__container-2").classList.remove("is-hovering")
+				document.querySelector(".delorean__container--past").classList.remove("is-hovering")
 			}
 
 		}
@@ -71,29 +73,10 @@ export default function DeLorean() {
 
 	return (
 		<>
-			{/* TODO: one "car" component */}
 			<div className="deloreans">
-				<div className="delorean__holder">
-					<div className="delorean__mask">
-						<div className="delorean__container delorean__container-1">
-							<div className="delorean__car">DMC 1</div>
-						</div>
-					</div>
-				</div>
-				<div className="delorean__holder">
-					<div className="delorean__mask">
-						<div className="delorean__container delorean__container-2 is-hovering">
-							<div className="delorean__car">DMC 2</div>
-						</div>
-					</div>
-				</div>
-				<div className="delorean__holder">
-					<div className="delorean__mask">
-						<div className="delorean__container delorean__container-3">
-							<div className="delorean__car">DMC 3</div>
-						</div>
-					</div>
-				</div>
+				<DeLoreanTimeVariant timeperiod={present} />
+				<DeLoreanTimeVariant timeperiod={past} customClass="is-hovering" />
+				<DeLoreanTimeVariant timeperiod={history} />
 			</div>
 		</>
 	)
