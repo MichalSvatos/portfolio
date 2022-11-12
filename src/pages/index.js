@@ -7,6 +7,7 @@ import Modal from "../components/Modal/Modal"
 import Intro from "../components/Intro/Intro"
 import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
+import Software from "../components/Software/Software"
 
 export default function Homepage({data}) {
 	// const {title, description} = data.site.siteMetadata;
@@ -79,6 +80,7 @@ export default function Homepage({data}) {
 				<h4>Oh, you make it sound so easy.</h4>
 				<p>It's cold, damn cold. Ha, ha, ha, Einstein, you little devil. Einstein's clock is exactly one minute behind mine, it's still ticking. Well just gimme something without any sugar in it, okay? No no no, Doc, I just got here, okay, Jennifer's here, we're gonna take the new truck for a spin. Damn. I'm late for school. Hey man, the dance is over. Unless you know someone else who could play the guitar.</p>*/}
 				<Projects projectsData={projectSorter("history")} />
+				<Software />
 			</Time>
 
 			<Modal />

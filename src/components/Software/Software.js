@@ -25,21 +25,26 @@ export default function Software() {
 			"icon": ""
 		},
 		{
-			"name": "Joplin?",
+			"name": "SimpleLogin",
 			"url": "http://startpage.com",
 			"icon": ""
 		},
 	]
 
-	//console.log('softwareData', softwareData);
-
 	return (
-		<ul className="software">
-			{
-				softwareData.map(software => {
-					return <Item data={software} key={software.name} />
-				})
-			}
-		</ul>
+		<>
+			<div className="footer__title">Why?</div>
+			<div className="footer__text">
+				<p>Ah, where're my pants? You guys, take him in back and I'll be right there. Well c'mon, this ain't no peep show. That's right, he's gonna be mayor. Silence Earthling. my name is
+					Darth Vader. I'm am an extra-terrestrial from the planet Vulcan. I think you got the wrong car, McFly.</p>
+			</div>
+			<ul className="software">
+				{
+					softwareData.map(software => {
+						return <Item data={software} key={software.name} />
+					})
+				}
+			</ul>
+		</>
 	)
 }
