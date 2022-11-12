@@ -43,10 +43,8 @@ export default function Project({ timeperiod, projectData }) {
 					tags && <span className="tags">
 						{
 							tags.map((tag) => {
-								{/* TODO: get rid off the comma */}
-								return (
-									<span key={tag.toLowerCase()}>{tag},</span>
-								)
+								/* TODO: get rid off the comma */
+								return <span key={tag.toLowerCase()}>{tag},</span>
 							})
 						}
 					</span>

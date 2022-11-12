@@ -52,7 +52,7 @@ export default function Time({ children, timePeriod = 'present', customClass = '
 
 	useEffect(() => {
 		const deLoreanContainer = document.querySelector(".delorean__container-1")
-		console.log('deLoreanContainer', deLoreanContainer);
+		// console.log('deLoreanContainer', deLoreanContainer);
 
 		window.addEventListener("scroll", () => {
 			makeTimeTravelPossible(deLoreanContainer)
