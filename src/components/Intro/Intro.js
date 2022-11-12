@@ -1,13 +1,32 @@
 import React from "react"
 import "./_intro.scss"
+import {graphql, useStaticQuery} from "gatsby"
 
 export default function Intro() {
+	const introData = useStaticQuery(graphql`
+		query IntroInfo {
+		  site {
+		    siteMetadata {
+		      name
+		      description
+		      contact {
+		        github
+		        email
+		        linkedIn
+		      }
+		    }
+		  }
+		}
+	`)
+
+	const {name, description, contact} = introData.site.siteMetadata
+
 	return (
 		<>
 			<div className="intro">
 				<div className="intro__inner">
-					<h1 className="intro__title">Michal Svatos</h1>
-					<h2 className="intro__subtitle">self-taught frontend developer/designer,<br />privacy advocate and aspiring digital minimalist</h2>
+					<h1 className="intro__title">{name}</h1>
+					<h2 className="intro__subtitle">{description}</h2>
 					{/*<p>made in czech republic, recently exported to canada</p>*/}
 					<ul className="intro__links">
 						<li>

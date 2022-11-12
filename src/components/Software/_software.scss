@@ -1,0 +1,19 @@
+@use "../../styles" as *;
+
+.software {
+	text-align: center;
+	margin-top: ($gap * 2);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: ($gap);
+
+	li {
+		list-style: none;
+
+		&::marker {
+			display: none;
+			content: '';
+		}
+	}
+}

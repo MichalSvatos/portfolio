@@ -130,6 +130,11 @@ ol {
 	padding: 0;
 }
 
+p {
+	margin-top: ($gap);
+	margin-bottom: 0;
+}
+
 .hide-me {
 	@include visually-hidden;
 }

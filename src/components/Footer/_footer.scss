@@ -1,0 +1,16 @@
+@use "../../styles" as *;
+
+footer {
+	text-align: center;
+	padding: ($gap) ($gap) ($gap * 3) ($gap);
+	overflow: hidden;
+}
+
+.footer__title {
+	margin-top: ($gap * 2);
+}
+
+.footer__copy {
+	font-size: font-size(xs);
+	text-align: left;
+}
