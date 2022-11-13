@@ -31,6 +31,9 @@ export default function Software() {
 		},
 	]
 
+	// TODO: SW I'm using
+	// Affinity, Photoshop, PHPStorm, Brave ...
+
 	return (
 		<>
 			<div className="footer__title">Why?</div>
