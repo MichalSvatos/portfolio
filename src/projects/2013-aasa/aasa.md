@@ -10,6 +10,7 @@ timeperiod: history
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/pink.png"]
 collection: ["images/collection/pink.png"]
+perex: Graphical interface and game mechanics for AXE's marketing campaing
 ---
 ### Axe Facebook game
 

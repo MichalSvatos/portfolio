@@ -12,6 +12,7 @@ timeperiod: past
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/blue.png"]
 collection: ["images/collection/blue.png"]
+perex: Complete website for a personal charity project
 ---
 
 ### Graphic design and coding for charity project HELP FOR ITALY

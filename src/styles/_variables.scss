@@ -1,6 +1,20 @@
 @use "sass:map";
 
+// Colors
+// -- global
 $color-black: #000000;
+$color-white: #ffffff;
+
+// -- present
+$color-present-text-primary: #7e1d1d;
+$color-present-text-secondary: #262626;
+
+$color-present-item: a;
+
+// -- past
+
+// -- history
+
 
 $color-primary: #1D1077;
 
@@ -11,7 +25,7 @@ $bp-sm: 576px;
 $bp-md: 768px;
 $bp-lg: 992px;
 $bp-xl: 1200px;
-$bp-xxl: 1500px;
+$bp-xxl: 1440px;
 $bp-xxxl: 1800px;
 
 $bp-sm-max: $bp-sm - 1;
@@ -26,9 +40,9 @@ $font-family-time-circuits: 'Digital-7 Mono', "Courier New", monospace;
 //$font-family-present-heading: "Senilita", "Impact", sans-serif;
 $font-family-present-heading: "TeXGyreAdventor", "Verdana", sans-serif;
 $font-family-present-text: $font-family-default;
-$font-family-past-heading: "Times New Roman", serif;
+$font-family-past-heading: "Georgia", "Times New Roman", serif;
 $font-family-past-text: "Times New Roman", serif;
-$font-family-history-heading: "Courier New", monospace;
+$font-family-history-heading: "Faroest", "Courier New", monospace;
 $font-family-history-text: "Courier New", monospace;
 
 // -- scale 1.333 - perfect fourth

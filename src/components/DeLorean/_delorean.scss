@@ -5,6 +5,7 @@
 	left: 0;
 	top: 0;
 	bottom: 0;
+	z-index: 2;
 
 	// DEV!
 	//display: none;
@@ -30,7 +31,7 @@
 	--delorean-height: 74px;
 
 	position: fixed;
-	left: ($gap * .5);
+	left: ($gap * 1.2);
 	top: 50%;
 	width: var(--delorean-width);
 	height: var(--delorean-height);

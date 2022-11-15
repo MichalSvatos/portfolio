@@ -1,0 +1,9 @@
+@use "../../../styles" as *;
+@use "sass:color";
+
+.project-item--past {
+	.project-item__title {
+		font-family: $font-family-past-heading;
+		text-transform: uppercase;
+	}
+}

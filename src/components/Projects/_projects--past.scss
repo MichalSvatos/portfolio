@@ -1,0 +1,26 @@
+@use "../../styles" as *;
+
+.section--past {
+	position: relative;
+
+	&:before {
+		content: '';
+		background: linear-gradient(-45deg, black, white);
+		position: absolute;
+		inset: 0;
+		mix-blend-mode: color-burn;
+		opacity: .3;
+	}
+}
+
+.object__road {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 200px;
+	background: transparent url("../../../static/time/road.png") repeat-y 0 0;
+	background-size: 200px 200px;
+	z-index: 0;
+
+}

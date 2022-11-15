@@ -1,3 +1,19 @@
-body {
-	background-color: darkgray;
+@use "../../styles" as *;
+
+.projects {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: ($gap * 3);
+
+	@media (min-width: $bp-xl) {
+		align-items: flex-start;
+		margin-inline: auto;
+		max-width: 80vw;
+		width: 100%;
+	}
+
+	@media (min-width: $bp-xxxl) {
+		max-width: ($gap * 80);
+	}
 }

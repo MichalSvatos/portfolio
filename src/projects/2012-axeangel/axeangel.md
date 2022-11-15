@@ -10,6 +10,7 @@ timeperiod: history
 featured: images/featured.png
 collectionThumbs:
 collection: 
+perex: Website, logo, banners, social media cover photos and posts
 ---
 I designed a websitem, logo, banners, social media cover photos and posts for the Axe's marketing campaign "Hledá se anděl" (Angel Wanted). In cooperation with 4internet (FOR INTERNET s.r.o.)
 

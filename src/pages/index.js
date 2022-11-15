@@ -8,6 +8,7 @@ import Intro from "../components/Intro/Intro"
 import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
 import Software from "../components/Software/Software"
+import OldPaper from "../../static/project-item/item-history--clippath.inline.svg"
 
 export default function Homepage({data}) {
 	// const {title, description} = data.site.siteMetadata;
@@ -42,6 +43,9 @@ export default function Homepage({data}) {
 
 	return (
 		<Layout>
+			<div className="inline-svgs hide-me">
+				<OldPaper/>
+			</div>
 			<DeLorean timePeriods={timePeriods} />
 			<TimeCircuits />
 
@@ -113,6 +117,7 @@ query AllProjects {
         collection {
           publicURL
         }
+        perex
       }
       id
       html

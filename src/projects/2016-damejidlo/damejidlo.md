@@ -9,7 +9,8 @@ url:
 timeperiod: past
 featured: images/featured.png
 collectionThumbs: 
-collection: 
+collection:
+perex: Refactoring, redesign, UX/UI improvements, coding style, styleguide, banners, social media
 ---
 ### DámeJídlo
 

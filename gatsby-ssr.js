@@ -20,11 +20,11 @@ export const onRenderBody = ({ setHeadComponents }) => {
 		/>,
 		<link
 			rel="preload"
-			href="/fonts/senilitaregular.woff2"
+			href="/fonts/Faroest-Regular.woff2"
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
-			key="senilita"
+			key="faroest"
 		/>,
 		<link
 			rel="preload"

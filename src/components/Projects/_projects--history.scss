@@ -1,0 +1,46 @@
+@use "../../styles" as *;
+
+.section--history {
+	padding: ($gap) ($gap);
+	position: relative;
+	box-shadow: inset 0 0 300px #2a2008;
+
+	&:before {
+		content: '';
+		background: linear-gradient(-45deg, black, white);
+		position: absolute;
+		inset: 0;
+		mix-blend-mode: color-burn;
+		opacity: .3;
+	}
+}
+
+.object__rails {
+	position: absolute;
+	left: ($gap);
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	background: transparent url("../../../static/sections/object--rails.png") repeat-y 0 0;
+	background-size: 100px 100px;
+}
+
+.object__bush {
+	background: transparent url("../../../static/time/bush.png") no-repeat 0 0;
+	background-size: 100px 100px;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 10rem;
+	top: 2rem;
+}
+
+.object__bush-2 {
+	background: transparent url("../../../static/time/bush2.png") no-repeat 0 0;
+	background-size: 100px 100px;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 20rem;
+	top: 2rem;
+}

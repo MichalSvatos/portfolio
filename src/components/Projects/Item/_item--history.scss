@@ -1,0 +1,178 @@
+@use "../../../styles" as *;
+@use "sass:color";
+
+@mixin historyFont() {
+	font-family: $font-family-history-heading;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: .05rem;
+	text-shadow: 0 0 3px darken(#b1a077, 40%);
+}
+
+.project-item--history {
+	background-color: transparent;
+	position: relative;
+	transition: rotate 1500ms $easeOutExpo,
+	opacity 750ms $easeOutExpo,
+	box-shadow 1500ms $easeOutExpo,
+	scale 1500ms $easeOutExpo;
+	will-change: rotate;
+	// TODO: Check mobile performance
+	filter: drop-shadow(0 40px 50px rgba($color-black, 30%));
+	padding-inline: ($gap * 1.5);
+	padding-bottom: ($gap * 4);
+
+	@media (min-width: $bp-md) {
+		padding-inline: ($gap * 2.5);
+		scale: .9;
+	}
+
+	&:hover {
+		@media (min-width: $bp-md) {
+			rotate: 0deg !important;
+			scale: 1;
+		}
+	}
+
+	// -- random rotation
+	@media (min-width: $bp-md) {
+		$rotation-amount: 5;
+		@for $i from 1 through 5 {
+			&:nth-child(2n + #{$i}):nth-child(odd) {
+				rotate: (random($rotation-amount) * -1) + deg;
+			}
+		}
+
+		@for $i from 1 through 5 {
+			&:nth-child(2n + #{$i}):nth-child(even) {
+				rotate: random($rotation-amount) + deg;
+			}
+		}
+	}
+
+	// -- paper background
+	&:before {
+		content: '';
+		background: #b1a077 url("../../../../static/project-item/item-history--bg.jpg") no-repeat 0 0;
+		background-size: cover;
+		position: absolute;
+		clip-path: url("#oldpaper");
+		inset: 0;
+		z-index: 0;
+	}
+
+	// -- text footer
+	&:after {
+		content: "By order of chief marshall, Hill Valley " attr(data-year);
+		position: absolute;
+		left: ($gap * 3);
+		right: ($gap * 3);
+		bottom: ($gap);
+		text-align: center;
+		font-size: 0.5rem;
+		font-weight: bold;
+		line-height: 1;
+		border-top: 2px solid darken(#b1a077, 40%);
+		padding-top: ($gap * .5);
+		color: darken(#b1a077, 40%);
+	}
+
+	& > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.project-item__title {
+		@include historyFont;
+		text-transform: uppercase;
+		font-size: font-fluid(md);
+
+		// -- nail
+		/* [NTH]
+		&:before {
+			content: '';
+			position: absolute;
+			width: ($gap);
+			height: ($gap);
+			border-radius: 50%;
+			background-color: #52210a;
+			left: -($gap);
+			top: ($gap);
+			box-shadow: -1px -1px 0 1px lighten(#52210a, 40%), 1px 1px 0 1px darken(#52210a, 30%), 0 0 15px 0 black;
+		}*/
+
+		// -- star stripe
+		&:after {
+			content: '\2605 \2605 \2605 \2605 \2605 \2605';
+			font-family: serif;
+			display: block;
+			font-size: font-size(sm);
+			margin-top: ($gap);
+			letter-spacing: ($gap);
+			translate: ($gap * .5) 0;
+		}
+	}
+
+	.project-item__image {
+		filter: sepia(.65);
+		mix-blend-mode: color-burn;
+
+		// -- image inner shadow
+		&:after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-color: transparent;
+			box-shadow: inset 0 0 50px 20px darken(#b1a077, 25%);
+		}
+	}
+
+	.project-item__perex {
+		font-weight: bold;
+		text-shadow: 0 0 3px darken(#b1a077, 40%);
+
+		&:before {
+			content: "------------------";
+			display: block;
+		}
+	}
+
+	.project-item__year {
+		@include historyFont;
+		font-size: font-fluid(md);
+		line-height: 1.1;
+	}
+
+	// TAGS
+	.tags {
+		display: flex;
+		justify-content: center;
+		gap: $gap;
+
+		&:before,
+		&:after {
+			font-size: 2rem;
+			font-family: sans-serif;
+			line-height: 1;
+			text-shadow: 0 0 3px darken(#b1a077, 40%);
+		}
+
+		&:before {
+			content: "\261E";
+		}
+
+		&:after {
+			content: "\261C";
+		}
+	}
+
+	.tag__item {
+		@include historyFont;
+		line-height: 1;
+		border-radius: ($gap * .4);
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: font-size(lg);
+		letter-spacing: .2rem;
+	}
+}

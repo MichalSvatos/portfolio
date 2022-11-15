@@ -21,6 +21,14 @@ module.exports = {
 				path: `${__dirname}/src/projects/`,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-react-svg`,
+			options: {
+				rule: {
+					include: /\.inline\.svg$/
+				}
+			}
+		},
 	],
 	siteMetadata: {
 		name: siteMetadata.name,

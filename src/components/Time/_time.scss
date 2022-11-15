@@ -1,8 +1,6 @@
 @use "../../styles" as *;
 
 .time {
-	padding: ($gap) ($gap) ($gap) 250px;
-
 	&--present {
 		background-color: #526480;
 		font-family: $font-family-present-text;
@@ -16,16 +14,21 @@
 	}
 
 	&--past {
-		background-color: #1C1C1C;
+		//background-color: #1C1C1C;
+		background: #1C1C1C url("../../../static/time/time--past-bg.jpg") repeat 0 0;
+		background-size: 200px 200px;
 		font-family: $font-family-past-text;
 		color: white
 	}
 
 	&--history {
-		background-color: #cdb557;
+		background: #cdb557 url("../../../static/time/time--history-bg.jpg") repeat 0 0;
+		background-size: 300px 300px;
 		font-family: $font-family-history-text;
 	}
 }
+
+.section
 
 
 .has-event-horizon-on-top,

@@ -1,11 +1,11 @@
 @use "../../styles" as *;
 
 @font-face {
-	font-family: 'Senilita';
+	font-family: 'Faroest';
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
-	src: url(/fonts/senilitaregular.woff2) format("woff2");
+	src: url(/fonts/Faroest-Regular.woff2) format("woff2");
 }
 
 @font-face {
@@ -146,7 +146,7 @@ p {
 	}
 
 	.time {
-		padding-left: ($gap);
+		//padding-left: ($gap);
 	}
 
 	.intro {

@@ -1,5 +1,5 @@
 ---
-title: Ben & Jerry's Czech republic
+title: Ben & Jerry`s Czech republic
 tags: ["Design"]
 slug: benandjerrys
 year: 2011
@@ -10,6 +10,7 @@ timeperiod: history
 featured: images/featured.png
 collectionThumbs: 
 collection: 
+perex: Various marketing campaigns, flash games and banners
 ---
 
 ### ... for various marketing campaings

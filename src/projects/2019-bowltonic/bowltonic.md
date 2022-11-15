@@ -12,6 +12,7 @@ timeperiod: past
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/red.png"]
 collection: ["images/collection/red.png"]
+perex: Live template from PSD design ready for backend developers
 ---
 ### Restaurant Bowl &amp; Tonic in Prague
 

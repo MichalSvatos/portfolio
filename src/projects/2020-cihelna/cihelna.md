@@ -10,6 +10,7 @@ timeperiod: past
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/blue.png"]
 collection: ["images/collection/blue.png"]
+perex: Complete website from design to Wordpress theme with custom made functions
 ---
 
 ### Graphic design and Wordpress template for gallery/store

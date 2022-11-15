@@ -10,6 +10,7 @@ timeperiod: present
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/blue.png"]
 collection: ["images/collection/blue.png"]
+perex: Coding and programming of the Wordpress theme with custom made functions
 ---
 
 ### Wordpress template for real-estate agent
