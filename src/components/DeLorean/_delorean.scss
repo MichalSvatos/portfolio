@@ -7,8 +7,9 @@
 	bottom: 0;
 	z-index: 2;
 
-	// DEV!
-	//display: none;
+	@media (max-width: $bp-sm-max) {
+		display: none;
+	}
 }
 
 .delorean__holder {
