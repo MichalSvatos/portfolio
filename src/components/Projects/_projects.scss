@@ -17,3 +17,19 @@
 		max-width: ($gap * 80);
 	}
 }
+
+.section {
+	position: relative;
+
+	// -- more "dramatic effect" overlay
+	&:before {
+		@supports (mix-blend-mode: color-burn) {
+			content: '';
+			background: linear-gradient(-45deg, black, white);
+			position: absolute;
+			inset: 0;
+			mix-blend-mode: color-burn;
+			opacity: .3;
+		}
+	}
+}

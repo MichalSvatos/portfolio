@@ -4,15 +4,6 @@
 	padding: ($gap) ($gap);
 	position: relative;
 	box-shadow: inset 0 0 300px #2a2008;
-
-	&:before {
-		content: '';
-		background: linear-gradient(-45deg, black, white);
-		position: absolute;
-		inset: 0;
-		mix-blend-mode: color-burn;
-		opacity: .3;
-	}
 }
 
 .object__rails {

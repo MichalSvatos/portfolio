@@ -2,15 +2,6 @@
 
 .section--past {
 	position: relative;
-
-	&:before {
-		content: '';
-		background: linear-gradient(-45deg, black, white);
-		position: absolute;
-		inset: 0;
-		mix-blend-mode: color-burn;
-		opacity: .3;
-	}
 }
 
 .object__road {
@@ -22,5 +13,4 @@
 	background: transparent url("../../../static/time/road.png") repeat-y 0 0;
 	background-size: 200px 200px;
 	z-index: 0;
-
 }
