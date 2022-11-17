@@ -7,6 +7,7 @@ $intro-text-shadow: rgb(0 0 0 / 80%);
 	// no flex because of the animation
 	min-height: calc(100vh - ($gap * 2));
 	position: relative;
+	z-index: 3;
 }
 .intro__inner {
 	text-align: center;

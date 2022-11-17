@@ -3,7 +3,7 @@
 .section--present {
 	padding: ($gap) ($gap) 0 ($gap);
 	position: relative;
-	z-index: 1;
+	z-index: 3;
 
 	&:before {
 		display: none;

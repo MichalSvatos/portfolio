@@ -36,11 +36,13 @@
 	aspect-ratio: 80/31;
 	background: transparent url("./images/float--bottom.png") no-repeat 0 0;
 	background-size: contain;
+	z-index: 2;
 }
 
 [class*="float--cloud"],
 [class*="float--buoy"] {
 	position: fixed;
+	z-index: 2;
 }
 
 // -- clouds
@@ -85,6 +87,7 @@
 	aspect-ratio: 25/46;
 	width: 300px;
 	transform-origin: 0 0;
+	z-index: 1;
 
 	&:after {
 		content: '';
