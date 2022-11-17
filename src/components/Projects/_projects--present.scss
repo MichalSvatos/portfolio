@@ -1,6 +1,6 @@
 @use "../../styles" as *;
 
 .section--present {
-	padding: ($gap) ($gap);
+	padding: ($gap) ($gap) ($gap * 15) ($gap);
 	position: relative;
 }
