@@ -29,6 +29,18 @@ module.exports = {
 				}
 			}
 		},
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `Svatos.dev | Michal Svatos frontend developer, designer`,
+				short_name: `Svatos.dev`,
+				start_url: `/`,
+				background_color: `#000000`,
+				theme_color: `#000000`,
+				display: `standalone`,
+				icon: `src/images/favicon/favicon.png`,
+			},
+		},
 	],
 	siteMetadata: {
 		name: siteMetadata.name,
