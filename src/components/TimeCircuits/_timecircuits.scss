@@ -9,7 +9,6 @@ $time-circuit-highlights: rgb(255 255 255 / 15%);
 
 .timecircuits {
 	position: fixed;
-	//right: ($gap * .125);
 	left: 0;
 	bottom: 0;
 	padding: ($gap * 1) ($gap * .5) ($gap * .25) ($gap * .5);
@@ -103,3 +102,43 @@ $time-circuit-highlights: rgb(255 255 255 / 15%);
 	z-index: 1;
 }
 
+// -- Go up button
+.timecircuits__back-to-the-future {
+	background-color: $color-black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: ($gap * 6.75);
+	padding: ($gap * .5) ($gap * .5);
+	border-radius: ($gap * .2);
+	font-family: $font-family-default;
+	translate: calc(50vw - 50%) 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	font-size: font-size(xs);
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	color: darkorange;
+	opacity: 0;
+	z-index: 1;
+	transition: color 350ms $easeOutBack, translate 1500ms $easeOutExpo, opacity 1500ms $easeOutExpo;
+
+	@media (min-width: $bp-md) {
+		translate: calc(100vw - 110%) 0;
+	}
+
+	&:hover {
+		color: saturate($color-history-primary, 60);
+	}
+
+	.go-up + & {
+		translate: calc(50vw - 50%) -110%;
+		opacity: 1;
+
+		@media (min-width: $bp-md) {
+			translate: calc(100vw - 110%) -110%;
+		}
+	}
+}

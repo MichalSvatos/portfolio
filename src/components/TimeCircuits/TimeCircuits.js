@@ -1,9 +1,10 @@
 import React, {useEffect} from "react"
 import "./_timecircuits.scss"
+import GoBackToTheFuture from "./images/gbttf.inline.svg"
 
 export default function TimeCircuits() {
 
-	const timeCircuits = (yearCircuit, monthCircuit, yearsArray) => {
+	const timeCircuits = (yearCircuit, monthCircuit, yearsArray, timecircuits) => {
 		const yearsAsNumbers = yearsArray.map(Number);
 		const yearsFiltered = new Set(yearsAsNumbers)
 
@@ -56,10 +57,11 @@ export default function TimeCircuits() {
 				// TODO - data attr + css
 				yearCircuit.innerHTML = [...yearsFiltered.values()][result]
 				currentNumber = [...yearsFiltered.values()][result]
+				timecircuits.classList.remove("go-up")
 
 			} else {
 				currentNumber = yearMax
-
+				timecircuits.classList.add("go-up")
 			}
 		})
 	}
@@ -90,16 +92,15 @@ export default function TimeCircuits() {
 			}, 300)
 		})
 
-		timeCircuits(yearCircuit, monthCircuit, yearsArray)
+		timeCircuits(yearCircuit, monthCircuit, yearsArray, timecircuits)
 
 		window.addEventListener("resize", function () {
-			timeCircuits(yearCircuit, monthCircuit, yearsArray)
+			timeCircuits(yearCircuit, monthCircuit, yearsArray, timecircuits)
 		});
 	})
 
 	return (
 		<>
-			{/* TODO: Timecircuits - go "BACK TO THE FUTURE" (up) */}
 			<div className="timecircuits">
 				<div className="timecircuits__month">
 					{/*TODO: [NTH] Timecircuits - dynamic month?*/}
@@ -110,6 +111,9 @@ export default function TimeCircuits() {
 					<span className="timecircuits__inner">2022</span>
 				</div>
 			</div>
+			<a href="#main" className="timecircuits__back-to-the-future" title="GO UP. To the future!">
+				<GoBackToTheFuture/>
+			</a>
 		</>
 	)
 }

@@ -39,6 +39,7 @@
 html {
 	font-size: 1rem;
 	-webkit-text-size-adjust: 100%; // iOS landscape fix
+	scroll-behavior: smooth;
 
 	@media (min-width: $bp-md) {
 		font-size: 1.125rem; // 18px
