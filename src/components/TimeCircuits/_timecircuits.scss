@@ -133,6 +133,12 @@ $time-circuit-highlights: rgb(255 255 255 / 15%);
 		color: saturate($color-history-primary, 60);
 	}
 
+	svg {
+		// fix Safari
+		width: 100%;
+		height: auto;
+	}
+
 	.go-up + & {
 		translate: calc(50vw - 50%) -110%;
 		opacity: 1;

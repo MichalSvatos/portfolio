@@ -1,6 +1,11 @@
 @use "../../styles" as *;
 
 .section--present {
-	padding: ($gap) ($gap) ($gap * 15) ($gap);
+	padding: ($gap) ($gap) 0 ($gap);
 	position: relative;
+	z-index: 1;
+
+	&:before {
+		display: none;
+	}
 }

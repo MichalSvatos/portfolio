@@ -24,12 +24,12 @@
 
 	// -- more "dramatic effect" overlay
 	&:before {
-		@supports (mix-blend-mode: color-burn) {
+		@supports (mix-blend-mode: darken) {
 			content: '';
-			background: linear-gradient(-45deg, black, white);
+			background: linear-gradient(-45deg, $color-black, $color-white);
 			position: absolute;
 			inset: 0;
-			mix-blend-mode: color-burn;
+			mix-blend-mode: darken;
 			opacity: .3;
 			z-index: 0;
 		}

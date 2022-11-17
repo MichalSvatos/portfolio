@@ -1,0 +1,192 @@
+@use "../../styles" as *;
+
+.time--present {
+	background-color: #1E2439;
+}
+
+.floats {
+	// -- Thanks https://csshero.org/mesher/
+	background-color:hsla(227,31%,17%,1);
+	background-image:
+			radial-gradient(at 26% 60%, hsla(231,32%,23%,1) 0px, transparent 50%),
+			radial-gradient(at 21% 27%, hsla(231,35%,16%,1) 0px, transparent 50%),
+			radial-gradient(at 6% 82%, hsla(227,40%,17%,1) 0px, transparent 50%),
+			radial-gradient(at 90% 17%, hsla(218,26%,28%,1) 0px, transparent 50%),
+			radial-gradient(at 79% 72%, hsla(235,35%,21%,1) 0px, transparent 50%);
+	position: relative;
+	padding-bottom: ($gap * 15);
+}
+
+// -- clouds, buoys
+.float {
+	position: absolute;
+	z-index: 0;
+	transition: opacity 750ms $easeOutExpo;
+	will-change: transform, opacity;
+	opacity: 1;
+
+	&.fade-out {
+		opacity: 0;
+	}
+}
+
+.float--bottom {
+	bottom: 0;
+	width: 100%;
+	aspect-ratio: 80/31;
+	background: transparent url("./images/float--bottom.png") no-repeat 0 0;
+	background-size: contain;
+}
+
+[class*="float--cloud"],
+[class*="float--buoy"] {
+	position: fixed;
+}
+
+// -- clouds
+.float--cloud {
+	top: 0;
+	left: -10vw;
+	width: 75vw;
+	aspect-ratio: 17/11;
+	background: transparent url("./images/float--cloud.png") no-repeat 0 0;
+	background-size: contain;
+}
+
+.float--cloud-2 {
+	top: 20%;
+	right: -10vw;
+	width: 75vw;
+	aspect-ratio: 850/457;
+	background: transparent url("./images/float--cloud-2.png") no-repeat 0 0;
+	background-size: contain;
+}
+
+.float--cloud-3 {
+	top: -10%;
+	right: 0;
+	width: 85vw;
+	aspect-ratio: 850/457;
+	background: transparent url("./images/float--cloud-3.png") no-repeat 0 0;
+	background-size: contain;
+}
+
+.float--cloud-4 {
+	top: 75%;
+	left: 0;
+	width: 85vw;
+	aspect-ratio: 425/189;
+	background: transparent url("./images/float--cloud-4.png") no-repeat 0 0;
+	background-size: contain;
+}
+
+// -- buoys
+[class*="float--buoy"] {
+	aspect-ratio: 25/46;
+	width: 300px;
+	transform-origin: 0 0;
+
+	&:after {
+		content: '';
+		background: transparent url("./images/float--buoy.png") no-repeat 0 0;
+		background-size: contain;
+		position: absolute;
+		inset: 0;
+		translate: 0 -5px;
+		rotate: 3deg;
+		animation: buoyHovering 5500ms ease-in-out infinite;
+	}
+
+	@media (max-width: $bp-md-max) {
+		display: none;
+	}
+}
+
+.float-wrapper--buoys {
+	& > div {
+		// -- animation delay maker
+		@for $i from 1 through 6 {
+			&:nth-child(#{$i}) {
+				&:after {
+					animation-delay: random(3000) + ms;
+				}
+			}
+		}
+	}
+}
+
+.float--buoy {
+	top: 60%;
+	left: 75%;
+	width: 300px;
+
+	@media (max-width: $bp-md-max) {
+		display: block;
+		top: 40%;
+		left: 15%;
+		width: 120px;
+	}
+}
+
+.float--buoy-2 {
+	top: 60%;
+	left: 55%;
+	width: 150px;
+	//scale: .5;
+
+	@media (max-width: $bp-md-max) {
+		display: block;
+	}
+}
+
+.float--buoy-3 {
+	top: 59%;
+	left: 44%;
+	width: 110px;
+	//scale: .37;
+}
+
+.float--buoy-4 {
+	top: 58%;
+	left: 37%;
+	width: 70px;
+	//scale: .24;
+	filter: blur(1px);
+}
+
+.float--buoy-5 {
+	top: 57%;
+	left: 32%;
+	width: 50px;
+	//scale: .17;
+	filter: blur(2px);
+}
+
+.float--buoy-6 {
+	top: 57%;
+	left: 29%;
+	width: 30px;
+	//scale: .1;
+	filter: blur(2px);
+}
+
+@keyframes buoyHovering {
+	0%, 100% {
+		translate: 0 -5px;
+		rotate: 3deg;
+	}
+	20% {
+		translate: 0 15px;
+	}
+	40% {
+		translate: -3px 5px;
+		rotate: -4deg;
+	}
+	60% {
+		translate: 2px 5px;
+	}
+	80% {
+		translate: 5px 10px;
+	}
+}
+

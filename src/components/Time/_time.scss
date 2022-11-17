@@ -2,15 +2,16 @@
 
 .time {
 	&--present {
-		background-color: #526480;
-		font-family: $font-family-present-text;
-		background-image: url("../../../static/temp-bg.jpg");
-		background-repeat: repeat;
-		background-size: cover;
+		//background-color: #526480;
+		//font-family: $font-family-present-text;
+		//background-image: url("../../../static/temp-bg.jpg");
+		//background-repeat: repeat;
+		//background-size: cover;
+		//
+		//@media (min-width: $bp-md) {
+		//	background-size: contain;
+		//}
 
-		@media (min-width: $bp-md) {
-			background-size: contain;
-		}
 	}
 
 	&--past {
