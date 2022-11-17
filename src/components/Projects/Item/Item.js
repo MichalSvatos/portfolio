@@ -39,6 +39,21 @@ export default function Project({timeperiod, projectData}) {
 				data-year={year}
 				key={id}
 			>
+				{/* -- various object for each time period item */}
+				<div className={`project-item__objects objects-item objects-item--${timeperiod}`}>
+					{
+						timeperiod === "present" && <>
+							<div className="object-item__lamp"></div>
+							<div className="object-item__year">
+								<span>{year}</span>
+							</div>
+							<div className="object-item__hover"></div>
+							<div className="object-item__hover"></div>
+							<div className="object-item__bazmek"></div>
+						</>
+					}
+				</div>
+
 				<h3 className="project-item__title">{title}</h3>
 				{
 					featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} />

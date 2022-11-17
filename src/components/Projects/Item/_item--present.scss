@@ -1,20 +1,215 @@
 @use "../../../styles" as *;
 @use "sass:color";
+//@use "sass:math";
 
 .project-item--present {
-	background-color: #a5c4da;
+	background-color: transparent;
 	color: $color-present-text-secondary;
-	box-shadow: inset 0 0 35px darken(#a5c4da, 20%);
 	font-family: $font-family-present-heading;
 	font-style: normal;
+	border: ($gap * 1.5) solid transparent;
+	border-image-slice: 27;
+	border-image-repeat: repeat repeat;
+	border-image-source: url("../../../../static/project-item/item-present--border.svg");
+	padding: 0;
+	position: relative;
+	animation: signHovering 7500ms ease-in-out infinite;
+	transition: scale 1500ms $easeOutExpo;
+	will-change: scale;
+
+	@media (min-width: $bp-md) {
+		//padding-inline: ($gap * 2.5);
+		scale: .9;
+	}
+
+	&:hover {
+		@media (min-width: $bp-md) {
+			scale: 1;
+		}
+	}
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	// -- inner shadow
+	&:after {
+		box-shadow: inset 0 0 55px 10px darken(#acbfcf, 30%);
+	}
+
+	// -- display raster effect
+	&:before {
+		background-image: radial-gradient(#000000 1px, rgba(0 0 0 / 0%) 1px);
+		background-size: 4px 4px;
+		opacity: .1;
+	}
+
+	& + & {
+		margin-top: ($gap * 18);
+
+		@media (min-width: $bp-xxl) {
+			margin-top: ($gap * 2);
+		}
+	}
+
+	& > * {
+		margin-top: 0;
+	}
+
+	// -- animation delay maker
+	@for $i from 1 through 6 {
+		&:nth-child(#{$i + 1}) {
+			animation-delay: #{$i * 4}00ms;
+		}
+	}
 
 	.project-item__title {
 		text-transform: uppercase;
 		color: $color-present-text-primary;
+		background-color: #acbfcf;
+		padding: ($gap) ($gap);
+	}
+
+	.project-item__image {
+		position: relative;
+
+		&:before {
+			content: '';
+			//background: linear-gradient(to bottom, #acbfcf 0%, #acbfcf 50%, #acbfcf 50%, rgb(255 255 255 / 0%) 50%, rgb(255 255 255 / 0%) 100%) repeat 0 0;
+			background-size: 4px 4px;
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			opacity: .3;
+		}
+
+		&:after {
+			content: '';
+
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			opacity: .3;
+		}
 	}
 
 	.project-item__perex {
+		background-color: #acbfcf;
 		text-transform: uppercase;
 		letter-spacing: .05rem;
+		padding: ($gap) ($gap);
+		max-width: none;
+		position: relative;
+		z-index: 1; // to cover "cables" from bazmek
+	}
+
+	.project-item__year {
+		display: none;
+	}
+}
+
+.object-item__lamp {
+	@media (min-width: $bp-md) {
+		width: 159px;
+		height: 115px;
+		background: transparent url("../../../../static/project-item/item-present--lamp.png") no-repeat 0 0;
+		background-size: contain;
+		position: absolute;
+		top: -115px;
+		left: 20px;
+	}
+}
+
+.object-item__year {
+	width: 159px;
+	height: 116px;
+	background: transparent url("../../../../static/project-item/item-present--year.png") no-repeat 0 0;
+	background-size: contain;
+	position: absolute;
+	top: -116px;
+	left: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: ($gap * 2.75);
+	perspective: 100px;
+	translate: -50% 0;
+
+	@media (min-width: $bp-md) {
+		padding-bottom: ($gap * 2.5);
+		left: auto;
+		right: 230px;
+		translate: 0;
+	}
+
+	span {
+		transform: rotateX(40deg);
+		font-family: $font-family-time-circuits;
+		font-size: font-size(xl);
+		color: $color-present-text-primary;
+	}
+}
+
+.object-item__hover {
+	position: absolute;
+	left: 50%;
+	width: 226px;
+	height: 198px;
+	bottom: -198px;
+	background: transparent url("../../../../static/test-lamp.png") no-repeat 0 0;
+	background-size: contain;
+	z-index: 0;
+	translate: -50% 0;
+
+	@media (min-width: $bp-md) {
+		left: 0;
+		translate: 0;
+	}
+
+	& + & {
+		left: auto;
+		right: 0;
+		display: none;
+
+		@media (min-width: $bp-md) {
+			display: block;
+		}
+	}
+}
+
+.object-item__bazmek {
+	width: 78px;
+	height: 130px;
+	background: transparent url("../../../../static/project-item/item-present--bazmek.png") no-repeat 0 0;
+	background-size: contain;
+	position: absolute;
+	left: 50%;
+	bottom: -112px;
+	translate: calc(-50% + 62px) 0;
+
+	@media (min-width: $bp-md) {
+		left: auto;
+		right: 10px;
+		translate: 0;
+	}
+}
+
+@keyframes signHovering {
+	0%, 100% {
+		transform: translatey(-5px);
+	}
+	25% {
+		transform: translatey(15px);
+	}
+	50% {
+		transform: translatey(5px);
+	}
+	75% {
+		transform: translatey(10px);
 	}
 }
