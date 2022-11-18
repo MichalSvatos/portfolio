@@ -2,6 +2,7 @@
 
 .time--present {
 	background-color: #1E2439;
+	overflow: hidden;
 }
 
 .floats {
@@ -42,8 +43,12 @@
 
 [class*="float--cloud"],
 [class*="float--buoy"] {
-	position: fixed;
+	position: absolute;
 	z-index: 2;
+
+	@media (min-width: $bp-lg) {
+		position: fixed;
+	}
 }
 
 // -- clouds
@@ -63,6 +68,10 @@
 	aspect-ratio: 850/457;
 	background: transparent url("./images/float--cloud-2.png") no-repeat 0 0;
 	background-size: contain;
+
+	@media (max-width: $bp-lg-max) {
+		top: 10%;
+	}
 }
 
 .float--cloud-3 {
@@ -81,6 +90,10 @@
 	aspect-ratio: 425/189;
 	background: transparent url("./images/float--cloud-4.png") no-repeat 0 0;
 	background-size: contain;
+
+	@media (max-width: $bp-lg-max) {
+		top: 50%;
+	}
 }
 
 // -- buoys
@@ -126,9 +139,9 @@
 
 	@media (max-width: $bp-md-max) {
 		display: block;
-		top: 40%;
-		left: 15%;
-		width: 120px;
+		top: 8%;
+		left: 8%;
+		width: 80px;
 	}
 }
 
@@ -140,6 +153,9 @@
 
 	@media (max-width: $bp-md-max) {
 		display: block;
+		top: 8%;
+		left: auto;
+		right: 8%;
 	}
 }
 

@@ -1,9 +1,13 @@
 @use "../../styles" as *;
 
 .section--present {
-	padding: ($gap) ($gap) 0 ($gap);
+	padding: ($gap * 5) ($gap) 0 ($gap);
 	position: relative;
 	z-index: 3;
+
+	@media (min-width: $bp-lg) {
+		padding-top: ($gap);
+	}
 
 	&:before {
 		display: none;

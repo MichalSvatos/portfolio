@@ -92,7 +92,7 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 			parallax(parallaxElements, sectionPresentHeight)
 		})
 
-		// TODO: [NTH] - rain js
+		// TODO: [NTH] - rain js - need complete rewrite!
 		/*const makeItRain = function() {
 			//clear out everything
 			document.querySelector(".rain").innerHTML = ""
@@ -127,8 +127,8 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 			<div className={`time time--${timePeriod} ${customClass}`}>
 				{timePeriod === "present" ?
 					<>
-						<div className="rain front-row"></div>
-						<div className="rain back-row"></div>
+						{/*<div className="rain front-row"></div>
+						<div className="rain back-row"></div>*/}
 						<div className="floats">
 							{children}
 							{/* Clouds */}
