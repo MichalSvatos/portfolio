@@ -7,13 +7,10 @@ import Modal from "../components/Modal/Modal"
 import Intro from "../components/Intro/Intro"
 import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
-import Software from "../components/Software/Software"
+// import Software from "../components/Software/Software"
 import OldPaper from "../../static/project-item/item-history--clippath.inline.svg"
 
 export default function Homepage({data}) {
-	// const {title, description} = data.site.siteMetadata;
-	// console.log(data);
-
 	const projectSorter = (timeperiod) => {
 
 		const nodes = data.allMarkdownRemark.nodes
@@ -93,6 +90,21 @@ export default function Homepage({data}) {
 	)
 }
 
+// Additional HTML head content (Gatsby Head API)
+export function Head({data}) {
+	const {title, description, name} = data.site.siteMetadata
+	const {github} = data.site.siteMetadata.contact
+
+	return (
+		<>
+			<title>{title}</title>
+			<meta name="author" content={`${name} | ${github}`} />
+			<meta name="description" content={description} />
+			{/* TODO: [NTH] - meta og */}
+		</>
+	)
+}
+
 export const query = graphql`
 query AllProjects {
   allMarkdownRemark(sort: {fields: frontmatter___year, order: DESC}) {
@@ -122,6 +134,18 @@ query AllProjects {
       }
       id
       html
+    }
+  }
+  site {
+    siteMetadata {
+      name
+      description
+      title
+      contact {
+        github
+        email
+        linkedIn
+      }
     }
   }
 }
