@@ -1,29 +1,30 @@
 @use "../../styles" as *;
 
-$intro-text-color: #FFCE4F;
-$intro-text-shadow: rgb(0 0 0 / 80%);
+$animation-timing: 350ms;
 
 .intro {
 	// no flex because of the animation
+	padding-inline: ($gap);
 	min-height: calc(100vh - ($gap * 2));
 	position: relative;
 	z-index: 3;
+
+	&::selection {
+		background-color: $color-black;
+	}
 }
+
 .intro__inner {
 	text-align: center;
 	color: $intro-text-color;
 	display: flex;
 	flex-direction: column;
 	max-width: ($gap * 45);
-	width: 100%;
+	width: calc(100% - ($gap * 2));
 	position: absolute;
 	translate: -50% -50%;
 	top: 50%;
 	left: 50%;
-
-	&.is-scrolled {
-		// TODO: Intro - pin it on top after scroll
-	}
 
 	// TODO: [NTH] - alternative logo easter egg - on X clicks?
 	&:after {
@@ -46,12 +47,15 @@ $intro-text-shadow: rgb(0 0 0 / 80%);
 	font-family: $font-family-present-heading;
 	text-shadow: 2px 3px 0 $intro-text-shadow;
 	font-weight: normal;
+	opacity: 0;
+	animation: fadeMeIn 5000ms $easeOutExpo forwards;
 }
 
 .intro__title {
 	font-size: font-fluid(md);
 	text-transform: uppercase;
 	margin-top: ($gap);
+	animation-delay: $animation-timing;
 }
 
 .intro__subtitle {
@@ -67,9 +71,23 @@ $intro-text-shadow: rgb(0 0 0 / 80%);
 	display: flex;
 	justify-content: center;
 	gap: ($gap);
+	animation-delay: ($animation-timing * 2);
 
 	li {
 		list-style: none;
+		opacity: 0;
+
+		&:first-child {
+			animation: fadeMeInLeft 2000ms ($animation-timing * 2) $easeOutExpo forwards;
+		}
+
+		&:nth-child(2) {
+			animation: fadeMeIn 2000ms ($animation-timing * 2) $easeOutExpo forwards;
+		}
+
+		&:last-child {
+			animation: fadeMeInRight 2000ms ($animation-timing * 2) $easeOutExpo forwards;
+		}
 
 		&::marker {
 			display: none;
@@ -79,14 +97,25 @@ $intro-text-shadow: rgb(0 0 0 / 80%);
 }
 
 .intro__link {
-	display: block;
 	width: ($gap * 3);
 	height: ($gap * 3);
-	background-color: rgb(255 255 255 / 30%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $color-white;
+	border-radius: 50%;
+	background-color: rgba($color-black, 10%);
+	transition: background-color 700ms $easeOutExpo, scale 700ms $easeOutBack;
+	scale: 1;
 
-	@media (min-width: $bp-lg) {
-		width: ($gap * 2);
-		height: ($gap * 2);
+	&:hover {
+		background-color: $color-black;
+		scale: 1.3;
+		color: $intro-text-color;
+	}
+
+	@media (any-hover: none) {
+		background-color: rgba($color-white, 10%);
 	}
 }
 
@@ -94,4 +123,112 @@ $intro-text-shadow: rgb(0 0 0 / 80%);
 .intro__hashtags {
 	font-size: font-fluid(xxs);
 	letter-spacing: ($gap * .05);
+	animation-delay: ($animation-timing * 3);
+}
+
+// -- Fixed variant
+.is-fixed {
+	z-index: 5;
+
+	.intro__subtitle,
+	.intro__hashtags {
+		display: none;
+	}
+
+	.intro__inner {
+		width: 100%;
+		padding: 0 ($gap * 2) ($gap) ($gap * 2);
+		position: fixed;
+		top: 0;
+		translate: -50% -100%;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		animation: slideMeDown 750ms $easeOutBack forwards;
+		border: 10px solid;
+		border-image-source: linear-gradient(0deg, rgba($color-white, 0%), rgba($color-white, 20%));
+		border-image-slice: 1;
+		transition: background-color 750ms $easeOutExpo;
+
+		&:hover {
+			background-color: $color-black;
+
+			.intro__link {
+				background-color: rgba($color-white, 10%);
+			}
+		}
+
+		@media (any-hover: none) {
+			background-color: $color-black;
+			border: 0;
+		}
+
+		@media (min-width: $bp-md) {
+			top: ($gap * .5);
+			border-width: 3px;
+		}
+	}
+
+	.intro__title {
+		font-size: font-fluid(xs);
+
+		@media (max-width: $bp-md-max) {
+			width: ($gap * 3);
+		}
+
+		@media (max-width: $bp-md-max) {
+			&:after {
+				content: 'MS';
+			}
+		}
+
+		.hide-me-on-mobile {
+			@media (max-width: $bp-md-max) {
+				display: none;
+			}
+		}
+	}
+}
+
+@keyframes fadeMeIn {
+	from {
+		opacity: 0;
+		translate: 0 ($gap * 1.5);
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes fadeMeInLeft {
+	from {
+		opacity: 0;
+		translate: -($gap * 1.5) 0;
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes fadeMeInRight {
+	from {
+		opacity: 0;
+		translate: ($gap * 1.5) 0;
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes slideMeDown {
+	from {
+		translate: -50% -100%;
+	}
+	to {
+		translate: -50% 0;
+	}
 }
