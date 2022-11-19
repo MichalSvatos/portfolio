@@ -88,11 +88,6 @@ $animation-timing: 350ms;
 		&:last-child {
 			animation: fadeMeInRight 2000ms ($animation-timing * 2) $easeOutExpo forwards;
 		}
-
-		&::marker {
-			display: none;
-			content: '';
-		}
 	}
 }
 

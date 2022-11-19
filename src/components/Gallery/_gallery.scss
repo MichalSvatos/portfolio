@@ -1,16 +1,88 @@
 @use "../../styles" as *;
 
-.gallery__image {
-	max-width: 350px;
+.gallery__image,
+.gallery__thumb {
+	display: block;
+	width: 100%;
 	height: auto;
+	position: relative;
+	z-index: 1;
+}
+
+.gallery__showcase {
+	background-color: $color-modal-ui-highlight;
+	position: relative;
+	align-self: self-start;
+	aspect-ratio: 1/1;
+
+	// -- flux capacitor
+	&:after {
+		content: '';
+		background: transparent url("../../images/flux-capacitor.svg") no-repeat center center;
+		background-size: contain;
+		aspect-ratio: 55/61;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		translate: -50% -50%;
+		width: ($gap * 4);
+		opacity: .2;
+		z-index: 0;
+	}
 }
 
 .gallery__thumbs {
-	display: flex;
-	justify-content: center;
+	position: relative;
+	margin-inline: -($gap * .5);
+	margin-top: -($gap * .5);
+	padding-bottom: ($gap);
+
+	@media (min-width: $bp-xl) {
+		margin-top: ($gap);
+	}
+
+	&:empty {
+		display: none;
+	}
+
+	// -- fake border
+	&:after {
+		content: '';
+		height: 0;
+		border-bottom: 1px dashed $color-modal-ui-highlight;
+		position: absolute;
+		left: ($gap * .5);
+		right: ($gap * .5);
+		bottom: 0;
+		z-index: 0;
+		pointer-events: none;
+
+		@media (min-width: $bp-xl) {
+			border: 1px dashed $color-modal-ui-highlight;
+			height: auto;
+			inset: 0 ($gap * -.5);
+		}
+	}
 }
 
-.gallery__thumb {
-	max-width: 150px;
-	height: auto;
+.gallery__link {
+	flex-basis: #{"calc((100% / 3) - (#{$gap} * 1))"};
+	margin-inline: ($gap * .5);
+	margin-top: ($gap);
+	position: relative;
+
+	&:hover {
+		&:after {
+		box-shadow: inset 0 0 0 ($gap * .5) rgba($color-modal-error, 50%);
+		}
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+			box-shadow: inset 0 0 0 0 rgba($color-modal-error, 0%);
+		transition: box-shadow 750ms $easeOutExpo;
+		z-index: 1;
+	}
 }

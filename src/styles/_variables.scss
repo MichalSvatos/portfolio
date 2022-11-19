@@ -20,6 +20,12 @@ $color-present-ui-primary: #acbfcf;
 // -- history
 $color-history-primary: #b1a077;
 
+// -- modal
+$color-modal-text: darken($color-white, 20%);
+$color-modal-text-darken: darken($color-white, 40%);
+$color-modal-error: $color-present-text-primary;
+$color-modal-ui-bg: darken($color-white, 90%);
+$color-modal-ui-highlight: darken($color-white, 80%);
 
 $color-primary: #1D1077;
 

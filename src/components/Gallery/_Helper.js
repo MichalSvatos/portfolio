@@ -19,10 +19,10 @@ const thumbsHandler = (modal) => {
 }
 
 const lazyload = () => {
-	const gallery = document.getElementById("gallery")
-	const image = gallery.querySelector(".js-lazyload")
+	const galleryShowcase = document.getElementById("modal__gallery-showcase")
+	const image = galleryShowcase.querySelector(".js-lazyload")
 
-	if (!gallery) return
+	if (!galleryShowcase) return
 	if (!image) return
 
 	image.setAttribute("src", image.dataset.src)

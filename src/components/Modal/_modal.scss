@@ -2,27 +2,25 @@
 
 .modal {
 	position: fixed;
-	left: 2rem;
-	top: 2rem;
-	right: 2rem;
-	text-align: center;
-	padding: 2rem;
-	background-color: #fb1;
-	box-shadow: 0 3px 2.2px rgba(0, 0, 0, 0.02),
+	inset: 0;
+	background-color: $color-modal-ui-bg;
+	/*box-shadow: 0 3px 2.2px rgba(0, 0, 0, 0.02),
 	0 7.3px 5.3px rgba(0, 0, 0, 0.028),
 	0 13.8px 10px rgba(0, 0, 0, 0.035),
 	0 24.6px 17.9px rgba(0, 0, 0, 0.042),
 	0 46px 33.4px rgba(0, 0, 0, 0.05),
-	0 110px 80px rgba(0, 0, 0, 0.07);
-	z-index: 5;
+	0 110px 80px rgba(0, 0, 0, 0.07);*/
+	z-index: 10;
 	display: none;
+	overflow: hidden;
+	color: $color-white;
 
 	&.modal-is-open {
 		display: block;
 	}
 }
 
-#modal__url {
+[id="modal__url"] {
 	&:empty {
 		display: none;
 	}
@@ -33,25 +31,204 @@
 	& + .modal-overlay {
 		position: fixed;
 		inset: 0;
-		background-color: rgba($color-black, 85%);
-		z-index: 1;
+		background-color: rgba($color-black, 5%);
+		z-index: 5;
 	}
 }
 
 .modal__close {
 	position: absolute;
-	right: 1rem;
-	top: 1rem;
+	right: 0;
+	top: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 3rem;
-	height: 3rem;
-	background-color: tomato;
-	color: whitesmoke;
+	width: ($gap * 3.5);
+	height: ($gap * 3.5);
+	background-color: $color-modal-ui-bg;
+	color: $color-modal-text;
 	text-decoration: none;
+	transition: background-color 350ms $easeOutExpo, color 350ms $easeOutExpo;
 
 	&:hover {
-		background-color: firebrick;
+		background-color: $color-modal-error;
+		color: $color-white;
+	}
+
+	svg {
+		width: ($gap * 2);
+		height: ($gap * 2);
 	}
 }
+
+[id="modal__body"] {
+	height: 100vh;
+	overflow-y: auto;
+	padding: ($gap) ($gap) ($gap * 3) ($gap);
+
+	@include scrollbars();
+}
+
+.modal__inner {
+	display: flex;
+	flex-direction: column;
+	color: $color-modal-text;
+
+	@media (min-width: $bp-md) {
+		max-width: 85vw;
+		margin-inline: auto;
+	}
+
+	@media (min-width: $bp-xl) {
+		max-width: 65vw;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(5, auto) 1fr;
+		gap: 0 ($gap * 2);
+		grid-auto-flow: row;
+		grid-template-areas:
+			"bigImage tags"
+			"bigImage title"
+			"bigImage year"
+			"bigImage urls"
+			"bigImage thumbs"
+			"bigImage md";
+	}
+
+	& > * {
+		margin-top: ($gap);
+	}
+}
+
+[id="modal__title"] {
+	width: 100%;
+	font-size: font-fluid(sm);
+	order: -3;
+	font-family: $font-family-present-heading;
+
+	@media (min-width: $bp-xl) {
+		grid-area: title;
+	}
+}
+
+[id="modal__tags"] {
+	order: -4;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: ($gap * .5);
+	margin-top: ($gap * 3);
+	font-family: $font-family-present-heading;
+
+	@media (min-width: $bp-xl) {
+		grid-area: tags;
+		margin-top: ($gap);
+	}
+}
+
+[id="modal__year"] {
+	font-size: font-size(xs);
+	order: -2;
+	font-family: $font-family-present-heading;
+
+	@media (min-width: $bp-xl) {
+		grid-area: year;
+	}
+}
+
+[id="modal__gallery-showcase"] {
+	order: -1;
+
+	@media (min-width: $bp-xl) {
+		grid-area: bigImage;
+	}
+}
+
+[id="modal__gallery-thumbs"] {
+	order: -1;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	@media (min-width: $bp-xl) {
+		grid-area: thumbs;
+	}
+}
+
+[id="modal__urls"] {
+	@media (any-hover: none) {
+		display: flex;
+		flex-direction: column;
+		gap: ($gap);
+		align-items: flex-start;
+	}
+
+	@media (min-width: $bp-xl) {
+		grid-area: urls;
+	}
+}
+
+[id="modal__desc"] {
+	h2,
+	h3,
+	h4 {
+		font-family: $font-family-present-heading;
+	}
+
+	h3 {
+		font-size: font-fluid(xxs);
+	}
+
+	@media (min-width: $bp-xl) {
+		grid-area: md;
+	}
+}
+
+// -- tags
+.modal__tags-item {
+	font-size: font-size(xs);
+	text-transform: uppercase;
+	background-color: $color-modal-ui-highlight;
+	color: $color-modal-text-darken;
+	border-bottom: 0;
+	padding: ($gap * .33) ($gap * .5);
+}
+
+// -- urls
+.modal__url {
+	transition: color 350ms $easeOutExpo;
+	color: $intro-text-color;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	@media (any-hover: none) {
+		padding: ($gap * .5);
+		border: 1px dashed $color-modal-ui-highlight;
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: $color-white;
+
+		&:after {
+			opacity: .7;
+		}
+	}
+
+	&:after {
+		content: '';
+		background-image: url("./images/new-window.svg");
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: contain;
+		width: ($gap);
+		aspect-ratio: 1/1;
+		opacity: .4;
+		margin-left: ($gap * .5);
+		translate: 0 2px; // line-height compensation
+		transition: opacity 350ms $easeOutExpo;
+	}
+}
+

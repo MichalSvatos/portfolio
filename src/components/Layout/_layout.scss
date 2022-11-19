@@ -53,6 +53,10 @@ body {
 	font-family: $font-family-default;
 	font-size: font-size(default);
 
+	// -- disable scrolling when modal is open
+	&.scroll-under-control {
+		overflow: hidden;
+	}
 }
 
 button,
@@ -129,6 +133,17 @@ ul,
 ol {
 	margin: ($gap) 0 0 0;
 	padding: 0;
+}
+
+ul {
+	li {
+		list-style: none;
+
+		&::marker {
+			content: '';
+			display: none;
+		}
+	}
 }
 
 p {

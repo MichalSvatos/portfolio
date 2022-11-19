@@ -10,3 +10,25 @@
 	white-space: nowrap !important;
 	border: 0 !important;
 }
+
+// Thanks https://css-tricks.com/the-current-state-of-styling-scrollbars-in-css/
+@mixin scrollbars(
+	$size: .5rem,
+	$foreground-color: #555,
+	$background-color: #333
+) {
+	// For Chrome & Safari
+	&::-webkit-scrollbar {
+		width: $size;
+		height: $size;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $foreground-color;
+	}
+	&::-webkit-scrollbar-track {
+		background: $background-color;
+	}
+
+	// Standard version (Firefox only for now)
+	scrollbar-color: $foreground-color $background-color;
+}

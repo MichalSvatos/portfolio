@@ -1,6 +1,7 @@
 import React, {useEffect} from "react"
 import "./_modal.scss"
-import galleryHelper from "../Gallery/_Helper";
+import galleryHelper from "../Gallery/_Helper"
+import IconCloseWindow from "./images/closewindow.inline.svg"
 
 export default function Modal() {
 	const populateModal = (projectData, modal) => {
@@ -11,7 +12,8 @@ export default function Modal() {
 			const url = document.getElementById("modal__urls")
 			const tags = document.getElementById("modal__tags")
 			const desc = document.getElementById("modal__desc")
-			const gallery = document.getElementById("gallery")
+			const galleryShowcase = document.getElementById("modal__gallery-showcase")
+			const galleryThumbs = document.getElementById("modal__gallery-thumbs")
 
 			// TODO: How to remove 1st level ...?
 			const data = projectData[0]
@@ -26,7 +28,7 @@ export default function Modal() {
 
 				data.url.forEach(link => {
 					if (link.link !== null) {
-						linksHtml += `<li><a href="${link.link}" target="_blank" rel="noopener">${link.title}</a></li>`
+						linksHtml += `<li><a href="${link.link}" class="modal__url" target="_blank" rel="noopener">${link.title}</a></li>`
 					}
 				})
 
@@ -39,35 +41,33 @@ export default function Modal() {
 				let tagsHtml = ""
 
 				data.tags.forEach(tag => {
-					tagsHtml += `<li>${tag}</li>`
+					tagsHtml += `<li class="modal__tags-item">${tag}</li>`
 				})
 
 				tags.innerHTML = tagsHtml
 			}
 
 			// -- images
-			createGallery(data.images, gallery)
+			createGallery(data.images, galleryShowcase, galleryThumbs)
 
 		}
 	}
 
-	const createGallery = (imagesArray, gallery) => {
+	const createGallery = (imagesArray, galleryShowcase, galleryThumbs) => {
 		if (imagesArray) {
-			let galleryHtml = ""
+			let showcaseHtml = ""
 			const thumbs = imagesArray.collectionThumbs
 			const images = imagesArray.collection
 
 			// -- single big image
 			if (images) {
-				galleryHtml += `
-					<div class="gallery__showcase">
+				showcaseHtml += `
 						<img src="/default-test.png" data-src="${images[0].publicURL}" class="gallery__image js-gallery-target-image js-lazyload" alt="">
-					</div>
 				`
 			}
 
 			// -- thumbnails
-			let thumbnailsHtml = '<div class="gallery__thumbs">'
+			let thumbnailsHtml = ""
 
 			if (thumbs) {
 				Object.keys(thumbs).forEach(key => {
@@ -79,11 +79,9 @@ export default function Modal() {
 				});
 			}
 
-			thumbnailsHtml += '</div>'
-
 			// -- filling the gallery
-			galleryHtml = galleryHtml + thumbnailsHtml
-			gallery.innerHTML = galleryHtml
+			galleryShowcase.innerHTML = showcaseHtml
+			galleryThumbs.innerHTML = thumbnailsHtml
 		}
 	}
 
@@ -92,6 +90,7 @@ export default function Modal() {
 			btn.addEventListener("click", (e) => {
 				e.preventDefault()
 
+				bodyScrollingHandler()
 				modal.classList.remove("modal-is-open")
 			})
 		})
@@ -101,12 +100,21 @@ export default function Modal() {
 		modal.classList.add("modal-is-open")
 	}
 
+	const bodyScrollingHandler = () => {
+		const body = document.body
+
+		body.classList.contains("scroll-under-control") ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
+		console.log('bodyScrollingHandler');
+	}
+
 	const clickProject = (modal) => {
 		const projects = document.querySelectorAll(".js-modal-show")
 
 		projects.forEach((project) => {
 			project.addEventListener("click", (e) => {
 				e.preventDefault()
+
+				bodyScrollingHandler()
 
 				let modalData = JSON.parse(project.dataset.modal)
 				populateModal(modalData, modal)
@@ -129,6 +137,7 @@ export default function Modal() {
 		// TODO: Maybe another function to make it clean
 		document.addEventListener("keydown", (event) => {
 			if (event.key === 'Escape') {
+				bodyScrollingHandler()
 				modal.classList.remove("modal-is-open")
 			}
 		})
@@ -138,34 +147,38 @@ export default function Modal() {
 		<>
 			<div className="modal" id="modal" aria-modal="true">
 				<div id="modal__body">
-					{/*<div className="modal__text">*/}
-					<h2 id="modal__title">{/* populated by js */}</h2>
-					<ul id="modal__tags">{/* populated by js */}</ul>
-					<div id="modal__year">{/* populated by js */}</div>
-					<ul id="modal__urls">{/* populated by js */}</ul>
-					<div id="modal__desc"></div>
-					{/*</div>*/}
+					<div className="modal__inner">
+						<h2 id="modal__title">{/* populated by js */}</h2>
+						<ul id="modal__tags">{/* populated by js */}</ul>
+						<div id="modal__year">{/* populated by js */}</div>
+						<ul id="modal__urls">{/* populated by js */}</ul>
+						<div id="modal__desc"></div>
 
-					{/* TODO: Maybe separate component */}
-					<div id="gallery">{/*
-
-						// Generated structure from JS
-						<div class="gallery__showcase">
-							<img src="img1.png" class="gallery__image js-gallery-target-image js-lazyload" alt="">
+						{/* TODO: Maybe separate component */}
+						<div id="modal__gallery-showcase" className="gallery__showcase">
+							{/*
+								// Generated structure from JS
+								<img src="img1.png" className="gallery__image js-gallery-target-image js-lazyload" alt="">
+							*/}
 						</div>
-						<div class="gallery__thumbs">
-							<a href="img1.png" class="gallery__link js-gallery-switch-image">
-								<img src="img1-thumb.png" class="gallery__thumb" alt="">
-							</a>
-							<a href="img2.png" class="gallery__link js-gallery-switch-image">
-								<img src="img2-thumb.png" class="gallery__thumb" alt="">
-							</a>
+						<div id="modal__gallery-thumbs" className="gallery__thumbs">
+							{/*
+								// Generated structure from JS
+								<a href="img1.png" class="gallery__link js-gallery-switch-image">
+									<img src="img1-thumb.png" class="gallery__thumb" alt="">
+								</a>
+								<a href="img2.png" class="gallery__link js-gallery-switch-image">
+									<img src="img2-thumb.png" class="gallery__thumb" alt="">
+								</a>
+							*/}
 						</div>
-
-					 */}</div>
+					</div>
 
 				</div>
-				<a href="/" className="modal__close js-modal-close">[X]</a>
+				<a href="/" className="modal__close js-modal-close">
+					<IconCloseWindow />
+					<span className="hide-me">Close</span>
+				</a>
 			</div>
 			<div className="modal-overlay js-modal-close"></div>
 		</>

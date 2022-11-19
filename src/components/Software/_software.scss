@@ -7,13 +7,4 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: ($gap);
-
-	li {
-		list-style: none;
-
-		&::marker {
-			display: none;
-			content: '';
-		}
-	}
 }
