@@ -43,7 +43,7 @@ export default function Intro() {
 		<>
 			<div className="intro">
 				<div className="intro__inner">
-					<h1 className="intro__title fade-me-in"><span className="hide-me-on-mobile">{name}</span></h1>
+					<h1 className="intro__title fade-me-in"><span>{name}</span></h1>
 					<h2 className="intro__subtitle fade-me-in">{description}</h2>
 					{/*<p>made in czech republic, recently exported to canada</p>*/}
 					<ul className="intro__links fade-me-in">

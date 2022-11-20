@@ -9,7 +9,7 @@ $animation-timing: 350ms;
 	position: relative;
 	z-index: 3;
 
-	&::selection {
+	::selection {
 		background-color: $color-black;
 	}
 }
@@ -141,10 +141,8 @@ $animation-timing: 350ms;
 		justify-content: space-between;
 		align-items: center;
 		animation: slideMeDown 750ms $easeOutBack forwards;
-		border: 10px solid;
-		border-image-source: linear-gradient(0deg, rgba($color-white, 0%), rgba($color-white, 20%));
-		border-image-slice: 1;
 		transition: background-color 750ms $easeOutExpo;
+		max-width: none;
 
 		&:hover {
 			background-color: $color-black;
@@ -156,12 +154,6 @@ $animation-timing: 350ms;
 
 		@media (any-hover: none) {
 			background-color: $color-black;
-			border: 0;
-		}
-
-		@media (min-width: $bp-md) {
-			top: ($gap * .5);
-			border-width: 3px;
 		}
 	}
 
@@ -172,16 +164,12 @@ $animation-timing: 350ms;
 			width: ($gap * 3);
 		}
 
-		@media (max-width: $bp-md-max) {
-			&:after {
-				content: 'MS';
-			}
+		&:after {
+			content: 'MS';
 		}
 
-		.hide-me-on-mobile {
-			@media (max-width: $bp-md-max) {
-				display: none;
-			}
+		span {
+			display: none;
 		}
 	}
 }
