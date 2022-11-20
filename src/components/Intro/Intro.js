@@ -66,7 +66,7 @@ export default function Intro() {
 							</a>
 						</li>
 					</ul>
-					<p className="intro__hashtags fade-me-in">#frontend #design #privacy</p>
+					{/*<p className="intro__hashtags fade-me-in">#frontend #design #privacy</p>*/}
 				</div>
 			</div>
 		</>
