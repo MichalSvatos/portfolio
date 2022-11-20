@@ -14,7 +14,7 @@
 
 .delorean__holder {
 	position: relative;
-	width: 300px;
+	width: 360px;
 	height: 100vh;
 }
 
@@ -27,33 +27,29 @@
 }
 
 .delorean__container {
-	//aspect-ratio: 17/36;
-	--delorean-width: 35px;
-	--delorean-height: 74px;
-
-	position: fixed;
-	left: ($gap * 1.2);
-	top: 50%;
-	width: var(--delorean-width);
-	height: var(--delorean-height);
-	translate: 0 -50%;
-	padding: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	scale: 1;
-	rotate: 0deg;
-	transition: scale 1000ms $easeOutBack, rotate 1500ms $easeOutExpo, top 1500ms ease-in-out;
-	transform-origin: calc(var(--delorean-width) / 2) var(--delorean-height);
-
-	@media (min-width: $bp-md) {
-		--delorean-width: 50px;
-		--delorean-height: 106px;
+	@media (max-width: $bp-md-max) {
+		display: none;
 	}
 
-	@media (min-width: $bp-lg) {
-		--delorean-width: 85px;
-		--delorean-height: 180px;
+	@media (min-width: $bp-md) {
+		//aspect-ratio: 60/97;
+		--delorean-width: 130px;
+		--delorean-height: 210px;
+
+		position: fixed;
+		left: ($gap * 1.5);
+		top: 40%;
+		width: var(--delorean-width);
+		height: var(--delorean-height);
+		translate: 0 -50%;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		scale: 1;
+		rotate: 0deg;
+		transition: scale 1000ms $easeOutBack, rotate 1500ms $easeOutExpo, top 1500ms ease-in-out;
+		transform-origin: calc(var(--delorean-width) / 2) var(--delorean-height);
 	}
 
 	&.is-hovering {
@@ -77,29 +73,111 @@
 	}
 
 	.delorean__car {
-		// temp
-		background: transparent url("/delorean-test.png") no-repeat center center;
+		background: transparent url("./images/delorean--present.png") no-repeat center center;
 		background-size: contain;
+
+		&:after {
+			//content: '';
+			//aspect-ratio: 60/97;
+			//width: 130px;
+			//background: transparent url("./images/delorean--hover-conversion.png") no-repeat center center;
+			//background-size: contain;
+			//z-index: -1;
+			//position: absolute;
+			//left: 0;
+			//top: 0;
+		}
 	}
 }
 
 .delorean__container--past {
 	.delorean__car {
-		// temp
-		background: transparent url("/delorean-test.png") no-repeat center center;
+		background: transparent url("./images/delorean--past.png") no-repeat center center;
 		background-size: contain;
 	}
+
+	&.is-going-back {
+		.delorean__shadow {
+			translate: -52% -50%;
+		}
+
+		&.is-hovering {
+			.delorean__shadow {
+				opacity: 0;
+			}
+		}
+	}
+
 }
 
 .delorean__container--history {
 	.delorean__car {
-		// temp
-		background: transparent url("/delorean-test-history.png") no-repeat center center;
+		background: transparent url("./images/delorean--history.png") no-repeat center center;
 		background-size: contain;
+
+	}
+
+	&.is-going-back {
+		.delorean__shadow {
+			translate: -52% -50%;
+		}
+	}
+}
+
+// -- effects
+.delorean__shadow {
+	aspect-ratio: 60/97;
+	width: 160px;
+	background: transparent url("./images/delorean--shadow.png") no-repeat center center;
+	background-size: contain;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	translate: -48% -50%;
+	transition: translate 1000ms ease-in-out, opacity 1000ms ease-in-out;
+	opacity: 1;
+	will-change: translate, opacity;
+	z-index: -1;
+}
+
+.delorean__headlights {
+	width: 185px;
+	height: 175px;
+	background: transparent url("./images/delorean--headlights.png") no-repeat 0 0;
+	background-size: contain;
+	position: absolute;
+	left: 0;
+	top: 0;
+	translate: -29px 107%;
+	z-index: 2;
+
+	.is-hovering & {
+		animation: hovering 4s ease-in-out infinite both;
+		transform-origin: 93px 0;
+	}
+}
+
+.delorean__hover-conversion {
+	aspect-ratio: 60/97;
+	width: 130px;
+	background: transparent url("./images/delorean--hover-conversion.png") no-repeat center center;
+	background-size: contain;
+	z-index: -1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+	transform: scaleX(.7);
+	transition: transform 1000ms $easeOutExpo;
+
+	.is-hovering & {
+		animation: hovering 4s ease-in-out infinite both;
+		transform: scaleX(1);
 	}
 }
 
 .is-time-travelling {
+	// temp
 	outline: 5px solid rgb(30 30 255 / 30%);
 }
 

@@ -14,6 +14,10 @@
 	width: 100px;
 	background: transparent url("../../../static/sections/object--rails.png") repeat-y 0 0;
 	background-size: 100px 100px;
+
+	@media (min-width: $bp-md) {
+		left: ($gap * 2.35);
+	}
 }
 
 .object__bush {

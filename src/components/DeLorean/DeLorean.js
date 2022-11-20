@@ -4,7 +4,7 @@ import DeLoreanTimeVariant from "./DeLoreanTimeVariant";
 
 export default function DeLorean({timePeriods}) {
 	const {present, past, history} = timePeriods
-	const deLoreanVisibilityTreshold = 575
+	const deLoreanVisibilityTreshold = 767
 
 	// Make clip slices same height as sections to make the time travel "seamless"
 	const makePreciseSlices = () => {
