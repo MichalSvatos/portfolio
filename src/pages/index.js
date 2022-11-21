@@ -8,7 +8,7 @@ import Intro from "../components/Intro/Intro"
 import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
 // import Software from "../components/Software/Software"
-import OldPaper from "../../static/project-item/item-history--clippath.inline.svg"
+import OldPaper from "../components/Projects/Item/images/item-history--clippath.inline.svg"
 
 export default function Homepage({data}) {
 	const projectSorter = (timeperiod) => {

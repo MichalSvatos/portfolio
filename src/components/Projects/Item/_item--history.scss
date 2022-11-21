@@ -53,7 +53,7 @@
 	// -- paper background
 	&:before {
 		content: '';
-		background: $color-history-primary url("../../../../static/project-item/item-history--bg.jpg") no-repeat 0 0;
+		background: $color-history-primary url("./images/item-history--bg.jpg") no-repeat 0 0;
 		background-size: cover;
 		position: absolute;
 		clip-path: url("#oldpaper");

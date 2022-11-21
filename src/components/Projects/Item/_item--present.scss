@@ -9,7 +9,7 @@
 	border: ($gap * 1.5) solid transparent;
 	border-image-slice: 27;
 	border-image-repeat: repeat repeat;
-	border-image-source: url("../../../../static/project-item/item-present--border.svg");
+	border-image-source: url("./images/item-present--border.svg");
 	padding: 0;
 	position: relative;
 	animation: signHovering 7500ms ease-in-out infinite;
@@ -88,8 +88,8 @@
 		&:before {
 			@media (min-width: $bp-md) {
 				content: '';
-				background: linear-gradient(to bottom, $color-present-ui-primary 0%, $color-present-ui-primary 50%, $color-present-ui-primary 50%, rgba($color-white, 0%) 50%, rgba($color-white, 0%) 100%) repeat 0 0;
-				background-size: 4px 4px;
+				//background: linear-gradient(to bottom, $color-present-ui-primary 0%, $color-present-ui-primary 50%, $color-present-ui-primary 50%, rgba($color-white, 0%) 50%, rgba($color-white, 0%) 100%) repeat 0 0;
+				//background-size: 4px 4px;
 				position: absolute;
 				inset: 0;
 				z-index: 1;
@@ -143,7 +143,7 @@
 				position: absolute;
 				right: 35px;
 				bottom: -52px;
-				background: transparent url("../../../../static/project-item/item-present--tags.png") no-repeat 0 0;
+				background: transparent url("./images/item-present--tags.png") no-repeat 0 0;
 				background-size: contain;
 				width: 70px;
 				height: 70px;
@@ -171,7 +171,7 @@
 	@media (min-width: $bp-md) {
 		width: 159px;
 		height: 115px;
-		background: transparent url("../../../../static/project-item/item-present--lamp.png") no-repeat 0 0;
+		background: transparent url("./images/item-present--lamp.png") no-repeat 0 0;
 		background-size: contain;
 		position: absolute;
 		top: -115px;
@@ -182,7 +182,7 @@
 .object-item__year {
 	width: 159px;
 	height: 116px;
-	background: transparent url("../../../../static/project-item/item-present--year.png") no-repeat 0 0;
+	background: transparent url("./images/item-present--year.png") no-repeat 0 0;
 	background-size: contain;
 	position: absolute;
 	top: -116px;
@@ -215,7 +215,7 @@
 	width: 226px;
 	height: 198px;
 	bottom: -198px;
-	background: transparent url("./images/project-item--present-lamp.png") no-repeat 0 0;
+	background: transparent url("./images/item-present--biglamp.png") no-repeat 0 0;
 	background-size: contain;
 	z-index: 0;
 	translate: -50% 0;
@@ -254,7 +254,7 @@
 .object-item__bazmek {
 	width: 78px;
 	height: 130px;
-	background: transparent url("../../../../static/project-item/item-present--bazmek.png") no-repeat 0 0;
+	background: transparent url("./images/item-present--bazmek.png") no-repeat 0 0;
 	background-size: contain;
 	position: absolute;
 	left: 50%;
