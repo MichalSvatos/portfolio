@@ -36,7 +36,6 @@ export default function Modal() {
 			}
 
 			// -- handling tags
-
 			if (data.tags) {
 				let tagsHtml = ""
 
@@ -91,13 +90,16 @@ export default function Modal() {
 				e.preventDefault()
 
 				bodyScrollingHandler()
-				modal.classList.remove("modal-is-open")
+				modal.classList.remove("modal-is-open", "modal-is-ready")
 			})
 		})
 	}
 
 	const showModal = (modal) => {
-		modal.classList.add("modal-is-open")
+		modal.classList.add("modal-is-ready")
+		setTimeout(() => {
+			modal.classList.add("modal-is-open")
+		}, 500)
 	}
 
 	const bodyScrollingHandler = () => {
@@ -138,7 +140,7 @@ export default function Modal() {
 		document.addEventListener("keydown", (event) => {
 			if (event.key === 'Escape') {
 				bodyScrollingHandler()
-				modal.classList.remove("modal-is-open")
+				modal.classList.remove("modal-is-open", "modal-is-ready")
 			}
 		})
 	})

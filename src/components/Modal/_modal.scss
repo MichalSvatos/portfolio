@@ -26,14 +26,19 @@
 	}
 }
 
-// TODO: Later - animation
-.modal-is-open {
+.modal-is-ready {
 	& + .modal-overlay {
 		position: fixed;
 		inset: 0;
-		background-color: rgba($color-black, 5%);
+		background-color: rgba($color-modal-ui-bg, 0);
 		z-index: 5;
+		animation: modal 350ms ease-in-out forwards;
 	}
+}
+
+@keyframes modal {
+	from {background-color: rgba($color-modal-ui-bg, 0)}
+	to {background-color: rgba($color-modal-ui-bg, 90)}
 }
 
 .modal__close {
