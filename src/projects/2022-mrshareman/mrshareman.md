@@ -10,9 +10,9 @@ url:
   link: https://michalsvatos.github.io/mr-shareman/
 timeperiod: present
 featured: images/featured.png
-collectionThumbs: ["images/collection/thumbs/green.png", "images/collection/thumbs/orange.png", "images/collection/thumbs/aqua.png"]
-collection: ["images/collection/green.png", "images/collection/orange.png", "images/collection/aqua.png"]
+collectionThumbs: ["images/collection/thumbs/hp.png", "images/collection/thumbs/share.png"]
+collection: ["images/collection/hp.png", "images/collection/share.png"]
 perex: Small web based application for sharing text on the screen
 ---
 
-I coded and designed small simple application that allows people to quickly share something on their device screen.
+I coded and designed small simple application that allows people to quickly share something on their device screen. <br>Have you ever been in a situation when you needed to give someone your email/phone or an address? Just copy, paste and show the screen. <br>Continuosly working on the project.

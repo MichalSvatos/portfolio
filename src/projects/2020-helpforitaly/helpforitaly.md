@@ -10,13 +10,11 @@ url:
   link: https://github.com/MichalSvatos/helpforitaly
 timeperiod: past
 featured: images/featured.png
-collectionThumbs: ["images/collection/thumbs/blue.png"]
-collection: ["images/collection/blue.png"]
+collectionThumbs: ["images/collection/thumbs/hp1.jpg", "images/collection/thumbs/hp2.jpg", "images/collection/thumbs/hp3.jpg"]
+collection: ["images/collection/hp1.jpg", "images/collection/hp2.jpg", "images/collection/hp3.jpg"]
 perex: Complete website for a personal charity project
 ---
 
-### Graphic design and coding for charity project HELP FOR ITALY
-
-I designed, coded and programmed charity project websites to help Italy during the COVID19 pandemic.
+I designed, coded and programmed charity project websites to help Italy during the COVID-19 pandemic.
 
 
