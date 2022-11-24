@@ -2,16 +2,7 @@
 
 .time {
 	&--present {
-		//background-color: #526480;
-		//font-family: $font-family-present-text;
-		//background-image: url("../../../static/temp-bg.jpg");
-		//background-repeat: repeat;
-		//background-size: cover;
 		//
-		//@media (min-width: $bp-md) {
-		//	background-size: contain;
-		//}
-
 	}
 
 	&--past {
@@ -19,7 +10,22 @@
 		background: #1C1C1C url("../../../static/time/time--past-bg.jpg") repeat 0 0;
 		background-size: 200px 200px;
 		font-family: $font-family-past-text;
-		color: white
+		color: white;
+
+		// -- time void (divider)
+		&:before,
+		&:after {
+			content: '';
+			width: 100%;
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: ($gap * 3);
+			background: transparent url("./images/time-divider.png") repeat-x 0 0;
+			background-size: contain;
+			z-index: 2;
+			translate: 0 -55%;
+		}
 	}
 
 	&--history {
@@ -33,29 +39,13 @@
 .has-event-horizon-on-bottom {
 	&:before,
 	&:after {
-		content: '';
-		position: absolute;
-		left: 0;
-		right: 0;
-		//height: ($gap * 2);
-		opacity: 0;
+		height: auto;
 		width: 100%;
-		//background-color: rgb(30 30 255 / 30%);
 		background: transparent url("../../../static/test-lightning.png") no-repeat center center;
 		aspect-ratio: 2560/163;
 		background-size: cover;
 		translate: 0 -60%;
+		z-index: 5;
 	}
 }
 
-.has-event-horizon-on-top {
-	&:before {
-		opacity: 1;
-	}
-}
-
-.has-event-horizon-on-bottom {
-	&:after {
-		opacity: 1;
-	}
-}
