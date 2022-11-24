@@ -21,6 +21,7 @@
 	filter: drop-shadow(0 40px 50px rgba($color-black, 30%));
 	padding-inline: ($gap * 1.5);
 	padding-bottom: ($gap * 4);
+	z-index: 2;
 
 	@media (min-width: $bp-md) {
 		padding-inline: ($gap * 2.5);
@@ -80,6 +81,16 @@
 	& > * {
 		position: relative;
 		z-index: 1;
+	}
+
+	& + & {
+		@media (min-width: $bp-xl) {
+			margin-top: -($gap * 5);
+		}
+
+		@media (min-width: $bp-xxl) {
+			margin-top: -($gap * 18);
+		}
 	}
 
 	.project-item__title {

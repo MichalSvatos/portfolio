@@ -22,9 +22,13 @@
 			right: 0;
 			height: ($gap * 3);
 			background: transparent url("./images/time-divider.png") repeat-x 0 0;
-			background-size: contain;
+			background-size: cover;
 			z-index: 2;
 			translate: 0 -55%;
+
+			@media (min-width: $bp-md) {
+				background-size: contain;
+			}
 		}
 	}
 

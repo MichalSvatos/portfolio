@@ -42,8 +42,16 @@ export default function Projects({projectsData}) {
 						{timeperiod === "history" &&
 							<>
 								<div className="object__rails"></div>
-								<div className="object__bush"></div>
-								<div className="object__bush-2"></div>
+								<div className="object__cave"></div>
+								<div className="object__cliff"></div>
+								<div className="object__campfire object__sprite object__sprite--history"></div>
+								<div className="object__plants object__sprite object__sprite--history"></div>
+								<div className="object__grass1 object__sprite object__sprite--history"></div>
+								<div className="object__grass2 object__sprite object__sprite--history"></div>
+								<div className="object__grass3 object__sprite object__sprite--history"></div>
+								<div className="object__grass4 object__sprite object__sprite--history"></div>
+								<div className="object__stones object__sprite object__sprite--history"></div>
+								<div className="object__endoftrack object__sprite object__sprite--history"></div>
 							</>
 						}
 					</div>

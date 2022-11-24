@@ -1,7 +1,7 @@
 @use "../../styles" as *;
 
 .section--history {
-	padding: ($gap) ($gap);
+	padding: ($gap) ($gap) ($gap * 8) ($gap);
 	position: relative;
 	box-shadow: inset 0 0 300px #2a2008;
 }
@@ -20,22 +20,121 @@
 	}
 }
 
-.object__bush {
-	background: transparent url("../../../static/time/bush.png") no-repeat 0 0;
-	background-size: 100px 100px;
-	width: 100px;
-	height: 100px;
+// -- sprite objects
+.object__sprite--history {
+	background: transparent url("./images/objects-sprite--history.png") no-repeat 0 0;
+	width: 200px;
+	height: 200px;
 	position: absolute;
-	right: 10rem;
-	top: 2rem;
+	background-size: (1200px * .5) (800px * .5);
 }
 
-.object__bush-2 {
-	background: transparent url("../../../static/time/bush2.png") no-repeat 0 0;
-	background-size: 100px 100px;
-	width: 100px;
+.object__campfire {
+	background-position: 0 0;
+	left: 21%;
+	bottom: 10%;
+}
+
+.object__endoftrack {
+	background-position: -200px 0;
+	left: 50%;
+	bottom: 0;
+	z-index: 3;
+	translate: -50% 60%;
+}
+
+.object__stones {
+	@media (min-width: $bp-sm) {
+		background-position: -200px -200px;
+		left: 43%;
+		bottom: 50%;
+	}
+}
+
+.object__plants {
+	@media (min-width: $bp-md) {
+		background-position: -400px 0;
+		right: 0;
+		top: 2%;
+	}
+	@media (min-width: $bp-xxl) {
+		right: 7%;
+		top: 5%;
+	}
+}
+
+.object__grass {
+	&1,
+	&2,
+	&3,
+	&4 {
+		background-position: 0 -200px;
+		display: none;
+
+		@media (min-width: $bp-lg) {
+			display: block;
+		}
+	}
+
+	&1 {
+		display: block;
+		left: 10%;
+		top: 2%;
+
+		@media (min-width: $bp-lg) {
+			left: auto;
+			right: 25%;
+			top: 10%;
+		}
+	}
+
+	&2 {
+		@media (min-width: $bp-lg) {
+			left: 22%;
+			top: 36%;
+		}
+	}
+
+	&3 {
+		@media (min-width: $bp-lg) {
+			right: 31%;
+			bottom: 22%;
+		}
+	}
+
+	&4 {
+		@media (min-width: $bp-lg) {
+			right: 41%;
+			bottom: 12%;
+		}
+	}
+}
+
+.object__cave {
+	@media (min-width: $bp-md) {
+		background: transparent url("../../../static/cave.png") no-repeat 0 0;
+		width: 610px;
+		height: 350px;
+		position: absolute;
+		left: 0;
+		bottom: -($gap * 1.5);
+		background-size: contain;
+		z-index: 2;
+	}
+}
+
+.object__cliff {
+	background: transparent url("../../../static/cliff.png") repeat-x 0 0;
+	width: 100%;
 	height: 100px;
 	position: absolute;
-	right: 20rem;
-	top: 2rem;
+	left: 0;
+	right: 0;
+	bottom: -($gap * 2);
+	background-size: contain;
+	z-index: 2;
+
+	@media (min-width: $bp-lg) {
+		z-index: 0;
+	}
 }
