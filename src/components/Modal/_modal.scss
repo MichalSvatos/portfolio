@@ -54,6 +54,7 @@
 	color: $color-modal-text;
 	text-decoration: none;
 	transition: background-color 350ms $easeOutExpo, color 350ms $easeOutExpo;
+	z-index: 5;
 
 	&:hover {
 		background-color: $color-modal-error;
