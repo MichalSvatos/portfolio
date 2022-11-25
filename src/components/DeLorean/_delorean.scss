@@ -67,16 +67,12 @@
 	&.is-time-travelling {
 		.delorean__car {
 			&:after {
-				content: '';
-				aspect-ratio: 60/97;
-				width: 130px;
-				position: absolute;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				background: transparent url("./images/delorean--timecircuits-active.png") no-repeat center center;
-				background-size: contain;
 				animation: timeCircuitsActive 2s linear infinite both;
+				opacity: 1;
+			}
+
+			&:before {
+				opacity: 1;
 			}
 		}
 	}
@@ -116,6 +112,10 @@
 }
 
 .delorean__container--history {
+	&.is-hiding {
+		top: 90%;
+	}
+
 	.delorean__car {
 		background: transparent url("./images/delorean--history.png") no-repeat center center;
 		background-size: contain;
@@ -188,6 +188,35 @@
 	height: 100%;
 	display: flex;
 	align-items: center;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		opacity: 0;
+		transition: opacity 400ms ease-in-out;
+	}
+
+	// -- time circuits ready
+	&:after {
+		aspect-ratio: 60/97;
+		width: 130px;
+		z-index: 1;
+		left: 0;
+		background: transparent url("./images/delorean--timecircuits-active.png") no-repeat center center;
+		background-size: contain;
+	}
+
+	&:before {
+		background: transparent url("./images/delorean--firetrail.png") repeat-x 0 0;
+		background-size: contain;
+		width: 120px;
+		height: 120px;
+		left: 25px;
+		translate: 0 -88%; // It was an accident, I swear :)
+		z-index: -1;
+	}
 }
 
 @keyframes driving {
@@ -228,7 +257,7 @@
 @keyframes timeCircuitsActive {
 	0%,
 	100% {
-		opacity: 1;
+		opacity: 0;
 	}
 	31.98% {
 		opacity: 1;
