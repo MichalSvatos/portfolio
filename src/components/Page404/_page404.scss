@@ -1,0 +1,35 @@
+@use "../../styles" as *;
+
+.page404 {
+	background-color: $color-black;
+	color: $intro-text-color;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	& > * {
+		margin-top: ($gap);
+	}
+}
+
+.page404__title {
+	color: darkorange;
+	font-size: font-fluid(xl);
+}
+
+.page404__btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: ($gap * .5) ($gap);
+	background-color: $color-present-text-primary;
+	color: $color-white;
+	text-decoration: none;
+	transition: color 250ms ease-in-out;
+
+	&:hover {
+		color: $intro-text-color;
+	}
+}
