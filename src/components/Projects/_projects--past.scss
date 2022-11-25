@@ -53,3 +53,21 @@
 .object__parking3 {
 	top: 80%;
 }
+
+.object__van {
+	@media (min-width: $bp-xxl) {
+		width: 1000px;
+		height: 469px;
+		background: transparent url("./images/object--gmc-van.png") no-repeat 0 0;
+		background-size: contain;
+		position: absolute;
+		right: 15%;
+		bottom: 5%;
+		rotate: -20deg;
+	}
+
+	@media (min-width: $bp-xxxl) {
+		right: 35%;
+	}
+}
+

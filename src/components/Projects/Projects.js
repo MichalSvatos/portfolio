@@ -39,6 +39,7 @@ export default function Projects({projectsData}) {
 								<div className="object__parking1 object__sprite object__sprite--past"></div>
 								<div className="object__parking2 object__sprite object__sprite--past"></div>
 								<div className="object__parking3 object__sprite object__sprite--past"></div>
+								<div className="object__van"></div>
 							</>
 						}
 
