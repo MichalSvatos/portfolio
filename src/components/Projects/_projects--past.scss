@@ -1,16 +1,55 @@
 @use "../../styles" as *;
 
 .section--past {
+	padding: ($gap) ($gap) ($gap * 8) ($gap);
 	position: relative;
 }
 
-.object__road {
+// -- sprite objects
+.object__sprite--past {
+	background: transparent url("./images/objects-sprite--past.png") no-repeat 0 0;
+	width: 200px;
+	height: 200px;
 	position: absolute;
+	background-size: (1600px * .5) (800px * .5);
+}
+
+.object__road {
 	left: 0;
 	top: 0;
 	bottom: 0;
 	width: 200px;
-	background: transparent url("../../../static/time/road.png") repeat-y 0 0;
-	background-size: 200px 200px;
+	height: auto;
 	z-index: 0;
+	background-position: 0 0;
+	background-repeat: repeat-y;
+}
+
+.object__parking1,
+.object__parking2,
+.object__parking3 {
+	@media (min-width: $bp-md) {
+		width: 600px;
+		height: 400px;
+		background-position: -200px 0;
+		right: 0;
+		top: 10%;
+	}
+
+	@media (min-width: $bp-lg) {
+		right: 10%;
+	}
+}
+
+.object__parking2 {
+	top: 50%;
+
+	@media (min-width: $bp-xxl) {
+		right: auto;
+		left: 20%;
+	}
+}
+
+.object__parking3 {
+	top: 80%;
 }

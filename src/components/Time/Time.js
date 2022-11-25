@@ -1,6 +1,8 @@
 import React, {useEffect} from "react"
 import "./_time.scss"
 import "./_time--present.scss"
+import "./_time--past.scss"
+import "./_time--history.scss"
 
 export default function Time({children, timePeriod = 'present', customClass = ''}) {
 
