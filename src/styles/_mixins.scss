@@ -15,7 +15,7 @@
 @mixin scrollbars(
 	$size: .5rem,
 	$foreground-color: #555,
-	$background-color: #333
+	$background-color: #222
 ) {
 	// For Chrome & Safari
 	&::-webkit-scrollbar {
@@ -24,6 +24,7 @@
 	}
 	&::-webkit-scrollbar-thumb {
 		background: $foreground-color;
+		border-radius: 5px;
 	}
 	&::-webkit-scrollbar-track {
 		background: $background-color;
