@@ -44,13 +44,12 @@ $bp-xl-max: $bp-xl - 1;
 $bp-xxl-max: $bp-xxl - 1;
 
 // Typography
-$font-family-default: "Lexend", sans-serif;
+$font-family-default: "Almarai", "Verdana", sans-serif;
 $font-family-time-circuits: 'Digital-7 Mono', "Courier New", monospace;
-//$font-family-present-heading: "Senilita", "Impact", sans-serif;
 $font-family-present-heading: "TeXGyreAdventor", "Verdana", sans-serif;
 $font-family-present-text: $font-family-default;
-$font-family-past-heading: "Georgia", "Times New Roman", serif;
-$font-family-past-text: "Times New Roman", serif;
+$font-family-past-heading: $font-family-default;
+$font-family-past-text: "Dot Matrix";
 $font-family-history-heading: "Faroest", "Courier New", monospace;
 $font-family-history-text: "Courier New", monospace;
 

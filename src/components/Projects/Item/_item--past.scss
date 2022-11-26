@@ -2,8 +2,101 @@
 @use "sass:color";
 
 .project-item--past {
+	background-color: darken($color-white, 7%);
+	padding: ($gap * .5);
+	border-radius: ($gap * 1.25);
+	border: ($gap * .3) solid $color-black;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	z-index: 2;
+	transition: box-shadow 350ms $easeOutExpo;
+
+	&:hover {
+		box-shadow: 0 0 50px -15px $color-white;
+	}
+
+	// -- last element of the black "panel"
+	& > [class]:last-child {
+		border-radius: 0 0 ($gap) ($gap);
+	}
+
+
+	.project-item__perex,
+	.project-item__year,
+	.project-item__tags {
+		background-color: $color-black;
+		color: #ffe0a7;
+		margin-top: 0;
+		padding: ($gap * .5) ($gap);
+		letter-spacing: 1px;
+		text-align: left;
+	}
+
 	.project-item__title {
-		font-family: $font-family-past-heading;
+		--distance: 4rem; // $gap * 4
+
 		text-transform: uppercase;
+		text-align: left;
+		position: relative;
+		padding-left: calc(var(--distance) + $gap);
+
+		@media (min-width: $bp-md) {
+			--distance: 6.5rem;
+		}
+
+		&:before {
+			content: '';
+			width: var(--distance);
+			aspect-ratio: 1/1;
+			background: transparent url("./images/item-past--twin-pines.svg") no-repeat center center;
+			background-size: contain;
+			display: block;
+			position: absolute;
+			top: -($gap * 3);
+			left: 0;
+
+			.you-space-bastard-you-killed-my-pine & {
+				background-image: url("./images/item-past--lone-pine.svg");
+				background-size: contain;
+			}
+		}
+
+		// -- first element (after the title) of the black "panel"
+		& + * {
+			border-radius: ($gap) ($gap) 0 0;
+		}
+	}
+
+	.project-item__image {
+		border: ($gap * .3) solid $color-black;
+		background-color: $color-black;
+	}
+
+	.project-item__perex {
+		max-width: none;
+		margin-inline: 0;
+	}
+
+	.project-item__year {
+		font-size: font-size(xl3);
+		letter-spacing: 5px;
+		border-top: 3px dotted darken(#ffe0a7, 65%);
+		//border-bottom: 3px dotted darken(#ffe0a7, 65%);
+		text-align: center;
+	}
+
+	.project-item__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: ($gap * .5);
+		justify-content: center;
+	}
+
+	.project-item__tag {
+		text-transform: uppercase;
+		border: 1px dotted darken(#ffe0a7, 65%);
+		padding: ($gap * .25) ($gap * .5);
 	}
 }

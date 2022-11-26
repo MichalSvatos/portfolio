@@ -46,6 +46,7 @@ export default function DeLorean({timePeriods}) {
 
 				if (window.scrollY < ((window.innerHeight / 2) + 10)) {
 					deLoreanContainerPresent.classList.remove("started")
+					body.classList.remove("you-space-bastard-you-killed-my-pine")
 				}
 
 
@@ -67,9 +68,10 @@ export default function DeLorean({timePeriods}) {
 					deLoreanContainerPast.classList.remove("is-hovering")
 				}
 
-				// -- hide Delorean in the cave
+				// -- hide Delorean in the cave + change the "past" timeline
 				if (window.scrollY > ((body.offsetHeight - window.innerHeight) - 100)) {
 					deLoreanContainerHistory.classList.add("is-hiding")
+					body.classList.add("you-space-bastard-you-killed-my-pine")
 				}
 
 			}

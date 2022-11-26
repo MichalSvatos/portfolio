@@ -39,6 +39,7 @@ export default function Project({timeperiod, projectData}) {
 				data-year={year}
 				key={id}
 			>
+
 				{/* -- various object for each time period item */}
 				<div className={`project-item__objects objects-item objects-item--${timeperiod}`}>
 					{
@@ -55,13 +56,8 @@ export default function Project({timeperiod, projectData}) {
 				</div>
 
 				<h3 className="project-item__title">{title}</h3>
-				{
-					featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} />
-				}
-
-				{
-					perex && <p className="project-item__perex">{perex}</p>
-				}
+				{ featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} /> }
+				{ perex && <p className="project-item__perex">{perex}</p> }
 
 				<div className="project-item__year">{year}</div>
 
@@ -74,6 +70,8 @@ export default function Project({timeperiod, projectData}) {
 						}
 					</div>
 				}
+
+
 			</a>
 		</>
 	)

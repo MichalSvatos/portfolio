@@ -1,7 +1,6 @@
 @use "../../../styles" as *;
 
 .project-item {
-	background-color: dimgray;
 	max-width: ($gap * 31);
 	padding: ($gap) ($gap);
 	width: 100%;
@@ -36,6 +35,9 @@
 .project-item__title {
 	margin-top: 0;
 	text-align: center;
+	font-family: $font-family-past-heading;
+	font-style: normal;
+	font-weight: 300;
 }
 
 .project-item__image {
