@@ -2,6 +2,8 @@ import React, {useEffect} from "react"
 import "./_delorean.scss"
 import DeLoreanTimeVariant from "./DeLoreanTimeVariant";
 
+const isBrowser = typeof window !== "undefined"
+
 export default function DeLorean({timePeriods}) {
 	const {present, past, history} = timePeriods
 	const deLoreanVisibilityThreshold = 767
@@ -22,63 +24,65 @@ export default function DeLorean({timePeriods}) {
 	// Thanks - https://codepen.io/lehollandaisvolant/pen/ryrrGx
 	let scrollPos = 0
 
-	window.addEventListener('scroll', () => {
-		if (window.innerWidth > deLoreanVisibilityThreshold) {
+	if (isBrowser) {
+		window.addEventListener('scroll', () => {
+			if (window.innerWidth > deLoreanVisibilityThreshold) {
 
-			const body = document.body
-			const deLoreanContainers = document.querySelectorAll(".delorean__container")
-			const deLoreanLandingThreshold = document.querySelector(".time--present").offsetHeight - (window.innerHeight / 2)
-			const deLoreanContainerPresent = document.querySelector(".delorean__container--present")
-			const deLoreanContainerPast = document.querySelector(".delorean__container--past")
-			const deLoreanContainerHistory = document.querySelector(".delorean__container--history")
+				const body = document.body
+				const deLoreanContainers = document.querySelectorAll(".delorean__container")
+				const deLoreanLandingThreshold = document.querySelector(".time--present").offsetHeight - (window.innerHeight / 2)
+				const deLoreanContainerPresent = document.querySelector(".delorean__container--present")
+				const deLoreanContainerPast = document.querySelector(".delorean__container--past")
+				const deLoreanContainerHistory = document.querySelector(".delorean__container--history")
 
-			if ((body.getBoundingClientRect()).top > scrollPos) {
-				// -- when you go BACK TO THE FUTURE!
-				deLoreanContainers.forEach(delorean => {
-					delorean.classList.add('is-going-back')
-					deLoreanContainerHistory.classList.remove("is-hiding")
-				})
+				if ((body.getBoundingClientRect()).top > scrollPos) {
+					// -- when you go BACK TO THE FUTURE!
+					deLoreanContainers.forEach(delorean => {
+						delorean.classList.add('is-going-back')
+						deLoreanContainerHistory.classList.remove("is-hiding")
+					})
 
-				// -- “A flying DeLorean? I haven’t seen one of those in 30 years”
-				if (window.scrollY < (deLoreanLandingThreshold + 350)) {
-					deLoreanContainerPast.classList.add("is-hovering")
+					// -- “A flying DeLorean? I haven’t seen one of those in 30 years”
+					if (window.scrollY < (deLoreanLandingThreshold + 350)) {
+						deLoreanContainerPast.classList.add("is-hovering")
+					}
+
+					if (window.scrollY < ((window.innerHeight / 2) + 10)) {
+						deLoreanContainerPresent.classList.remove("started")
+						body.classList.remove("you-space-bastard-you-killed-my-pine")
+					}
+
+
+				} else {
+					// -- when you go back in time
+
+					// -- turn Deloreans back to facing dowm
+					deLoreanContainers.forEach(delorean => {
+						delorean.classList.remove('is-going-back')
+					})
+
+					// -- fly the Delorean to the middle of the screen
+					if (window.scrollY > 100) {
+						deLoreanContainerPresent.classList.add("started", "is-hovering")
+					}
+
+					// -- after timetravel, land Delorean
+					if (window.scrollY > deLoreanLandingThreshold) {
+						deLoreanContainerPast.classList.remove("is-hovering")
+					}
+
+					// -- hide Delorean in the cave + change the "past" timeline
+					if (window.scrollY > ((body.offsetHeight - window.innerHeight) - 100)) {
+						deLoreanContainerHistory.classList.add("is-hiding")
+						body.classList.add("you-space-bastard-you-killed-my-pine")
+					}
+
 				}
 
-				if (window.scrollY < ((window.innerHeight / 2) + 10)) {
-					deLoreanContainerPresent.classList.remove("started")
-					body.classList.remove("you-space-bastard-you-killed-my-pine")
-				}
-
-
-			} else {
-				// -- when you go back in time
-
-				// -- turn Deloreans back to facing dowm
-				deLoreanContainers.forEach(delorean => {
-					delorean.classList.remove('is-going-back')
-				})
-
-				// -- fly the Delorean to the middle of the screen
-				if (window.scrollY > 100) {
-					deLoreanContainerPresent.classList.add("started", "is-hovering")
-				}
-
-				// -- after timetravel, land Delorean
-				if (window.scrollY > deLoreanLandingThreshold) {
-					deLoreanContainerPast.classList.remove("is-hovering")
-				}
-
-				// -- hide Delorean in the cave + change the "past" timeline
-				if (window.scrollY > ((body.offsetHeight - window.innerHeight) - 100)) {
-					deLoreanContainerHistory.classList.add("is-hiding")
-					body.classList.add("you-space-bastard-you-killed-my-pine")
-				}
-
+				scrollPos = (document.body.getBoundingClientRect()).top
 			}
-
-			scrollPos = (document.body.getBoundingClientRect()).top
-		}
-	})
+		})
+	}
 
 	useEffect(() => {
 		if (window.innerWidth > deLoreanVisibilityThreshold) {
