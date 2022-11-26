@@ -49,11 +49,11 @@
 	}
 
 	// -- display raster effect
-	&:before {
-		background-image: radial-gradient($color-black 1px, rgba($color-black, 0%) 1px);
-		background-size: 4px 4px;
-		opacity: .1;
-	}
+	//&:before {
+	//	background-image: radial-gradient($color-black 1px, rgba($color-black, 0%) 1px);
+	//	background-size: 4px 4px;
+	//	opacity: .1;
+	//}
 
 	& + & {
 		margin-top: ($gap * 18);

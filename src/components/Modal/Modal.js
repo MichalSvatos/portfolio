@@ -106,7 +106,6 @@ export default function Modal() {
 		const body = document.body
 
 		body.classList.contains("scroll-under-control") ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
-		console.log('bodyScrollingHandler');
 	}
 
 	const clickProject = (modal) => {

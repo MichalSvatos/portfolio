@@ -48,7 +48,6 @@ export default function TimeCircuits() {
 
 			// -- months
 			let resultMonths = Math.floor(scrollCounter / (sectionsCount + 1)) // 0 index compensation
-			console.log('resultMonths', typeof resultMonths);
 
 			if (resultMonths in allMonthsArray) {
 				monthCircuit.innerHTML = allMonthsArray[resultMonths]
