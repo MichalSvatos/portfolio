@@ -12,9 +12,11 @@
 	height: 200px;
 	position: absolute;
 	background-size: (1600px * .5) (800px * .5);
+	display: none;
 }
 
 .object__road {
+	display: block;
 	left: 0;
 	top: 0;
 	bottom: 0;
@@ -29,6 +31,7 @@
 .object__parking2,
 .object__parking3 {
 	@media (min-width: $bp-md) {
+		display: block;
 		width: 600px;
 		height: 400px;
 		background-position: -200px 0;
@@ -45,6 +48,7 @@
 	top: 50%;
 
 	@media (min-width: $bp-xxl) {
+		display: block;
 		right: auto;
 		left: 20%;
 	}
@@ -52,6 +56,10 @@
 
 .object__parking3 {
 	top: 80%;
+
+	@media (min-width: $bp-xxl) {
+		display: block;
+	}
 }
 
 .object__van {
