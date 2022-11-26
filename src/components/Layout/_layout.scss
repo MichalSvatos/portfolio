@@ -178,3 +178,16 @@ p {
 		//display: none;
 	}
 }
+
+// -- NO JS
+.no-js-notice {
+	text-align: center;
+	font-size: .75rem;
+	padding: ($gap * .5) ($gap);
+	background-color: $color-modal-error;
+	color: $color-white;
+
+	a {
+		color: $color-white;
+	}
+}

@@ -61,3 +61,10 @@
 	word-break: break-word;
 }
 
+// -- NO JS
+.no-js {
+	.project-item {
+		opacity: 1 !important;
+		pointer-events: none;
+	}
+}

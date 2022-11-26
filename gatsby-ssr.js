@@ -1,6 +1,6 @@
 import React from "react"
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setBodyAttributes }) => {
 	setHeadComponents([
 		<link
 			rel="preload"
@@ -43,5 +43,8 @@ export const onRenderBody = ({ setHeadComponents }) => {
 			key="dotmatrix"
 		/>,
 	])
+	setBodyAttributes({
+		className: "no-js",
+	})
 }
 

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {graphql} from "gatsby"
 import Layout from "../components/Layout/Layout"
 import Time from "../components/Time/Time"
@@ -37,6 +37,11 @@ export default function Homepage({data}) {
 	}
 
 	const {present, past, history} = timePeriods
+
+	useEffect(() => {
+		document.body.classList.remove("no-js")
+	})
+
 
 	// TEMP!
 	// const copywritingData = data.allMarkdownRemark.nodes
