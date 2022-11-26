@@ -17,8 +17,6 @@
 	box-shadow 1500ms $easeOutExpo,
 	scale 1500ms $easeOutExpo;
 	will-change: rotate, opacity, scale;
-	// TODO: Check mobile performance
-	filter: drop-shadow(0 40px 50px rgba($color-black, 30%));
 	padding-inline: ($gap * 1.5);
 	padding-bottom: ($gap * 4);
 	z-index: 2;
@@ -26,6 +24,7 @@
 	@media (min-width: $bp-md) {
 		padding-inline: ($gap * 2.5);
 		scale: .9;
+		filter: drop-shadow(0 40px 50px rgba($color-black, 30%));
 	}
 
 	&:hover {
@@ -96,7 +95,11 @@
 	.project-item__title {
 		@include historyFont;
 		text-transform: uppercase;
-		font-size: font-fluid(md);
+		font-size: font-size(xl3);
+
+		@media (min-width: $bp-xl) {
+			font-size: font-size(xl4);
+		}
 
 		// -- nail
 		/* [NTH]
@@ -150,8 +153,12 @@
 
 	.project-item__year {
 		@include historyFont;
-		font-size: font-fluid(md);
+		font-size: font-size(xl3);
 		line-height: 1.1;
+
+		@media (min-width: $bp-xl) {
+			font-size: font-size(xl4);
+		}
 	}
 
 	// TAGS
