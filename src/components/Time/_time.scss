@@ -36,11 +36,10 @@
 	&:before,
 	&:after {
 		height: auto;
-		width: 100%;
-		background: transparent url("../../../static/test-lightning.png") no-repeat center center;
-		aspect-ratio: 2560/163;
+		background: transparent url("./images/time-travel.png") no-repeat center center;
+		aspect-ratio: 128/29;
 		background-size: cover;
-		translate: 0 -60%;
+		translate: 0 -50%;
 		z-index: 5;
 	}
 }
