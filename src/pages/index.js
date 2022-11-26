@@ -38,6 +38,9 @@ export default function Homepage({data}) {
 
 	const {present, past, history} = timePeriods
 
+	// TEMP!
+	// const copywritingData = data.allMarkdownRemark.nodes
+
 	return (
 		<Layout>
 			<div className="inline-svgs hide-me">
@@ -62,6 +65,19 @@ export default function Homepage({data}) {
 			</Time>
 
 			<Modal />
+
+			{/*<div className="copywriting-helper">
+				{
+					copywritingData.map(item => {
+						return <>
+							<div>
+								<h4>{item.frontmatter.title} - ({item.frontmatter.year})</h4>
+								<div dangerouslySetInnerHTML={{__html: item.html}} />
+							</div>
+						</>
+					})
+				}
+			</div>*/}
 		</Layout>
 	)
 }
