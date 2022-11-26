@@ -54,16 +54,14 @@ $animation-timing: 350ms;
 .intro__title {
 	font-size: font-fluid(md);
 	text-transform: uppercase;
-	margin-top: ($gap);
 	animation-delay: $animation-timing;
 }
 
 .intro__subtitle {
 	font-size: font-fluid(xxs);
-	order: -1;
-	margin-top: 0;
 	letter-spacing: ($gap * .05);
 	line-height: 1.35;
+	margin-top: ($gap * 1.5);
 }
 
 // -- contact links
@@ -71,6 +69,7 @@ $animation-timing: 350ms;
 	display: flex;
 	justify-content: center;
 	gap: ($gap);
+	margin-top: ($gap * 2);
 	animation-delay: ($animation-timing * 2);
 
 	li {
