@@ -25,7 +25,7 @@ export default function Footer() {
 		<>
 			<footer>
 				<p className="footer__copy">
-					&copy; {currentYear}, Made with (flux) and <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a> by {siteData.site.siteMetadata.name}. No cookies, no tracking!
+					&copy; {currentYear}, Made with <span className="footer__flux" title="Flux capacitor"></span> and <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a> by {siteData.site.siteMetadata.name}. No cookies, no tracking!
 				</p>
 			</footer>
 		</>

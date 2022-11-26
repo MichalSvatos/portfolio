@@ -1,9 +1,30 @@
 @use "../../styles" as *;
 
 footer {
-	text-align: center;
-	padding: ($gap) ($gap) ($gap * 3) ($gap);
+	width: 100%;
 	overflow: hidden;
+	background-color: $color-black;
+	z-index: -1;
+	min-height: ($gap * 13);
+	color: darken($color-white, 65%);
+	padding: ($gap * 4) ($gap) ($gap * 4) ($gap);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	@media (min-width: $bp-md) {
+		min-height: ($gap * 11);
+	}
+
+	a {
+		color: darken($color-white, 65%);
+		text-decoration: underline;
+		transition: color 350ms ease-in-out;
+
+		&:hover {
+			color: darken($color-white, 25%);
+		}
+	}
 }
 
 .footer__title {
@@ -12,5 +33,22 @@ footer {
 
 .footer__copy {
 	font-size: font-size(xs);
-	text-align: left;
+}
+
+.footer__flux {
+	display: inline-block;
+	width: ($gap);
+	height: ($gap);
+	background: darken($color-white, 65%) url("../../images/flux-capacitor.svg") no-repeat center center;
+	background-size: contain;
+	vertical-align: middle;
+	border: 2px solid darken($color-white, 65%);
+	border-radius: 3px;
+	transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out, box-shadow 750ms ease-in-out;
+
+	&:hover {
+		background-color: $color-white;
+		border-color: $color-white;
+		box-shadow: 0 0 20px 5px $color-white;
+	}
 }
