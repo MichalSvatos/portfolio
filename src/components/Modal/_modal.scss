@@ -218,6 +218,10 @@
 		font-size: font-fluid(xxs);
 	}
 
+	strong {
+		color: $color-white;
+	}
+
 	@media (min-width: $bp-xl) {
 		grid-area: md;
 	}

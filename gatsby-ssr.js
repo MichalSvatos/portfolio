@@ -36,6 +36,14 @@ export const onRenderBody = ({ setHeadComponents, setBodyAttributes }) => {
 		/>,
 		<link
 			rel="preload"
+			href="/fonts/subset-Almarai-Bold.woff2"
+			as="font"
+			type="font/woff2"
+			crossOrigin="anonymous"
+			key="almaraibold"
+		/>,
+		<link
+			rel="preload"
 			href="/fonts/subset-DotMatrix.woff2"
 			as="font"
 			type="font/woff2"
