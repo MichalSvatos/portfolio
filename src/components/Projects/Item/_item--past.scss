@@ -23,17 +23,10 @@
 		}
 
 		@media (min-width: $bp-xxl) {
-			margin-top: -($gap * 13);
+			margin-top: -($gap * 10);
 		}
 	}
 
-	// -- last element of the black "panel"
-	& > [class]:last-child {
-		border-radius: 0 0 ($gap) ($gap);
-	}
-
-
-	.project-item__perex,
 	.project-item__year,
 	.project-item__tags {
 		background-color: $color-black;
@@ -51,6 +44,7 @@
 		text-align: left;
 		position: relative;
 		padding-left: calc(var(--distance) + $gap);
+		order: 1;
 
 		@media (min-width: $bp-md) {
 			--distance: 6.5rem;
@@ -82,19 +76,18 @@
 	.project-item__image {
 		border: ($gap * .3) solid $color-black;
 		background-color: $color-black;
-	}
-
-	.project-item__perex {
-		max-width: none;
-		margin-inline: 0;
+		order: 2;
 	}
 
 	.project-item__year {
 		font-size: font-size(xl3);
 		letter-spacing: 5px;
-		border-top: 3px dotted darken(#ffe0a7, 65%);
-		//border-bottom: 3px dotted darken(#ffe0a7, 65%);
 		text-align: center;
+		line-height: 1;
+		order: 4;
+
+		// -- last element of the black "panel"
+		border-radius: 0 0 ($gap) ($gap);
 	}
 
 	.project-item__tags {
@@ -102,11 +95,14 @@
 		flex-wrap: wrap;
 		gap: ($gap * .5);
 		justify-content: center;
+		order: 3;
 	}
 
 	.project-item__tag {
 		text-transform: uppercase;
-		border: 1px dotted darken(#ffe0a7, 65%);
+		border: 3px dotted darken(#ffe0a7, 65%);
 		padding: ($gap * .25) ($gap * .5);
+		line-height: 1;
+		border-radius: ($gap * .5);
 	}
 }

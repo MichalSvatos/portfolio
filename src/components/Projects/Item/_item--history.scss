@@ -88,7 +88,7 @@
 		}
 
 		@media (min-width: $bp-xxl) {
-			margin-top: -($gap * 18);
+			margin-top: -($gap * 13);
 		}
 	}
 
@@ -128,8 +128,7 @@
 	}
 
 	.project-item__image {
-		filter: sepia(.65);
-		mix-blend-mode: color-burn;
+		filter: sepia(.15);
 
 		// -- image inner shadow
 		&:after {
@@ -141,20 +140,16 @@
 		}
 	}
 
-	.project-item__perex {
-		font-weight: bold;
-		text-shadow: 0 0 3px darken($color-history-primary, 40%);
-
-		&:before {
-			content: "------------------";
-			display: block;
-		}
-	}
-
 	.project-item__year {
 		@include historyFont;
 		font-size: font-size(xl3);
-		line-height: 1.1;
+
+		&:after {
+		font-weight: bold;
+			content: "------------------";
+			display: block;
+			font-size: font-size(md);
+		}
 
 		@media (min-width: $bp-xl) {
 			font-size: font-size(xl4);
@@ -165,7 +160,8 @@
 	.tags {
 		display: flex;
 		justify-content: center;
-		gap: $gap;
+		align-items: center;
+		gap: ($gap);
 		flex-wrap: wrap;
 
 		&:before,
@@ -186,12 +182,11 @@
 	}
 
 	.tag__item {
-		@include historyFont;
 		line-height: 1;
 		border-radius: ($gap * .4);
 		text-transform: uppercase;
 		font-weight: bold;
-		font-size: font-size(lg);
+		font-size: font-size(sm);
 		letter-spacing: .2rem;
 	}
 }

@@ -24,14 +24,6 @@
 		@media (min-width: $bp-md) {
 			scale: 1;
 		}
-
-		.project-item__image {
-			&:before {
-				@media (min-width: $bp-md) {
-					opacity: 0;
-				}
-			}
-		}
 	}
 
 	&:before,
@@ -88,8 +80,8 @@
 		&:before {
 			@media (min-width: $bp-md) {
 				content: '';
-				//background: linear-gradient(to bottom, $color-present-ui-primary 0%, $color-present-ui-primary 50%, $color-present-ui-primary 50%, rgba($color-white, 0%) 50%, rgba($color-white, 0%) 100%) repeat 0 0;
-				//background-size: 4px 4px;
+				background: linear-gradient(to bottom, $color-present-ui-primary 0%, $color-present-ui-primary 50%, $color-present-ui-primary 50%, rgba($color-white, 0%) 50%, rgba($color-white, 0%) 100%) repeat 0 0;
+				background-size: 4px 4px;
 				position: absolute;
 				inset: 0;
 				z-index: 1;
@@ -97,16 +89,6 @@
 				transition: opacity 550ms $easeOutExpo;
 			}
 		}
-	}
-
-	.project-item__perex {
-		background-color: $color-present-ui-primary;
-		text-transform: uppercase;
-		letter-spacing: .05rem;
-		padding: ($gap) ($gap);
-		max-width: none;
-		position: relative;
-		z-index: 1; // to cover "cables" from bazmek
 	}
 
 	.project-item__year {
