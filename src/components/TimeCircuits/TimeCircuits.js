@@ -4,7 +4,7 @@ import GoBackToTheFuture from "./images/gbttf.inline.svg"
 
 export default function TimeCircuits() {
 
-	const timeCircuits = (yearCircuit, monthCircuit, yearsArray, timecircuits) => {
+	const timeCircuits = (yearCircuit, monthCircuit, yearsArray, timecircuits, height) => {
 		const yearsAsNumbers = yearsArray.map(Number);
 		const yearsFiltered = new Set(yearsAsNumbers)
 
@@ -23,10 +23,11 @@ export default function TimeCircuits() {
 		let index = 0
 
 		// TODO - dynamic on resize
-		let height = document.body.offsetHeight - window.innerHeight
+		// let height = document.body.offsetHeight - window.innerHeight
 
 		// -- .size because it's a SET
 		let interval = Math.floor(height / yearsFiltered.size)
+		console.log("height", height);
 
 		let sectionsHeight = Math.floor(height / (interval / 12))
 		let sectionsCount = Math.floor(height / sectionsHeight)
@@ -74,6 +75,7 @@ export default function TimeCircuits() {
 		const yearCircuit = document.querySelector(".timecircuits__year .timecircuits__inner")
 		const monthCircuit = document.querySelector(".timecircuits__month .timecircuits__inner")
 		const projectItem = document.querySelectorAll(".project-item")
+		let height = document.body.offsetHeight - window.innerHeight
 		const yearsArray = []
 
 		projectItem.forEach(item => {
@@ -95,10 +97,10 @@ export default function TimeCircuits() {
 			}, 300)
 		})
 
-		timeCircuits(yearCircuit, monthCircuit, yearsArray, timecircuits)
+		timeCircuits(yearCircuit, monthCircuit, yearsArray, timecircuits, height)
 
 		window.addEventListener("resize", function () {
-			timeCircuits(yearCircuit, monthCircuit, yearsArray, timecircuits)
+			timeCircuits(yearCircuit, monthCircuit, yearsArray, timecircuits, height)
 		});
 	})
 

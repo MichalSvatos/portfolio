@@ -1,0 +1,207 @@
+$color-flux-wires: #c9c96c;
+$color-flux-head: #d04343;
+$color-flux: white;
+$color-flux-circles: #a6a3a3;
+$color-flux-case: #837a7a;
+$color-flux-border: #2a2a2a;
+$color-flux-label-bg: #651010;
+$color-flux-label-font: #A68A8B;
+$color-flux-gradient-dark: #222;
+$color-flux-gradient-light: #8191dc;
+$color-preloader-gradient-dark: #111;
+$color-preloader-gradient-light: #1f1f1f;
+
+#preloader {
+	display: none;
+	position: fixed;
+	inset: 0 -10%;
+	margin-left: calc(100vw - 100%);
+	overflow-x: hidden;
+}
+
+.preloader-is-active {
+	//height: 100vh; // Fix for "timecircuits" - set height is messing up the YEAR count
+	overflow-y: hidden;
+
+	#preloader {
+		height: auto;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: radial-gradient(
+						circle at center,
+						$color-preloader-gradient-light,
+						$color-preloader-gradient-dark
+						40%
+		) no-repeat;
+		z-index: 9999;
+		overflow: hidden;
+	}
+}
+
+// -- Title
+.preloader__title {
+	svg {
+		width: 11rem;
+		height: auto;
+		translate: 0 -100%;
+		filter: drop-shadow(0 -.2rem .2rem rgba(#000, 50%));
+	}
+}
+
+// -- Flux capacitor
+.flux {
+	width: 5rem;
+	position: relative;
+	border-radius: 1rem;
+	background: radial-gradient(
+					circle at center,
+					$color-flux-gradient-light,
+					$color-flux-gradient-dark
+					40%
+	) no-repeat;
+	padding: 1rem .5rem .25rem .5rem;
+	box-shadow: 0 1rem 3rem -.5rem #000;
+	outline: .3rem solid $color-flux-border;
+	transition: box-shadow 350ms ease-in-out;
+
+	// -- labels
+	&:before,
+	&:after {
+		position: absolute;
+		text-align: center;
+		z-index: -1;
+	}
+
+	&:after {
+		content: 'Please wait.\aThe flux capacitor is ... fluxing.';
+		left: 50%;
+		bottom: 0;
+		translate: -50% 150%;
+		width: 15rem;
+		background-color: $color-flux-label-bg;
+		color: $color-flux-label-font;
+		font-size: .7rem;
+		white-space: pre;
+		text-transform: uppercase;
+		border-radius: .2rem;
+		padding: .25rem .5rem;
+		border-top: 1px solid lighten($color-flux-label-bg, 10%);
+		box-shadow: 0 .1rem .2rem rgba(#000, 90%);
+		text-shadow: 0 -1px 1px #000;
+	}
+}
+
+.flux__big-dot {
+	stroke: darken($color-flux-circles, 10%);
+	fill: $color-flux-circles;
+}
+
+.flux__small-dot {
+	stroke: $color-flux-head;
+}
+
+.flux__center {
+	stroke: $color-flux;
+}
+
+.flux__wires {
+	fill: $color-flux-wires;
+}
+
+// -- energy flow
+.flux__energy {
+	width: 3rem;
+	height: 3rem;
+	background: radial-gradient(
+					circle at center,
+					rgba(#fff, 80%),
+					rgba(#6e9cff, 50%),
+					rgba(#fff, 0%)
+					40%
+	) no-repeat;
+	position: absolute;
+	translate: var(--translate-values) var(--translate-values);
+	animation: fluxing 500ms cubic-bezier(0.33, 1, 0.68, 1) infinite;
+	transition: scale 250ms ease-in-out;
+}
+
+.flux__energy-1 {
+	--translate-values: 1.35rem 1.35rem;
+	left: -.35rem;
+	top: .1rem;
+	translate: var(--translate-values);
+}
+
+.flux__energy-2 {
+	--translate-values: -1.35rem 1.35rem;
+	right: -.35rem;
+	top: .1rem;
+	translate: var(--translate-values);
+}
+
+.flux__energy-3 {
+	--translate-values: 0 -1.5rem;
+	left: calc(50% - 1.5rem);
+	bottom: 0;
+	translate: var(--translate-values);
+}
+
+// -- LOADED
+.preloader-is-ready {
+	height: auto;
+	overflow-y: auto;
+
+	#preloader {
+		animation: preloaderLeaving 500ms 750ms forwards;
+	}
+
+	.flux {
+		box-shadow: 0 1rem 3rem -.5rem #000, 0 0 10rem 3rem #3e3e62;
+	}
+
+	.flux__energy {
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		//scale: 1 !important;
+	}
+
+	.flux__energy-1 {
+		scale: 5;
+		background: radial-gradient(
+						circle at center,
+						rgba(#6b81ff, 80%),
+						rgba(#fff, 0%)
+						40%
+		) no-repeat;
+	}
+
+	.flux__energy-2 {
+		scale: 3;
+	}
+
+	.flux__energy-3 {
+		scale: 2;
+	}
+}
+
+// -- animations
+@keyframes fluxing {
+	0% {
+		translate: 0 0;
+	}
+	100% {
+		translate: var(--translate-values);
+	}
+}
+
+@keyframes preloaderLeaving {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
