@@ -132,13 +132,45 @@
 	}
 }
 
-[id="modal__year"] {
+[id="modal__info"] {
 	font-size: font-size(xs);
 	order: -2;
 	font-family: $font-family-present-heading;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-bottom: ($gap * .5);
+	position: relative;
 
 	@media (min-width: $bp-xl) {
 		grid-area: year;
+	}
+
+	// -- bottom "border"
+	&:after {
+		content: '';
+		height: 0;
+		position: absolute;
+		left: -($gap);
+		right: -($gap);
+		bottom: -1px;
+		border-bottom: 1px dashed $color-modal-ui-highlight;
+	}
+}
+
+[id="modal__status"] {
+	width: 100%;
+
+	.is-active {
+		color: $color-modal-active;
+	}
+
+	.is-inactive {
+		color: $color-modal-inactive;
+	}
+
+	.is-managed {
+		color: $color-modal-managed;
 	}
 }
 

@@ -14,7 +14,7 @@ collectionThumbs: ["images/collection/thumbs/hp.png", "images/collection/thumbs/
 collection: ["images/collection/hp.png", "images/collection/settings.png", "images/collection/group.png"]
 statusText: continuously working on it
 status: active 
-owner: personal project
+owner: Personal project
 ---
 
 ### Pi-hole LCARS Next Generation Theme

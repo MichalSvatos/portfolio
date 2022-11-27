@@ -9,6 +9,8 @@ export default function Modal() {
 			// TODO: DRY ...?
 			const title = document.getElementById("modal__title")
 			const year = document.getElementById("modal__year")
+			const owner = document.getElementById("modal__owner")
+			const status = document.getElementById("modal__status")
 			const url = document.getElementById("modal__urls")
 			const tags = document.getElementById("modal__tags")
 			const desc = document.getElementById("modal__desc")
@@ -21,6 +23,17 @@ export default function Modal() {
 			title.innerHTML = data.title
 			year.innerHTML = data.year
 			desc.innerHTML = data.html
+
+			// -- project owner
+			if (data.owner && owner) {
+				let ownerText = data.owner
+				owner.innerHTML = (ownerText.includes("Personal")) ? ownerText : `<strong>Client:</strong> ${ownerText}`
+			}
+
+			// -- project status
+			if (data.statusClass && data.statusText) {
+				status.innerHTML = `<span class="is-${data.statusClass}">Status: ${data.statusText}</span>`
+			}
 
 			// -- urls of the project
 			if (url) {
@@ -151,7 +164,11 @@ export default function Modal() {
 					<div className="modal__inner">
 						<h2 id="modal__title">{/* populated by js */}</h2>
 						<ul id="modal__tags">{/* populated by js */}</ul>
-						<div id="modal__year">{/* populated by js */}</div>
+						<div id="modal__info">
+							<div id="modal__owner">{/* populated by js */}</div>
+							<div id="modal__year">{/* populated by js */}</div>
+							<div id="modal__status">{/* populated by js */}</div>
+						</div>
 						<ul id="modal__urls">{/* populated by js */}</ul>
 						<div id="modal__desc"></div>
 

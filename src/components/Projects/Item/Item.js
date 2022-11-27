@@ -22,7 +22,7 @@ export default function Project({timeperiod, projectData}) {
 			"url": url,
 			"html": html,
 			"statusText": statusText,
-			"status": status,
+			"statusClass": status,
 			"owner": owner,
 			"images":
 				{
