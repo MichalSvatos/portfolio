@@ -1,24 +1,45 @@
 @use "../../styles" as *;
 
+@mixin timeVoid() {
+	content: '';
+	width: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: ($gap * 3);
+	background: transparent url("./images/time-divider.png") repeat-x 0 0;
+	background-size: cover;
+	z-index: 2;
+	translate: 0 -55%;
+
+	@media (min-width: $bp-md) {
+		background-size: contain;
+	}
+}
+
 .time {
 	&--present {
-		//
+		// -- time void (divider)
+		&:after {
+			@include timeVoid();
+		}
 	}
 
 	&--past {
-		// -- time void (divider)
+		// -- time travel
 		&:before,
 		&:after {
 			content: '';
 			width: 100%;
+			height: auto;
 			position: absolute;
 			left: 0;
 			right: 0;
-			height: ($gap * 3);
-			background: transparent url("./images/time-divider.png") repeat-x 0 0;
+			background: transparent url("./images/time-travel.png") no-repeat center center;
 			background-size: cover;
-			z-index: 2;
-			translate: 0 -55%;
+			aspect-ratio: 128/29;
+			translate: 0 -50%;
+			z-index: 5;
 
 			@media (min-width: $bp-md) {
 				background-size: contain;
@@ -27,7 +48,10 @@
 	}
 
 	&--history {
-		//
+		// -- time void (divider)
+		&:before {
+			@include timeVoid();
+		}
 	}
 }
 
@@ -35,12 +59,7 @@
 .has-event-horizon-on-bottom {
 	&:before,
 	&:after {
-		height: auto;
-		background: transparent url("./images/time-travel.png") no-repeat center center;
-		aspect-ratio: 128/29;
-		background-size: cover;
-		translate: 0 -50%;
-		z-index: 5;
+		animation: timeTravel 2s linear infinite both;
 	}
 }
 
@@ -54,5 +73,84 @@
 	.time--past,
 	.time--history {
 		position: relative !important;
+	}
+}
+
+@keyframes timeTravel {
+	0%,
+	100% {
+		opacity: .8;
+	}
+	31.98% {
+		opacity: 1;
+	}
+	32% {
+		opacity: .8;
+	}
+	32.8% {
+		opacity: .7;
+	}
+	32.82% {
+		opacity: 1;
+	}
+	34.98% {
+		opacity: 1;
+	}
+	35% {
+		opacity: .8;
+	}
+	35.7% {
+		opacity: .8;
+	}
+	35.72% {
+		opacity: 1;
+	}
+	36.98% {
+		opacity: 1;
+	}
+	37% {
+		opacity: .8;
+	}
+	37.6% {
+		opacity: .7;
+	}
+	37.62% {
+		opacity: 1;
+	}
+	67.98% {
+		opacity: 1;
+	}
+	68% {
+		opacity: .8;
+	}
+	68.4% {
+		opacity: .8;
+	}
+	68.42% {
+		opacity: 1;
+	}
+	95.98% {
+		opacity: 1;
+	}
+	96% {
+		opacity: .8;
+	}
+	96.7% {
+		opacity: .8;
+	}
+	96.72% {
+		opacity: 1;
+	}
+	98.98% {
+		opacity: 1;
+	}
+	99% {
+		opacity: .8;
+	}
+	99.6% {
+		opacity: .8;
+	}
+	99.62% {
+		opacity: 1;
 	}
 }
