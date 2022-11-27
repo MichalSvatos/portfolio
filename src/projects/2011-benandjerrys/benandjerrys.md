@@ -15,6 +15,6 @@ status: inactive
 owner: Ben & Jerry's Czech Republic
 ---
 
-I supported the marketing campaigns by creating engaging designs for t-shirts, flash games and online banners.
+I supported the marketing campaigns by **creating engaging designs for t-shirts, flash games and online banners**.
 
 

@@ -17,8 +17,8 @@ status: managed
 owner: Restaurant Bowl & Tonic, Prague
 ---
 
-I coded and handed over fully responsive template from the PSD design.<br>
-Actively helped with the UX/UI of the following categories: ordering process and menu.
+**I coded and handed over fully responsive template** from the PSD design.<br>
+**Actively helped with the UX/UI** of the following categories: ordering process and menu.
 
 
 

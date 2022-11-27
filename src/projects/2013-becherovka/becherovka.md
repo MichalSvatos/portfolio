@@ -15,4 +15,4 @@ status: inactive
 owner: Pernod Ricard
 ---
 
-Becherovka is a one of the most famous brand of liquor in the Czech Republic. Based on a secret recipe that has remained unchanged since 1807. <br> For the campaign "Have a drink with the Bechers" **I have designed an interactive website** guiding the user through the history of the liquor and the brand.
+Becherovka is one of the most famous brands of liquor in the Czech Republic. Based on a secret recipe that has remained unchanged since 1807. <br> For the campaign "Have a drink with the Bechers" **I have designed an interactive website** guiding the user through the history of the liquor and the brand.

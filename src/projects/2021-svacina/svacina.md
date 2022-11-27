@@ -17,12 +17,13 @@ owner: Realtor Jindřich Svačina
 
 ### Wordpress template for real-estate agent
 
-I coded and programmed a Wordpress theme with custom functionalities. I was in charge of both frontend and backend.
+**I coded and programmed a Wordpress theme with custom functionalities.** I was in charge of both frontend and backend.
 <br><br>
-**Features**
+##### Features
 - Advanced Custom Fields
-- database
-- custom post types
-- administration of properties
+- MySQL database
+- Custom post types
+- Administration of properties and their characteristics
+- Blog
 
 

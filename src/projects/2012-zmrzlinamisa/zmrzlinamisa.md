@@ -14,7 +14,7 @@ statusText: campaign ended
 status: inactive
 owner: Unilever Czech Republic
 ---
-Míša is a popular ice cream among the Czechs. For its 50th anniversary, Unilever decided to create a brand-new website. I was in charge of the design and coding.
+Míša is a popular ice cream among the Czechs. For its 50th anniversary, Unilever decided to create a brand-new website. **I was in charge of the design and coding.**
 In addition, I was also involved in the preparation of the visuals for the Flash game "Míša's freezer of memories".
 
 

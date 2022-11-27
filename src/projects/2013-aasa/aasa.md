@@ -15,5 +15,5 @@ status: inactive
 owner: Axe Czech Republic (Unilever Czech Republic)
 ---
 ### Axe Facebook game
-I designed the graphical interface and the basic mechanics of a game that run on client's Facebook page.  
+**I designed the graphical interface and the basic mechanics of a game** that run on client's Facebook page.  
 

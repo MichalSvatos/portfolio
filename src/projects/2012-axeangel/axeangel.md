@@ -14,4 +14,4 @@ statusText: campaign ended
 status: inactive
 owner: Axe Czech Republic (Unilever Czech Republic)
 ---
-I created the website, logo, banners, and social media materials for Axe's marketing campaign "Hledá se anděl" (Angel Wanted). 
+**I designed (and coded) the website, logo, banners, and social media materials** for Axe's marketing campaign "Hledá se anděl" (Angel Wanted). 
