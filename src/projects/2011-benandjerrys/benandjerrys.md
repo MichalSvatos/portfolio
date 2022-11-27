@@ -9,12 +9,12 @@ url:
 timeperiod: history
 featured: images/featured.png
 collectionThumbs: 
-collection: 
-perex: Various marketing campaigns, flash games and banners
+collection:
+statusText: campaign ended
+status: inactive
+owner: Ben & Jerry's Czech Republic
 ---
 
-### ... for various marketing campaings
-
-I designed several [something] for various marketing campaigns such as t-shirts, Flash games and banners.
+I supported the marketing campaigns by creating engaging designs for t-shirts, flash games and online banners.
 
 

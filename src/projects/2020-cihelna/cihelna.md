@@ -8,13 +8,23 @@ url:
   link:
 timeperiod: past
 featured: images/featured.png
-collectionThumbs: ["images/collection/thumbs/blue.png"]
-collection: ["images/collection/blue.png"]
-perex: Complete website from design to Wordpress theme with custom made functions
+collectionThumbs: ["images/collection/thumbs/cihelna-hp.jpg", "images/collection/thumbs/cihelna-artist.jpg", "images/collection/thumbs/cihelna-portfolio.jpg", "images/collection/thumbs/cihelna-about-us.jpg", "images/collection/thumbs/cihelna-news.jpg", "images/collection/thumbs/cihelna-artist-alternative.jpg", "images/collection/thumbs/cihelna-portfolio-detail.jpg"]
+collection: ["images/collection/cihelna-hp.jpg", "images/collection/cihelna-artist.png", "images/collection/cihelna-portfolio.png", "images/collection/cihelna-about-us.png", "images/collection/cihelna-news.png", "images/collection/cihelna-artist-alternative.png", "images/collection/cihelna-portfolio-detail.png"]
+statusText: project not implemented
+status: inactive
+owner: Cihelna Concept Store, Prague
 ---
 
-### Graphic design and Wordpress template for gallery/store
-
-I designed, coded and programmed Wordpress theme with custom functionalities for both frontend and backend. Due to the unforseen circumstances ultimately not implemented.
+I coded and programmed a Wordpress theme with custom functionalities. I was in charge of both frontend and backend.
+<br><br>
+**Features**
+- Advanced Custom Fields
+- database
+- custom post types
+- artists administration
+- artworks administration
+- collections administration
+- multi-language support
+- custom e-shop like functionality
 
 

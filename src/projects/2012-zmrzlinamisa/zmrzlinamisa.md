@@ -1,5 +1,5 @@
 ---
-title: 5Oth years anniversary website 
+title: 50th years anniversary website 
 tags: ["Design", "CSS", "HTML"]
 slug: zmrzlinamisa
 year: 2012
@@ -8,10 +8,13 @@ url:
   link:
 timeperiod: history
 featured: images/featured.png
-collectionThumbs: 
-collection:
-perex: Website and flash game for the 50th anniversary of the famous Czech ice cream brand.
+collectionThumbs: ["images/collection/thumbs/misa-hp.jpg", "images/collection/thumbs/misa-freezer-1.jpg", "images/collection/thumbs/misa-freezer-2.jpg"]
+collection: ["images/collection/misa-hp.jpg", "images/collection/misa-freezer-1.jpg", "images/collection/misa-freezer-2.jpg"]
+statusText: campaign ended
+status: inactive
+owner: Unilever Czech Republic
 ---
-I designed and coded website for the 5Oth years anniversary of the popular classic Czech ice cream "Míša" ["mee-sha"]. Part of the project was also prepare the visuals for the Flash game "Míšův mrazák vzpomínek" (Míša's freezer of memories).
+Míša is a popular ice cream among the Czechs. For its 50th anniversary, Unilever decided to create a brand-new website. I was in charge of the design and coding.
+In addition, I was also involved in the preparation of the visuals for the Flash game "Míša's freezer of memories".
 
 

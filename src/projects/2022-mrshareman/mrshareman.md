@@ -12,7 +12,9 @@ timeperiod: present
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/hp.png", "images/collection/thumbs/share.png"]
 collection: ["images/collection/hp.png", "images/collection/share.png"]
-perex: Small web based application for sharing text on the screen
+statusText: continuously working on it
+status: active
+owner: personal project
 ---
 
-I coded and designed small simple application that allows people to quickly share something on their device screen. <br>Have you ever been in a situation when you needed to give someone your email/phone or an address? Just copy, paste and show the screen. <br>Continuosly working on the project.
+Have you ever been in the situation in which you need to give someone your contact information, but struggling to do so because you left home you business card? To avoid any misspelling and uncomfortable situations, **I coded and designed Mr. Shareman**.<br><br>Mr. Shareman is a small and simple PWA that allows people to quickly share texts on their devices screen.

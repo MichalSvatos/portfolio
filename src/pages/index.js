@@ -48,6 +48,7 @@ export default function Homepage({data}) {
 
 	return (
 		<Layout>
+			<React.StrictMode>
 			<div className="inline-svgs hide-me">
 				<OldPaper/>
 			</div>
@@ -83,6 +84,7 @@ export default function Homepage({data}) {
 					})
 				}
 			</div>*/}
+			</React.StrictMode>
 		</Layout>
 	)
 }
@@ -127,7 +129,9 @@ query AllProjects {
         collection {
           publicURL
         }
-        perex
+        statusText
+        status
+        owner
       }
       id
       html

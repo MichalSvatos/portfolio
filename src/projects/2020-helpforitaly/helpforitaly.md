@@ -12,9 +12,9 @@ timeperiod: past
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/hp1.jpg", "images/collection/thumbs/hp2.jpg", "images/collection/thumbs/hp3.jpg"]
 collection: ["images/collection/hp1.jpg", "images/collection/hp2.jpg", "images/collection/hp3.jpg"]
-perex: Complete website for a personal charity project
+owner: personal project
 ---
 
-I designed, coded and programmed charity project websites to help Italy during the COVID-19 pandemic.
+At the beginning of the COVID-19 pandemic, Italy has been the Country which suffered the worst consequences. I designed, coded and programmed a website to help Italians to have a quick and easy access to a list of useful information and charities.
 
 

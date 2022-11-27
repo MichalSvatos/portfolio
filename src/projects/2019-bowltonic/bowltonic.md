@@ -10,13 +10,15 @@ url:
   link: https://bowltonic.cz
 timeperiod: past
 featured: images/featured.png
-collectionThumbs: ["images/collection/thumbs/red.png"]
-collection: ["images/collection/red.png"]
-perex: Live template from PSD design ready for backend developers
+collectionThumbs: ["images/collection/thumbs/bowl-menu.jpg", "images/collection/thumbs/bowl-cart.jpg", "images/collection/thumbs/bowl-thanks.jpg"]
+collection: ["images/collection/bowl-menu.png", "images/collection/bowl-cart.png", "images/collection/bowl-thanks.png"]
+statusText: currently managed by the client
+status: managed
+owner: Restaurant Bowl & Tonic, Prague
 ---
-### Restaurant Bowl &amp; Tonic in Prague
 
-Created template based on PSD design .... since then the website is under management of the owners.
+I coded and handed over fully responsive template from the PSD design.<br>
+Actively helped with the UX/UI of the following categories: ordering process and menu.
 
 
 

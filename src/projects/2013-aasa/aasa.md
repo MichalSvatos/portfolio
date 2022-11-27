@@ -8,10 +8,11 @@ url:
   link: https://en.wikipedia.org/wiki/Axe_Apollo_sub-orbital_spaceflights
 timeperiod: history
 featured: images/featured.png
-collectionThumbs: ["images/collection/thumbs/pink.png"]
-collection: ["images/collection/pink.png"]
-perex: Graphical interface and game mechanics for AXE's marketing campaing
+collectionThumbs: ["images/collection/thumbs/axe_apollo1.jpg", "images/collection/thumbs/axe_apollo2.jpg"]
+collection: ["images/collection/axe_apollo1.jpg", "images/collection/axe_apollo2.jpg"]
+statusText: not active
+status: inactive
+owner: Axe Czech Republic (Unilever Czech Republic)
 ---
 ### Axe Facebook game
-
-Designed graphical interface and basic game mechanics for AXE's Czech/Slovak marketing campaign on Facebook. 
+I designed the graphical interface and the basic mechanics of a game that run on client's Facebook page.  

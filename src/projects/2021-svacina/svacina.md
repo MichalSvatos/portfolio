@@ -1,5 +1,5 @@
 ---
-title: Real-estate agent
+title: Realtor
 tags: ["HTML", "CSS/LESS", "JavaScript", "Wordpress"]
 slug: reality-svacina
 year: 2021
@@ -10,11 +10,19 @@ timeperiod: present
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/web1.jpg", "images/collection/thumbs/web2.jpg"]
 collection: ["images/collection/web1.jpg", "images/collection/web2.jpg"]
-perex: Coding and programming of the Wordpress theme with custom made functions
+statusText: continuously working on it, currently on implementation of the English version
+status: active
+owner: Realtor Jindřich Svačina
 ---
 
 ### Wordpress template for real-estate agent
 
-Coded and programmed Wordpress theme with custom functionalities both frontend and backend.
+I coded and programmed a Wordpress theme with custom functionalities. I was in charge of both frontend and backend.
+<br><br>
+**Features**
+- Advanced Custom Fields
+- database
+- custom post types
+- administration of properties
 
 

@@ -1,7 +1,7 @@
 const siteMetadata = {
 	name: "Michal Svatos",
 	titleDesc: "Self-taught frontend developer/designer, privacy advocate and aspiring digital minimalist",
-	description: "Self-taught frontend developer with 10+ years of experience and strong flair for design and UX. Passioned about privacy and digital minimalism.",
+	description: "Self-taught frontend developer with more than 10 years of experience. Strong flair for design and UX, privacy and digital minimalism enthusiast.",
 	email: "write@svatos.dev",
 	github: "https://github.com/MichalSvatos",
 	linkedIn: "https://www.linkedin.com/in/michalsvatos"
