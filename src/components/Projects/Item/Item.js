@@ -8,7 +8,7 @@ import {GatsbyImage} from "gatsby-plugin-image"
 export default function Project({timeperiod, projectData}) {
 	// console.log('projectData', projectData);
 
-	const {title, tags, slug, year, url, featured, collection, collectionThumbs, perex} = projectData.frontmatter
+	const {title, tags, slug, year, url, featured, collection, collectionThumbs, statusText, status, owner} = projectData.frontmatter
 	const html = projectData.html
 	const featuredImage = featured.childrenImageSharp[0].gatsbyImageData
 	const id = projectData.id
@@ -21,7 +21,9 @@ export default function Project({timeperiod, projectData}) {
 			"year": year,
 			"url": url,
 			"html": html,
-			"perex": perex,
+			"statusText": statusText,
+			"status": status,
+			"owner": owner,
 			"images":
 				{
 					"collection": collection,
@@ -57,7 +59,6 @@ export default function Project({timeperiod, projectData}) {
 
 				<h3 className="project-item__title">{title}</h3>
 				{ featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} /> }
-				{ perex && <p className="project-item__perex">{perex}</p> }
 
 				<div className="project-item__year">{year}</div>
 
