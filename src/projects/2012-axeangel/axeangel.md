@@ -1,6 +1,6 @@
 ---
 title: Axe Angel Wanted
-tags: 
+tags: ["Design", "HTML", "CSS"]
 slug: axeangel
 year: 2012
 url:

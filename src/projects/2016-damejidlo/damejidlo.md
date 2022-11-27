@@ -8,8 +8,8 @@ url:
   link: https://www.damejidlo.cz/en/
 timeperiod: past
 featured: images/featured.png
-collectionThumbs: ["images/collection/thumbs/dj.png"]
-collection: ["images/collection/dj.png"]
+collectionThumbs: ["images/collection/thumbs/dj-web.jpg", "images/collection/thumbs/dj-404.jpg", "images/collection/thumbs/dj-user-profile-mobile.jpg", "images/collection/thumbs/dj-nps-mobile.jpg", "images/collection/thumbs/dj-styleguide.jpg"]
+collection: ["images/collection/dj-web.png", "images/collection/dj-404.jpg", "images/collection/dj-user-profile-mobile.jpg", "images/collection/dj-nps-mobile.jpg", "images/collection/dj-styleguide.png"]
 statusText: in 2019 Delivery Hero brought a new team which became in charge of the website management
 status: managed
 owner: DámeJídlo (Delivery Hero)
