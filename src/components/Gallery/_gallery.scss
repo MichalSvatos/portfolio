@@ -9,7 +9,7 @@
 	z-index: 1;
 }
 
-.gallery__showcase {
+.gallery__showcase:empty {
 	background-color: $color-modal-ui-highlight;
 	position: relative;
 	align-self: self-start;
