@@ -7,7 +7,7 @@ url:
 - title: Axe Apollo Space Academy (Wikipedia)
   link: https://en.wikipedia.org/wiki/Axe_Apollo_sub-orbital_spaceflights/
 timeperiod: history
-featured: images/featured.png
+featured: images/featured.jpg
 collectionThumbs: ["images/collection/thumbs/axe_apollo0.jpg", "images/collection/thumbs/axe_apollo1.jpg", "images/collection/thumbs/axe_apollo2.jpg", "images/collection/thumbs/axe_apollo3.jpg", "images/collection/thumbs/axe_apollo4.jpg", "images/collection/thumbs/axe_apollo5.jpg"]
 collection: ["images/collection/axe_apollo0.jpg", "images/collection/axe_apollo1.jpg", "images/collection/axe_apollo2.jpg", "images/collection/axe_apollo3.jpg", "images/collection/axe_apollo4.jpg", "images/collection/axe_apollo5.jpg"]
 statusText: not active

@@ -9,7 +9,7 @@ url:
 - title: Source code (original template)
   link: https://bowltonic.cz
 timeperiod: past
-featured: images/featured.png
+featured: images/featured.jpg
 collectionThumbs: ["images/collection/thumbs/bowl-menu.jpg", "images/collection/thumbs/bowl-cart.jpg", "images/collection/thumbs/bowl-thanks.jpg"]
 collection: ["images/collection/bowl-menu.png", "images/collection/bowl-cart.png", "images/collection/bowl-thanks.png"]
 statusText: currently managed by the client

@@ -7,7 +7,7 @@ url:
 - title:
   link:
 timeperiod: history
-featured: images/featured.png
+featured: images/featured.jpg
 collectionThumbs: ["images/collection/thumbs/misa-hp.jpg", "images/collection/thumbs/misa-freezer-1.jpg", "images/collection/thumbs/misa-freezer-2.jpg"]
 collection: ["images/collection/misa-hp.jpg", "images/collection/misa-freezer-1.jpg", "images/collection/misa-freezer-2.jpg"]
 statusText: campaign ended

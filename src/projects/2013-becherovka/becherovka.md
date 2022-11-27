@@ -7,7 +7,7 @@ url:
 - title: Information about the campaign
   link: https://www.behance.net/gallery/7735939/Becherovka-Collectors-Limited-Edition-Part-I
 timeperiod: history
-featured: images/featured.png
+featured: images/featured.jpg
 collectionThumbs: ["images/collection/thumbs/becherovka-web.jpg", "images/collection/thumbs/becherovka-1.jpg", "images/collection/thumbs/becherovka-2.jpg", "images/collection/thumbs/becherovka-3.jpg", "images/collection/thumbs/becherovka-4.jpg"]
 collection: ["images/collection/becherovka-web.jpg", "images/collection/becherovka-1.jpg", "images/collection/becherovka-2.jpg", "images/collection/becherovka-3.jpg", "images/collection/becherovka-4.jpg"]
 statusText: campaign ended

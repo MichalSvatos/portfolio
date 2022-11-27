@@ -7,7 +7,7 @@ url:
 - title:
   link: 
 timeperiod: history
-featured: images/featured.png
+featured: images/featured.jpg
 collectionThumbs: ["images/collection/thumbs/axe-angel-web.jpg", "images/collection/thumbs/axe-angel-logo.jpg"]
 collection: ["images/collection/axe-angel-web.jpg", "images/collection/axe-angel-logo.jpg"]
 statusText: campaign ended
