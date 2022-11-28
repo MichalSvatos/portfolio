@@ -1,10 +1,11 @@
 import React from "react"
+import { withPrefix } from "gatsby"
 
 export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyComponents, setPostBodyComponents}) => {
 	setHeadComponents([
 		<link
 			rel="preload"
-			href="/fonts/subset-digital-7monoItalic.woff2"
+			href={withPrefix("/fonts/subset-digital-7monoItalic.woff2")}
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
@@ -12,7 +13,7 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 		/>,
 		<link
 			rel="preload"
-			href="/fonts/Faroest-Regular.woff2"
+			href={withPrefix("/fonts/Faroest-Regular.woff2")}
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
@@ -20,7 +21,7 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 		/>,
 		<link
 			rel="preload"
-			href="/fonts/TeXGyreAdventor-Regular.woff2"
+			href={withPrefix("/fonts/TeXGyreAdventor-Regular.woff2")}
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
@@ -28,7 +29,7 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 		/>,
 		<link
 			rel="preload"
-			href="/fonts/subset-Almarai-Light.woff2"
+			href={withPrefix("/fonts/subset-Almarai-Light.woff2")}
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
@@ -36,7 +37,7 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 		/>,
 		<link
 			rel="preload"
-			href="/fonts/subset-Almarai-Bold.woff2"
+			href={withPrefix("/fonts/subset-Almarai-Bold.woff2")}
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
@@ -44,15 +45,15 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 		/>,
 		<link
 			rel="preload"
-			href="/fonts/subset-DotMatrix.woff2"
+			href={withPrefix("/fonts/subset-DotMatrix.woff2")}
 			as="font"
 			type="font/woff2"
 			crossOrigin="anonymous"
 			key="dotmatrix"
 		/>,
-		<link as="script" rel="preload" key="preloader" href="/scripts/preloader.js" />,
+		<link as="script" rel="preload" key="preloader" href={"/scripts/preloader.js"} />,
 		<noscript key="noscript">
-			<link rel="stylesheet" href="/styles/noscript-preloader.css" />
+			<link rel="stylesheet" href={withPrefix("/styles/noscript-preloader.css")} />
 		</noscript>
 	])
 	setBodyAttributes({
@@ -89,6 +90,6 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 		</div>
 	])
 	setPostBodyComponents([
-		<script src="/scripts/preloader.js" key="preloader-backup" />
+		<script src={"/scripts/preloader.js"} key="preloader-backup" />
 	])
 }
