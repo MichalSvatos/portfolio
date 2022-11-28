@@ -8,6 +8,7 @@ const siteMetadata = {
 }
 
 module.exports = {
+	pathPrefix: "/portfolio",
 	plugins: [
 		`gatsby-plugin-sass`,
 		`gatsby-transformer-remark`,
