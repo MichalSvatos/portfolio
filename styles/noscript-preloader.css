@@ -1,0 +1,8 @@
+body.preloader-is-active {
+	height: auto;
+	overflow-y: auto;
+}
+
+body.preloader-is-active #preloader {
+	display: none;
+}
