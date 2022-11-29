@@ -71,6 +71,7 @@
 	height: 100vh;
 	overflow-y: auto;
 	padding: ($gap) ($gap) ($gap * 3) ($gap);
+	scroll-padding-bottom: ($gap * 3);
 
 	@include scrollbars();
 }
@@ -172,7 +173,11 @@
 			background-color: $color-modal-managed;
 			position: absolute;
 			left: -($gap * .75);
-			top: ($gap * .45);
+			top: ($gap * .40);
+
+			@media (min-width: $bp-md) {
+				top: ($gap * .45);
+			}
 		}
 	}
 
