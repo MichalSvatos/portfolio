@@ -122,7 +122,7 @@ $animation-timing: 350ms;
 
 // -- Fixed variant
 .is-fixed {
-	z-index: 5;
+	z-index: 10;
 
 	.intro__subtitle,
 	.intro__hashtags {
