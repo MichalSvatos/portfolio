@@ -1,6 +1,6 @@
 ---
 title: Realtor
-tags: ["HTML", "CSS/LESS", "JavaScript", "Wordpress"]
+tags: ["HTML", "CSS/LESS", "JavaScript", "PHP", "Wordpress"]
 slug: reality-svacina
 year: 2021
 url:
