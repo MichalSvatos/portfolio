@@ -11,10 +11,13 @@ export default function Projects({projectsData}) {
 	const timeperiod = projectsData[0]?.frontmatter.timeperiod ? projectsData[0].frontmatter.timeperiod : "present"
 
 	useEffect(() => {
-		let observer;
-		const benefits = document.querySelectorAll('.project-item');
+		// TODO: DRY
+		let observerTimeperiod;
+		let observerProject;
+		const projects = document.querySelectorAll('.project-item');
+		const timeperiods = document.querySelectorAll('.time');
 
-		observer = new IntersectionObserver((projects) => {
+		observerProject = new IntersectionObserver((projects) => {
 			projects.forEach(project => {
 				if (project.intersectionRatio > 0) {
 					project.target.classList.add('show-me');
@@ -22,8 +25,20 @@ export default function Projects({projectsData}) {
 			});
 		});
 
-		benefits.forEach(project => {
-			observer.observe(project);
+		observerTimeperiod = new IntersectionObserver((timeperiods) => {
+			timeperiods.forEach(timeperiod => {
+				if (timeperiod.intersectionRatio > 0) {
+					timeperiod.target.classList.add('load-me');
+				}
+			});
+		});
+
+		projects.forEach(project => {
+			observerProject.observe(project);
+		});
+
+		timeperiods.forEach(timeperiod => {
+			observerTimeperiod.observe(timeperiod);
 		});
 	})
 

@@ -1,7 +1,10 @@
 @use "../../styles" as *;
 
 .time--history {
-	background: #685438 url("./images/time--history-bg.jpg") repeat 0 0;
-	background-size: 300px 300px;
 	font-family: $font-family-history-text;
+
+	&.load-me {
+		background: #685438 url("./images/time--history-bg.jpg") repeat 0 0;
+		background-size: 300px 300px;
+	}
 }

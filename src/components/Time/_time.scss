@@ -35,8 +35,6 @@
 			position: absolute;
 			left: 0;
 			right: 0;
-			background: transparent url("./images/time-travel.png") no-repeat center center;
-			background-size: cover;
 			aspect-ratio: 128/29;
 			translate: 0 -50%;
 			z-index: 5;
@@ -44,6 +42,14 @@
 
 			@media (min-width: $bp-md) {
 				background-size: contain;
+			}
+		}
+
+		&.load-me {
+			&:before,
+			&:after {
+				background: transparent url("./images/time-travel.png") no-repeat center center;
+				background-size: cover;
 			}
 		}
 	}

@@ -7,12 +7,16 @@
 
 // -- sprite objects
 .object__sprite--past {
-	background: transparent url("./images/objects-sprite--past.png") no-repeat 0 0;
 	width: 200px;
 	height: 200px;
 	position: absolute;
-	background-size: (1600px * .5) (800px * .5);
 	display: none;
+
+	.load-me & {
+		background-color: transparent;
+		background-image: url("./images/objects-sprite--past.png");
+		background-size: (1600px * .5) (800px * .5);
+	}
 }
 
 .object__road {
@@ -66,8 +70,6 @@
 	@media (min-width: $bp-xxl) {
 		width: 1000px;
 		height: 469px;
-		background: transparent url("./images/object--gmc-van.png") no-repeat 0 0;
-		background-size: contain;
 		position: absolute;
 		right: 15%;
 		bottom: 5%;
@@ -76,6 +78,13 @@
 
 	@media (min-width: $bp-xxxl) {
 		right: 35%;
+	}
+
+	.load-me & {
+		@media (min-width: $bp-xxl) {
+			background: transparent url("./images/object--gmc-van.png") no-repeat 0 0;
+			background-size: contain;
+		}
 	}
 }
 

@@ -12,22 +12,30 @@
 	top: 0;
 	bottom: 0;
 	width: 100px;
-	background: transparent url("./images/object--rails.png") repeat-y 0 0;
-	background-size: 100px 100px;
 
 	@media (min-width: $bp-md) {
 		left: ($gap * 2.35);
+	}
+
+	.load-me & {
+		background: transparent url("./images/object--rails.png") repeat-y 0 0;
+		background-size: 100px 100px;
 	}
 }
 
 // -- sprite objects
 .object__sprite--history {
-	background: transparent url("./images/objects-sprite--history.png") no-repeat 0 0;
 	width: 200px;
 	height: 200px;
 	position: absolute;
-	background-size: (1200px * .5) (800px * .5);
 	display: none;
+
+	.load-me & {
+		background-color: transparent;
+		background-image: url("./images/objects-sprite--history.png");
+		background-repeat: no-repeat;
+		background-size: (1200px * .5) (800px * .5);
+	}
 }
 
 .object__campfire {
@@ -121,29 +129,37 @@
 
 .object__cave {
 	@media (min-width: $bp-md) {
-		background: transparent url("./images/object--cave.png") no-repeat 0 0;
 		width: 610px;
 		height: 350px;
 		position: absolute;
 		left: 0;
 		bottom: -($gap * 1.5);
-		background-size: contain;
 		z-index: 2;
+	}
+
+	.load-me & {
+		@media (min-width: $bp-md) {
+			background: transparent url("./images/object--cave.png") no-repeat 0 0;
+			background-size: contain;
+		}
 	}
 }
 
 .object__cliff {
-	background: transparent url("./images/object--cliff.png") repeat-x 0 0;
 	width: 100%;
 	height: 100px;
 	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: -($gap * 2);
-	background-size: contain;
 	z-index: 2;
 
 	@media (min-width: $bp-lg) {
 		z-index: 0;
+	}
+
+	.load-me & {
+		background: transparent url("./images/object--cliff.png") repeat-x 0 0;
+		background-size: contain;
 	}
 }

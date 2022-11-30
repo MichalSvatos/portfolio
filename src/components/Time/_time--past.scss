@@ -1,8 +1,11 @@
 @use "../../styles" as *;
 
 .time--past {
-	background: #1C1C1C url("./images/time--past-bg.jpg") repeat 0 0;
-	background-size: 200px 200px;
 	font-family: $font-family-past-text;
 	color: $color-white;
+
+	&.load-me {
+		background: #1C1C1C url("./images/time--past-bg.jpg") repeat 0 0;
+		background-size: 200px 200px;
+	}
 }

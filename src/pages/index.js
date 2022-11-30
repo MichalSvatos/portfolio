@@ -9,6 +9,8 @@ import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
 // import Software from "../components/Software/Software"
 import OldPaper from "../components/Projects/Item/images/item-history--clippath.inline.svg"
+import DeloreanPresent from "../components/DeLorean/images/delorean--present.png"
+import DeloreanPast from "../components/DeLorean/images/delorean--past.png"
 
 export default function Homepage({data}) {
 	const projectSorter = (timeperiod) => {
@@ -49,13 +51,15 @@ export default function Homepage({data}) {
 	return (
 		<Layout>
 			<React.StrictMode>
-			<div className="inline-svgs hide-me">
+			<div className="images-for-preloader hide-me">
 				<OldPaper/>
+				<img src={DeloreanPresent} alt="" />
+				<img src={DeloreanPast} alt="" />
 			</div>
 			<DeLorean timePeriods={timePeriods} />
 			<TimeCircuits />
 
-			<Time timePeriod={present}>
+			<Time timePeriod={present} customClass="load-me">
 				<Intro />
 				<Projects projectsData={projectSorter("present")} />
 			</Time>

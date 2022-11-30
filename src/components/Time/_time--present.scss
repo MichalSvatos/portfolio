@@ -36,9 +36,12 @@
 	bottom: 0;
 	width: 100%;
 	aspect-ratio: 80/31;
-	background: transparent url("./images/float--bottom.png") no-repeat 0 0;
-	background-size: contain;
 	z-index: 2;
+
+	.load-me & {
+		background: transparent url("./images/float--bottom.png") no-repeat 0 0;
+		background-size: contain;
+	}
 }
 
 [class*="float--cloud"],
