@@ -22,12 +22,8 @@ export default function TimeCircuits() {
 		let loop = 0
 		let index = 0
 
-		// TODO - dynamic on resize
-		// let height = document.body.offsetHeight - window.innerHeight
-
 		// -- .size because it's a SET
 		let interval = Math.floor(height / yearsFiltered.size)
-		console.log("height", height);
 
 		let sectionsHeight = Math.floor(height / (interval / 12))
 		let sectionsCount = Math.floor(height / sectionsHeight)
@@ -58,7 +54,6 @@ export default function TimeCircuits() {
 			let result = Math.floor(scrollCounter / interval)
 
 			if ((result !== currentNumber) && (result !== yearsFiltered.size)) {
-				// TODO - data attr + css
 				yearCircuit.innerHTML = [...yearsFiltered.values()][result]
 				currentNumber = [...yearsFiltered.values()][result]
 				timecircuits.classList.remove("go-up")
@@ -75,6 +70,8 @@ export default function TimeCircuits() {
 		const yearCircuit = document.querySelector(".timecircuits__year .timecircuits__inner")
 		const monthCircuit = document.querySelector(".timecircuits__month .timecircuits__inner")
 		const projectItem = document.querySelectorAll(".project-item")
+
+		// TODO - dynamic on resize
 		let height = document.body.offsetHeight - window.innerHeight
 		const yearsArray = []
 
