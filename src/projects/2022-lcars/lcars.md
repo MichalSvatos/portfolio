@@ -18,4 +18,4 @@ owner: Personal project
 ---
 
 ### Pi-hole LCARS Next Generation Theme
-As a Start Trek fan, I coded and designed the **Pi-hole** interface based on the computer interface (LCARS) of the popular franchise.
+As a Start Trek fan, **I coded and designed the Pi-hole interface** based on the computer interface (LCARS) of the popular franchise.
