@@ -97,6 +97,11 @@ export default function Modal() {
 		}
 	}
 
+	const bodyScrollingHandler = () => {
+		const body = document.body
+		body.classList.contains("scroll-under-control") ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
+	}
+
 	const closeModal = (modal, buttons) => {
 		buttons.forEach(btn => {
 			btn.addEventListener("click", (e) => {
@@ -109,27 +114,17 @@ export default function Modal() {
 	}
 
 	const showModal = (modal) => {
+		bodyScrollingHandler("show")
 		modal.classList.add("modal-is-ready")
 		setTimeout(() => {
 			modal.classList.add("modal-is-open")
 		}, 500)
 	}
 
-	const bodyScrollingHandler = () => {
-		const body = document.body
-
-		body.classList.contains("scroll-under-control") ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
-	}
-
-	const clickProject = (modal) => {
-		const projects = document.querySelectorAll(".js-modal-show")
-
+	const clickProject = (modal, projects) => {
 		projects.forEach((project) => {
 			project.addEventListener("click", (e) => {
 				e.preventDefault()
-
-				bodyScrollingHandler()
-
 				let modalData = JSON.parse(project.dataset.modal)
 				populateModal(modalData, modal)
 				showModal(modal)
@@ -144,8 +139,9 @@ export default function Modal() {
 	useEffect(() => {
 		const modal = document.getElementById("modal")
 		const closeBtns = document.querySelectorAll(".js-modal-close")
+		const projects = document.querySelectorAll(".js-modal-show")
 
-		clickProject(modal)
+		clickProject(modal, projects)
 		closeModal(modal, closeBtns)
 
 		// TODO: Maybe another function to make it clean
