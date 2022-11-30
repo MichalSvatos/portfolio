@@ -18,14 +18,16 @@ const thumbsHandler = (modal) => {
 
 }
 
-const lazyload = () => {
+const lazyload = (delay = 100) => {
 	const galleryShowcase = document.getElementById("modal__gallery-showcase")
 	const image = galleryShowcase.querySelector(".js-lazyload")
 
 	if (!galleryShowcase) return
 	if (!image) return
 
-	image.setAttribute("src", image.dataset.src)
+	setTimeout(() => {
+		image.setAttribute("src", image.dataset.src)
+	}, delay)
 }
 
 const galleryHelper = {thumbsHandler, lazyload}

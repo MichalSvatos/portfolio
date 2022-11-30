@@ -74,7 +74,7 @@ export default function Modal() {
 			// -- single big image
 			if (images) {
 				showcaseHtml += `
-						<img src="/default-test.png" data-src="${images[0].publicURL}" class="gallery__image js-gallery-target-image js-lazyload" alt="">
+						<img src="/default.png" data-src="${images[0].publicURL}" class="gallery__image js-gallery-target-image js-lazyload" alt="">
 				`
 			}
 
@@ -128,7 +128,7 @@ export default function Modal() {
 				let modalData = JSON.parse(project.dataset.modal)
 				populateModal(modalData, modal)
 				showModal(modal)
-				galleryHelper.lazyload()
+				galleryHelper.lazyload(1000)
 
 				// -- handling the project gallery
 				galleryHelper.thumbsHandler(modal)
