@@ -228,6 +228,49 @@ $animation-timing: 350ms;
 	}
 }
 
+.intro__arrow {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	translate: -50% 0;
+	transition: translate 350ms ease-in-out;
+	width: ($gap * 5);
+	display: flex;
+	justify-content: center;
+
+	&:hover {
+		translate: -50% 25%;
+	}
+
+	svg {
+		aspect-ratio: 1/2;
+		width: ($gap * 1.5);
+
+		@for $i from 1 through 4 {
+			.arrow-block-#{$i} {
+				animation: glow 2000ms #{$i}50ms $easeInOutCubic infinite;
+			}
+		}
+
+		.arrow-block-5,
+		.arrow-block-6 {
+			animation: glow 2000ms 550ms $easeInOutCubic infinite;
+		}
+	}
+}
+
+@keyframes glow {
+	0%, 60%, 100% {
+		fill: #ff8c00;
+		filter: drop-shadow(0 0 3px transparent);
+	}
+
+	20% {
+		fill: $color-white;
+		filter: drop-shadow(0 0 3px $color-white);
+	}
+}
+
 @keyframes fadeMeIn {
 	from {
 		opacity: 0;

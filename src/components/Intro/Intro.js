@@ -4,6 +4,7 @@ import {graphql, useStaticQuery} from "gatsby"
 import IconGithub from "./images/github.inline.svg"
 import IconLinkedIn from "./images/linkedin.inline.svg"
 import IconMail from "./images/mail.inline.svg"
+import Arrow from "./images/arrow.inline.svg"
 
 export default function Intro() {
 	const introData = useStaticQuery(graphql`
@@ -44,12 +45,24 @@ export default function Intro() {
 		})
 	}
 
+	const arrowScroll = (arrow, intro) => {
+		const introHeight = intro.offsetHeight
+
+		arrow.addEventListener("click", (e) => {
+			e.preventDefault()
+			window.scroll(0, introHeight)
+		})
+	}
+
 	useEffect(() => {
 		const intro = document.querySelector('.intro');
 
 		window.addEventListener('scroll', () => {
 			introStickinessHandler(intro)
 		})
+
+		const arrow = document.querySelector('.intro__arrow')
+		arrowScroll(arrow, intro)
 
 		emailProtector(email)
 	})
@@ -91,6 +104,9 @@ export default function Intro() {
 					{/*<p className="intro__hashtags fade-me-in">#frontend #design #privacy</p>*/}
 					{/*	Currently living in Toronto, Canada.*/}
 				</div>
+				<a href="/" className="intro__arrow" title="Go back in time!">
+					<Arrow/>
+				</a>
 			</div>
 		</>
 	)
