@@ -52,6 +52,10 @@ export default function DeLorean({timePeriods}) {
 						body.classList.remove("you-space-bastard-you-killed-my-pine")
 					}
 
+					if (window.scrollY < 100) {
+						deLoreanContainerPresent.classList.remove("started", "is-going-back")
+					}
+
 
 				} else {
 					// -- when you go back in time
