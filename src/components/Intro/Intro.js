@@ -23,6 +23,7 @@ export default function Intro() {
 	`)
 
 	const {name, description, contact} = introData.site.siteMetadata
+	const {github, email, linkedIn} = contact
 
 	const introStickinessHandler = (intro) => {
 		let introHeight = intro.offsetHeight
@@ -30,6 +31,18 @@ export default function Intro() {
 		intro.classList.toggle("is-fixed", window.scrollY > introHeight);
 	}
 
+	const emailProtector = (emailAddress) => {
+		const emailButton = document.querySelector(".intro__link--email")
+		if (!emailButton) return
+
+		emailButton.addEventListener("click", (e) => {
+			e.preventDefault()
+			const emailProtector = document.querySelector(".intro__email-protector")
+
+			emailProtector.innerHTML = `<a href="mailto:${email}?subject=%5BWEBSITE%5D">${email}</a>`
+			emailProtector.classList.contains("js-show-email") ? emailProtector.classList.remove("js-show-email") : emailProtector.classList.add("js-show-email")
+		})
+	}
 
 	useEffect(() => {
 		const intro = document.querySelector('.intro');
@@ -37,6 +50,8 @@ export default function Intro() {
 		window.addEventListener('scroll', () => {
 			introStickinessHandler(intro)
 		})
+
+		emailProtector(email)
 	})
 
 	return (
@@ -45,28 +60,36 @@ export default function Intro() {
 				<div className="intro__inner">
 					<h1 className="intro__title fade-me-in"><span>{name}</span></h1>
 					<h2 className="intro__subtitle fade-me-in">{description}</h2>
-					{/*<p>made in czech republic, recently exported to canada</p>*/}
 					<ul className="intro__links fade-me-in">
-						<li>
-							<a href="https://github.com/MichalSvatos" target="_blank" rel="noopener noreferrer" className="intro__link">
-								<IconGithub/>
-								<span className="hide-me">Check my Github</span>
-							</a>
-						</li>
-						<li>
-							<a href="https://www.linkedin.com/in/michalsvatos" target="_blank" rel="noopener noreferrer" className="intro__link">
-								<IconLinkedIn/>
-								<span className="hide-me">I am on LinkedIn</span>
-							</a>
-						</li>
-						<li>
-							<a href="/" className="intro__link">
-								<IconMail/>
-								<span className="hide-me">Send me an email</span>
-							</a>
-						</li>
+						{github &&
+							<li>
+								<a href={github} target="_blank" rel="noopener noreferrer" className="intro__link">
+									<IconGithub />
+									<span className="hide-me">Check my Github</span>
+								</a>
+							</li>
+						}
+						{linkedIn &&
+							<li>
+								<a href={linkedIn} target="_blank" rel="noopener noreferrer" className="intro__link">
+									<IconLinkedIn />
+									<span className="hide-me">I am on LinkedIn</span>
+								</a>
+							</li>
+						}
+						{email &&
+							<li>
+								<a href="/" className="intro__link intro__link--email">
+									<IconMail />
+									<span className="hide-me">Send me an email</span>
+								</a>
+							</li>
+						}
+						<li className="intro__email-protector"></li>
+
 					</ul>
 					{/*<p className="intro__hashtags fade-me-in">#frontend #design #privacy</p>*/}
+					{/*	Currently living in Toronto, Canada.*/}
 				</div>
 			</div>
 		</>
