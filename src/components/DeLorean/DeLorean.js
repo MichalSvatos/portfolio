@@ -53,7 +53,7 @@ export default function DeLorean({timePeriods}) {
 					}
 
 					if (window.scrollY < 100) {
-						deLoreanContainerPresent.classList.remove("started", "is-going-back")
+						deLoreanContainerPresent.classList.remove("started")
 					}
 
 
