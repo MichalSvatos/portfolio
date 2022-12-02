@@ -11,6 +11,11 @@ import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
 import OldPaper from "../components/Projects/Item/images/item-history--clippath.inline.svg"
 import DeloreanPresent from "../components/DeLorean/images/delorean--present.png"
 import DeloreanPast from "../components/DeLorean/images/delorean--past.png"
+import Buoy from "../components/Time/images/float--buoy.png"
+import Cloud from "../components/Time/images/float--cloud.png"
+import Cloud2 from "../components/Time/images/float--cloud-2.png"
+import Cloud3 from "../components/Time/images/float--cloud-3.png"
+import Cloud4 from "../components/Time/images/float--cloud-4.png"
 
 export default function Homepage({data}) {
 	const projectSorter = (timeperiod) => {
@@ -55,6 +60,11 @@ export default function Homepage({data}) {
 				<OldPaper/>
 				<img src={DeloreanPresent} alt="" />
 				<img src={DeloreanPast} alt="" />
+				<img src={Buoy} alt="" />
+				<img src={Cloud} alt="" />
+				<img src={Cloud2} alt="" />
+				<img src={Cloud3} alt="" />
+				<img src={Cloud4} alt="" />
 			</div>
 			<DeLorean timePeriods={timePeriods} />
 			<TimeCircuits />
