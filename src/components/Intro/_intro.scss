@@ -16,7 +16,7 @@ $animation-timing: 350ms;
 
 .intro__inner {
 	text-align: center;
-	color: $intro-text-color;
+	color: $color-intro-text-secondary;
 	display: flex;
 	flex-direction: column;
 	max-width: ($gap * 45);
@@ -45,7 +45,7 @@ $animation-timing: 350ms;
 .intro__subtitle,
 .intro__hashtags {
 	font-family: $font-family-present-heading;
-	text-shadow: 2px 3px 0 $intro-text-shadow;
+	text-shadow: 2px 3px 0 $color-intro-text-shadow;
 	font-weight: normal;
 	opacity: 0;
 	animation: fadeMeIn 5000ms $easeOutExpo forwards;
@@ -106,7 +106,7 @@ $animation-timing: 350ms;
 	&:hover {
 		background-color: $color-black;
 		scale: 1.3;
-		color: $intro-text-color;
+		color: $color-intro-text;
 	}
 
 	@media (any-hover: none) {
@@ -139,7 +139,7 @@ $animation-timing: 350ms;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: $intro-text-color;
+		color: $color-intro-text;
 		text-decoration: none;
 		transition: letter-spacing 350ms ease-in-out, color 350ms ease-in-out;
 		letter-spacing: ($gap * .1);

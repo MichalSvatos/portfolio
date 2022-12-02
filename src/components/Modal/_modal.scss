@@ -56,7 +56,7 @@
 
 	&:hover {
 		background-color: $color-modal-error;
-		color: $intro-text-color;
+		color: $color-intro-text;
 	}
 
 	svg {
@@ -306,7 +306,7 @@
 // -- urls
 .modal__url {
 	transition: color 350ms $easeOutExpo;
-	color: $intro-text-color;
+	color: $color-intro-text;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
