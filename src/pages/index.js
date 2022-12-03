@@ -63,7 +63,7 @@ export default function Homepage({data}) {
 					<img src="/preload-placeholder.png" alt="" />
 				</picture>
 				<picture>
-					<source srcSet={DeloreanPresent} media="(min-width: 768px)"/>
+					<source srcSet={DeloreanPast} media="(min-width: 768px)"/>
 					<img src="/preload-placeholder.png" alt="" />
 				</picture>
 
