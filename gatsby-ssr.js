@@ -68,7 +68,7 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 				<div className="flux__energy flux__energy-2"></div>
 				<div className="flux__energy flux__energy-3"></div>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 243" fill="none">
-					<g clipPath="url(#a)">
+					<g>
 						<circle cx="35.9" cy="35.9" r="31.9" stroke="currentColor" strokeWidth="8" className="flux__big-dot" />
 						<circle r="6.1" stroke="currentColor" strokeWidth="5" transform="matrix(-1 0 0 1 35.9 35.9)" className="flux__small-dot" />
 						<circle cx="184.6" cy="35.9" r="31.9" stroke="currentColor" strokeWidth="8" className="flux__big-dot" />
@@ -79,11 +79,6 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 						<path stroke="currentColor" strokeWidth="5" d="m114.6 104.5 65.7-65.7M105.3 104.6 39.6 38.9M110.1 114.6v86.5" className="flux__center"/>
 						<path fill="currentColor" d="M35.8 114.7h2.5-2.5Zm7.6 9.8a2.5 2.5 0 1 0 0-5v5ZM33.3 41.3v73.4h5V41.3h-5Zm0 73.4c0 3 .5 5.6 2.5 7.5 2 1.8 4.7 2.3 7.6 2.3v-5c-2.5 0-3.6-.4-4.1-1-.5-.4-1-1.4-1-3.8h-5ZM188 207.6V205v2.5Zm9.9-7.7a2.5 2.5 0 0 0-5 0h5ZM114.6 210H188v-5h-73.4v5Zm73.4 0c3 0 5.7-.6 7.5-2.6 1.9-2 2.4-4.7 2.4-7.6h-5c0 2.6-.5 3.7-1 4.2-.4.4-1.4 1-4 1v5ZM184.7 114.7h-2.5 2.5Zm-7.7 9.8a2.5 2.5 0 1 1 0-5v5Zm10.2-83.2v73.4h-5V41.3h5Zm0 73.4c0 3-.6 5.6-2.6 7.5-2 1.8-4.7 2.3-7.6 2.3v-5c2.6 0 3.7-.4 4.2-1 .5-.4 1-1.4 1-3.8h5Z" className="flux__wires" />
 					</g>
-					<defs>
-						<clipPath id="a">
-							<path fill="#fff" d="M0 0h220v243H0z" />
-						</clipPath>
-					</defs>
 				</svg>
 			</div>
 		</div>
