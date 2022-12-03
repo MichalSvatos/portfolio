@@ -7,10 +7,11 @@ footer {
 	z-index: -1;
 	min-height: ($gap * 13);
 	color: darken($color-white, 65%);
-	padding: ($gap * 4) ($gap) ($gap * 4) ($gap);
+	padding: ($gap * 4) ($gap);
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	font-size: font-size(xs);
 
 	@media (min-width: $bp-md) {
 		min-height: ($gap * 11);
@@ -25,14 +26,6 @@ footer {
 			color: darken($color-white, 25%);
 		}
 	}
-}
-
-.footer__title {
-	margin-top: ($gap * 2);
-}
-
-.footer__copy {
-	font-size: font-size(xs);
 }
 
 .footer__flux {
@@ -51,4 +44,42 @@ footer {
 		border-color: $color-white;
 		box-shadow: 0 0 20px 5px $color-white;
 	}
+}
+
+.footer__sw {
+	text-transform: none;
+}
+
+.footer__sw-list {
+	margin-top: ($gap * .3);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: $gap;
+}
+
+.footer__sw-link {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	@media (any-hover: none) {
+		border: 1px dashed $color-modal-ui-bg;
+		padding: ($gap * .5) ($gap);
+		text-decoration: none;
+	}
+
+	&:hover {
+		.footer__icon {
+			opacity: 1;
+		}
+	}
+}
+
+.footer__icon {
+	width: ($gap * 1);
+	height: ($gap * 1);
+	opacity: .3;
+	margin-right: ($gap * .3);
+	transition: opacity 350ms ease-in-out;
 }
