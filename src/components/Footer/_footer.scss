@@ -7,7 +7,7 @@ footer {
 	z-index: -1;
 	min-height: ($gap * 13);
 	color: darken($color-white, 65%);
-	padding: ($gap * 4) ($gap);
+	padding: ($gap * 4) ($gap) ($gap * 7) ($gap);
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 1px;
