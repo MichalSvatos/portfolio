@@ -58,12 +58,24 @@ export default function Homepage({data}) {
 			<React.StrictMode>
 			<div className="images-for-preloader hide-me">
 				<OldPaper/>
-				<img src={DeloreanPresent} alt="" />
-				<img src={DeloreanPast} alt="" />
+				<picture>
+					<source srcSet={DeloreanPresent} media="(min-width: 768px)"/>
+					<img src="/preload-placeholder.png" alt="" />
+				</picture>
+				<picture>
+					<source srcSet={DeloreanPresent} media="(min-width: 768px)"/>
+					<img src="/preload-placeholder.png" alt="" />
+				</picture>
+
 				<img src={Buoy} alt="" />
 				<img src={Cloud} alt="" />
 				<img src={Cloud2} alt="" />
-				<img src={Cloud3} alt="" />
+
+				<picture>
+					<source srcSet={Cloud3} media="(min-width: 992px)"/>
+					<img src="/preload-placeholder.png" alt="" />
+				</picture>
+
 				<img src={Cloud4} alt="" />
 			</div>
 			<DeLorean timePeriods={timePeriods} />
