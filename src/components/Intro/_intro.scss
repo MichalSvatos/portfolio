@@ -5,7 +5,7 @@ $animation-timing: 350ms;
 .intro {
 	// no flex because of the animation
 	padding-inline: ($gap);
-	min-height: calc(100vh - ($gap * 2));
+	min-height: calc(100vh - ($gap * 4));
 	position: relative;
 	z-index: 3;
 
