@@ -21,7 +21,6 @@ owner: Realtor Jindřich Svačina
 <br><br>
 ##### Features
 - Advanced Custom Fields
-- MySQL database
 - Custom post types
 - Administration of properties and their characteristics
 - Blog

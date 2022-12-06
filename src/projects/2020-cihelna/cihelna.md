@@ -15,7 +15,7 @@ status: inactive
 owner: Cihelna Concept Store, Prague
 ---
 
-**I coded and programmed a Wordpress theme with custom functionalities**. I was in charge of both frontend and backend.
+**I designed, coded and programmed a Wordpress theme with custom functionalities**. I was in charge of both frontend and backend.
 <br><br>
 ##### Features
 - Advanced Custom Fields

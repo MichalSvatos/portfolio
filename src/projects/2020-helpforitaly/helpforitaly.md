@@ -17,7 +17,7 @@ status: inactive
 owner: Personal project
 ---
 
-At the beginning of the COVID-19 pandemic, Italy has been the Country which suffered the worst consequences. **I designed, coded and programmed a website to help Italians** to have a quick and easy access to a list of useful information and charities. Originally on a custom domain, now archived on Github pages.
+At the beginning of the COVID-19 pandemic, Italy has been the country which suffered the worst consequences. **I designed, coded and programmed a website to help Italians** to have a quick and easy access to a list of useful information and charities. Originally on a custom domain, now archived on Github pages.
 
 
 
