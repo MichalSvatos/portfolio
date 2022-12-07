@@ -12,7 +12,7 @@ timeperiod: present
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/hp.png", "images/collection/thumbs/settings.png", "images/collection/thumbs/group.png"]
 collection: ["images/collection/hp.png", "images/collection/settings.png", "images/collection/group.png"]
-statusText: continuously working on it
+statusText: under active development
 status: active 
 owner: Personal project
 ---

@@ -10,7 +10,7 @@ timeperiod: present
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/web1.jpg", "images/collection/thumbs/web2.jpg"]
 collection: ["images/collection/web1.jpg", "images/collection/web2.jpg"]
-statusText: continuously working on it, currently on implementation of the English version
+statusText: under active development, currently preparing implementation of the English version
 status: active
 owner: Realtor Jindřich Svačina
 ---
