@@ -3,11 +3,13 @@
 .page404 {
 	background-color: $color-black;
 	color: $color-intro-text;
+	padding-inline: ($gap);
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	text-align: center;
 
 	& > * {
 		margin-top: ($gap);
@@ -15,8 +17,16 @@
 }
 
 .page404__title {
-	color: darkorange;
+	color: #FF2F2F;
+	text-shadow: 0 0 15px #FF2F2F;
 	font-size: font-fluid(xl);
+	font-family: $font-family-time-circuits;
+	font-weight: 400;
+}
+
+.page404__text {
+	text-transform: uppercase;
+	color: #FF8222;
 }
 
 .page404__btn {
@@ -31,5 +41,25 @@
 
 	&:hover {
 		color: $color-intro-text;
+	}
+}
+
+.page404__sound {
+	appearance: none;
+	border: 0;
+	padding: 0;
+	border-radius: ($gap);
+	overflow: hidden;
+	cursor: pointer;
+	transition: box-shadow 350ms ease-in-out;
+
+	&:hover {
+		box-shadow: 0 0 45px -10px #FF2F2F;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
 	}
 }
