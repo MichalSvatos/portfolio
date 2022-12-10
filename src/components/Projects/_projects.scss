@@ -10,7 +10,7 @@
 	@media (min-width: $bp-xl) {
 		align-items: flex-start;
 		margin-inline: auto;
-		max-width: 80vw;
+		max-width: ($gap * 65);
 		width: 100%;
 	}
 
