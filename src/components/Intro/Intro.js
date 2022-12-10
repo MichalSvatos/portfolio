@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import "./_intro.scss"
 import {graphql, useStaticQuery} from "gatsby"
 import IconGithub from "./images/github.inline.svg"
@@ -26,23 +26,48 @@ export default function Intro() {
 	const {name, description, contact} = introData.site.siteMetadata
 	const {github, email, linkedIn} = contact
 
+	const [state, setState] = useState({
+		visibility: false
+	})
+
 	const introStickinessHandler = (intro) => {
 		let introHeight = intro.offsetHeight
 
 		intro.classList.toggle("is-fixed", window.scrollY > introHeight);
 	}
 
-	const emailProtector = (emailAddress) => {
-		const emailButton = document.querySelector(".intro__link--email")
-		if (!emailButton) return
-
-		emailButton.addEventListener("click", (e) => {
-			e.preventDefault()
-			const emailProtector = document.querySelector(".intro__email-protector")
-
-			emailProtector.innerHTML = `<a href="mailto:${email}?subject=%5BWEBSITE%5D">${email}</a>`
-			emailProtector.classList.contains("js-show-email") ? emailProtector.classList.remove("js-show-email") : emailProtector.classList.add("js-show-email")
+	const toggleEmailVisibility = () => {
+		setState({
+			...state,
+			visibility: !state.visibility
 		})
+	}
+
+	const emailClick = (e) => {
+		e.preventDefault()
+
+		// -- email is visible
+		if (state.visibility) {
+			toggleEmailVisibility()
+			return
+		}
+
+		// -- email is hidden
+		const emailProtector = document.querySelector(".intro__email-protector")
+
+		if (emailProtector.querySelector("a")) {
+			toggleEmailVisibility()
+			return;
+		}
+
+		const emailUrl = `mailto:${email}?subject=%5BWEBSITE%5D`
+		const emailLink = document.createElement("a")
+
+		emailLink.setAttribute("href", emailUrl)
+		emailLink.innerHTML = email
+		emailProtector.appendChild(emailLink)
+
+		toggleEmailVisibility()
 	}
 
 	const arrowScroll = (arrow, intro) => {
@@ -63,8 +88,6 @@ export default function Intro() {
 
 		const arrow = document.querySelector('.intro__arrow')
 		arrowScroll(arrow, intro)
-
-		emailProtector(email)
 	})
 
 	return (
@@ -92,20 +115,20 @@ export default function Intro() {
 						}
 						{email &&
 							<li>
-								<a href="/" className="intro__link intro__link--email">
+								<a href="/" className="intro__link intro__link--email" onClick={emailClick}>
 									<IconMail />
 									<span className="hide-me">Send me an email</span>
 								</a>
 							</li>
 						}
-						<li className="intro__email-protector"></li>
+						<li className={state.visibility ? "intro__email-protector js-show-email" : "intro__email-protector"}></li>
 
 					</ul>
 					{/*<p className="intro__hashtags fade-me-in">#frontend #design #privacy</p>*/}
 					{/*	Currently living in Toronto, Canada.*/}
 				</div>
 				<a href="/" className="intro__arrow" title="Go back in time!">
-					<Arrow/>
+					<Arrow />
 				</a>
 			</div>
 		</>
