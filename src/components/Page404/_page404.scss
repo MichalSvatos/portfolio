@@ -4,7 +4,7 @@
 	background-color: $color-black;
 	color: $color-intro-text;
 	padding-inline: ($gap);
-	min-height: 100vh;
+	min-height: 90vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -22,6 +22,7 @@
 	font-size: font-fluid(xl);
 	font-family: $font-family-time-circuits;
 	font-weight: 400;
+	margin-top: 0;
 }
 
 .page404__text {
@@ -38,6 +39,7 @@
 	color: $color-white;
 	text-decoration: none;
 	transition: color 250ms ease-in-out;
+	border-radius: ($gap * .5);
 
 	&:hover {
 		color: $color-intro-text;
