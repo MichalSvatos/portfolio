@@ -15,7 +15,7 @@
 			radial-gradient(at 90% 17%, hsla(218,26%,28%,1) 0px, transparent 50%),
 			radial-gradient(at 79% 72%, hsla(235,35%,21%,1) 0px, transparent 50%);
 	position: relative;
-	padding-bottom: ($gap * 15);
+	padding-bottom: ($gap * 12);
 }
 
 // -- clouds, buoys
@@ -78,12 +78,14 @@
 }
 
 .float--cloud-3 {
-	top: -10%;
-	right: 0;
-	width: 85vw;
-	aspect-ratio: 850/457;
-	background: transparent url("./images/float--cloud-3.png") no-repeat 0 0;
-	background-size: contain;
+	@media (min-width: $bp-lg) {
+		top: -10%;
+		right: 0;
+		width: 85vw;
+		aspect-ratio: 850/457;
+		background: transparent url("./images/float--cloud-3.png") no-repeat 0 0;
+		background-size: contain;
+	}
 }
 
 .float--cloud-4 {
@@ -174,7 +176,7 @@
 	left: 37%;
 	width: 70px;
 	//scale: .24;
-	filter: blur(1px);
+	//filter: blur(1px);
 }
 
 .float--buoy-5 {
@@ -182,7 +184,7 @@
 	left: 32%;
 	width: 50px;
 	//scale: .17;
-	filter: blur(2px);
+	//filter: blur(2px);
 }
 
 .float--buoy-6 {
@@ -190,7 +192,7 @@
 	left: 29%;
 	width: 30px;
 	//scale: .1;
-	filter: blur(2px);
+	//filter: blur(2px);
 }
 
 @keyframes buoyHovering {

@@ -1,7 +1,7 @@
 @use "../../styles" as *;
 
 .section--present {
-	padding: ($gap * 5) ($gap) 0 ($gap);
+	padding: ($gap * 5) ($gap) ($gap * 12) ($gap);
 	position: relative;
 	z-index: 3;
 

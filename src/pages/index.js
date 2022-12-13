@@ -7,7 +7,7 @@ import Modal from "../components/Modal/Modal"
 import Intro from "../components/Intro/Intro"
 import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
-// import Software from "../components/Software/Software"
+import Skills from "../components/Skills/Skills"
 import OldPaper from "../components/Projects/Item/images/item-history--clippath.inline.svg"
 import DeloreanPresent from "../components/DeLorean/images/delorean--present.png"
 import DeloreanPast from "../components/DeLorean/images/delorean--past.png"
@@ -84,6 +84,8 @@ export default function Homepage({data}) {
 			<Time timePeriod={present} customClass="load-me">
 				<Intro />
 				<Projects projectsData={projectSorter("present")} />
+				{/*TODO: Software section */}
+				<Skills />
 			</Time>
 
 			<Time timePeriod={past} customClass="js-time-travel-checking">
@@ -92,8 +94,6 @@ export default function Homepage({data}) {
 
 			<Time timePeriod={history}>
 				<Projects projectsData={projectSorter("history")} />
-				{/*TODO: Software section */}
-				{/*<Software />*/}
 			</Time>
 
 			<Modal />
