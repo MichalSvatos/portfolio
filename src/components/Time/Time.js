@@ -66,8 +66,8 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 				let scrollY = window.scrollY
 
 				if ((scrollY > 0) && (scrollY < (threshold + (window.innerHeight / 2)))) {
-					let speedY = (speedYBase / 10) * scrollY
-					let speedX = (speedXBase / 10) * scrollY
+					let speedY = Math.floor((speedYBase / 10) * scrollY)
+					let speedX = Math.floor((speedXBase / 10) * scrollY)
 
 					float.style.transform = `translate3d(${speedX}px, ${speedY}px ,0)`
 
