@@ -16,6 +16,10 @@
 	transition: scale 1500ms $easeOutExpo;
 	will-change: scale;
 
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+
 	@media (min-width: $bp-md) {
 		scale: .9;
 	}

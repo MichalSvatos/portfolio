@@ -117,6 +117,10 @@
 		translate: 0 -5px;
 		rotate: 3deg;
 		animation: buoyHovering 5500ms ease-in-out infinite;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
 	}
 
 	@media (max-width: $bp-md-max) {

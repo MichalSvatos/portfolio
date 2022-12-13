@@ -28,6 +28,10 @@
 		animation: signHovering 7500ms ease-in-out infinite;
 	}
 
+	@media (min-width: $bp-md) and (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+
 	// -- sides
 	&:before,
 	&:after {
