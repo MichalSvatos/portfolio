@@ -37,30 +37,22 @@ export default function Project({timeperiod, projectData}) {
 
 	const [openModalID, setOpenModalID] = useState(null)
 
-	// TODO: Maybe some async fc?
-	// const bodyScrollingHandler = () => {
-	// 	const body = document.body
-	// 	openModalID === null ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
-	// 	console.log('openModalID', openModalID)
-	// }
-
 	const closeModal = () => {
 		setOpenModalID(null)
 		document.getElementById("modal-container").classList.remove("modal-is-ready")
+		document.body.classList.remove("scroll-under-control") // added in Modal/Modal.js
 	}
 
 	const showModal = (e) => {
 		e.preventDefault()
 		setOpenModalID(id)
 
-		// bodyScrollingHandler()
 		document.getElementById("modal-container").classList.add("modal-is-ready")
 	}
 
 	useEffect(() => {
 		document.addEventListener("keydown", (event) => {
 			if (event.key === 'Escape') {
-				// bodyScrollingHandler()
 				closeModal()
 			}
 		})

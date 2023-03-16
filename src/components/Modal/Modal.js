@@ -6,15 +6,16 @@ import Gallery from "../Gallery/Gallery"
 export default function Modal({id, data}) {
 
 	const modalRef = useRef()
-	const modalCloseRef = useRef()
-
 	const {title, tags, slug, year, url, html, featured, images, statusText, statusClass, owner} = data[0]
 
 	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
+		document.querySelector(".intro").classList.remove("is-fixed") // smoothing UX when opening/closing the modal window
+
 		setTimeout(() => {
 			modalRef.current.classList.add("modal-is-open")
+			document.body.classList.add("scroll-under-control") // removed in Projects/Item/Item.js
 		}, 500)
 
 		setMounted(true)
