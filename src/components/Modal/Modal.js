@@ -1,12 +1,12 @@
 import React, {useEffect, useRef, useState} from "react"
-import "./_modal2.scss"
+import "./_modal.scss"
 import {createPortal} from "react-dom"
 import Gallery from "../Gallery/Gallery"
 
 export default function Modal({id, data}) {
 
 	const modalRef = useRef()
-	const {title, tags, slug, year, url, html, featured, images, statusText, statusClass, owner} = data[0]
+	const {title, tags, year, url, html, images, statusText, statusClass, owner} = data[0]
 
 	const [mounted, setMounted] = useState(false)
 
@@ -20,7 +20,7 @@ export default function Modal({id, data}) {
 
 		setMounted(true)
 		return () => setMounted(false)
-	})
+	}, [])
 
 	if (mounted) {
 		return (
@@ -50,7 +50,7 @@ export default function Modal({id, data}) {
 								<ul id="modal__urls">
 									{url.map((link) => {
 										if (link.link !== null) {
-											return <li key={link.link}><a href={link.link} className="modal__url" target="_blank" rel="noopener">{link.title}</a></li>
+											return <li key={link.link}><a href={link.link} className="modal__url" target="_blank" rel="noopener noreferrer">{link.title}</a></li>
 										}
 									})}
 								</ul>
