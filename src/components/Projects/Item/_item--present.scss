@@ -1,6 +1,14 @@
 @use "../../../styles" as *;
 @use "sass:color";
 
+@mixin itemsFlowFixerPresent() {
+	margin-top: ($gap * 18);
+
+	@media (min-width: $bp-xxl) {
+		margin-top: ($gap * 2);
+	}
+}
+
 .project-item--present {
 	background-color: transparent;
 	color: $color-present-text-secondary;
@@ -61,11 +69,7 @@
 	}
 
 	& + & {
-		margin-top: ($gap * 18);
-
-		@media (min-width: $bp-xxl) {
-			margin-top: ($gap * 2);
-		}
+		@include itemsFlowFixerPresent();
 	}
 
 	& > * {
@@ -74,7 +78,7 @@
 
 	// -- animation delay maker
 	@for $i from 1 through 6 {
-		&:nth-child(#{$i + 1}) {
+		&:nth-of-type(#{$i + 1}) {
 			animation-delay: #{$i * 4}00ms;
 		}
 	}
@@ -145,6 +149,11 @@
 			color: $color-present-text-primary;
 		}
 	}
+}
+
+// --- Fix for the items' flow (close button inserted by React)
+button + .project-item--present {
+	@include itemsFlowFixerPresent();
 }
 
 .object-item__lamp {

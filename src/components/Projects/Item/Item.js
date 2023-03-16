@@ -1,17 +1,20 @@
-import React from "react"
+import React, {useEffect, useRef, useState} from "react"
 import "./_item.scss"
 import "./_item--present.scss"
 import "./_item--past.scss"
 import "./_item--history.scss"
 import {GatsbyImage} from "gatsby-plugin-image"
+// [NTH] TODO: necessary evil
+import Modal from "../../Modal/Modal"
+import IconCloseWindow from "../../Modal/images/closewindow.inline.svg"
 
 export default function Project({timeperiod, projectData}) {
-	// console.log('projectData', projectData);
 
 	const {title, tags, slug, year, url, featured, collection, collectionThumbs, statusText, status, owner} = projectData.frontmatter
 	const html = projectData.html
 	const featuredImage = featured.childrenImageSharp[0].gatsbyImageData
 	const id = projectData.id
+	const projectButton = useRef()
 
 	const projectDetailData = [
 		{
@@ -32,16 +35,47 @@ export default function Project({timeperiod, projectData}) {
 		}
 	]
 
+	const [openModalID, setOpenModalID] = useState(null)
+
+	// TODO: Maybe some async fc?
+	// const bodyScrollingHandler = () => {
+	// 	const body = document.body
+	// 	openModalID === null ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
+	// 	console.log('openModalID', openModalID)
+	// }
+
+	const closeModal = () => {
+		setOpenModalID(null)
+		document.getElementById("modal-container").classList.remove("modal-is-ready")
+	}
+
+	const showModal = (e) => {
+		e.preventDefault()
+		setOpenModalID(id)
+
+		// bodyScrollingHandler()
+		document.getElementById("modal-container").classList.add("modal-is-ready")
+	}
+
+	useEffect(() => {
+		document.addEventListener("keydown", (event) => {
+			if (event.key === 'Escape') {
+				// bodyScrollingHandler()
+				closeModal()
+			}
+		})
+	})
+
 	return (
 		<>
 			<a
 				href="/"
-				className={`project-item project-item--${timeperiod} js-modal-show`}
-				data-modal={JSON.stringify(projectDetailData)}
+				className={`project-item project-item--${timeperiod}`}
 				data-year={year}
 				key={id}
+				ref={projectButton}
+				onClick={showModal}
 			>
-
 				{/* -- various object for each time period item */}
 				<div className={`project-item__objects objects-item objects-item--${timeperiod}`}>
 					{
@@ -58,7 +92,7 @@ export default function Project({timeperiod, projectData}) {
 				</div>
 
 				<h3 className="project-item__title">{title}</h3>
-				{ featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} /> }
+				{featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} />}
 
 				<div className="project-item__year">{year}</div>
 
@@ -72,8 +106,17 @@ export default function Project({timeperiod, projectData}) {
 					</div>
 				}
 
-
 			</a>
+			{
+				openModalID === id &&
+					<>
+						<Modal id={id} data={projectDetailData} />
+						<button className="modal__close" onClick={closeModal}>
+							<IconCloseWindow />
+							<span className="hide-me">Close</span>
+						</button>
+					</>
+			}
 		</>
 	)
 }

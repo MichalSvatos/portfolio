@@ -4,7 +4,7 @@
 	position: fixed;
 	inset: 0;
 	background-color: $color-modal-ui-bg;
-	z-index: 10;
+	z-index: 20;
 	display: none;
 	overflow: hidden;
 	color: $color-white;
@@ -21,7 +21,7 @@
 }
 
 .modal-is-ready {
-	& + .modal-overlay {
+	.modal-overlay {
 		position: fixed;
 		inset: 0;
 		background-color: rgba($color-modal-ui-bg, 0);
@@ -40,7 +40,7 @@
 }
 
 .modal__close {
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 0;
 	display: flex;
@@ -52,7 +52,9 @@
 	color: $color-white;
 	text-decoration: none;
 	transition: background-color 350ms $easeOutExpo, color 350ms $easeOutExpo;
-	z-index: 5;
+	z-index: 20;
+	border: 0;
+	cursor: pointer;
 
 	&:hover {
 		background-color: $color-modal-error;

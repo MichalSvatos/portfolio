@@ -3,7 +3,6 @@ import {graphql} from "gatsby"
 import Layout from "../components/Layout/Layout"
 import Time from "../components/Time/Time"
 import Projects from "../components/Projects/Projects"
-import Modal from "../components/Modal/Modal"
 import Intro from "../components/Intro/Intro"
 import DeLorean from "../components/DeLorean/DeLorean"
 import TimeCircuits from "../components/TimeCircuits/TimeCircuits"
@@ -84,7 +83,6 @@ export default function Homepage({data}) {
 			<Time timePeriod={present} customClass="load-me">
 				<Intro />
 				<Projects projectsData={projectSorter("present")} />
-				{/*TODO: Software section */}
 				<Skills />
 			</Time>
 
@@ -95,8 +93,6 @@ export default function Homepage({data}) {
 			<Time timePeriod={history}>
 				<Projects projectsData={projectSorter("history")} />
 			</Time>
-
-			<Modal />
 
 			{/*<div className="copywriting-helper">
 				{

@@ -3,7 +3,6 @@
 .section--present {
 	padding: ($gap * 5) ($gap) ($gap * 12) ($gap);
 	position: relative;
-	z-index: 3;
 
 	@media (min-width: $bp-lg) {
 		padding-top: ($gap);

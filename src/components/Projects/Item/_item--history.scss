@@ -9,6 +9,16 @@
 	text-shadow: 0 0 3px darken($color-history-primary, 40%);
 }
 
+@mixin itemsFlowFixerHistory() {
+	@media (min-width: $bp-xl) {
+		margin-top: -($gap * 5);
+	}
+
+	@media (min-width: $bp-xxl) {
+		margin-top: -($gap * 13);
+	}
+}
+
 .project-item--history {
 	background-color: transparent;
 	position: relative;
@@ -83,13 +93,7 @@
 	}
 
 	& + & {
-		@media (min-width: $bp-xl) {
-			margin-top: -($gap * 5);
-		}
-
-		@media (min-width: $bp-xxl) {
-			margin-top: -($gap * 13);
-		}
+		@include itemsFlowFixerHistory();
 	}
 
 	.project-item__title {
@@ -189,4 +193,9 @@
 		font-size: font-size(sm);
 		letter-spacing: .2rem;
 	}
+}
+
+// --- Fix for the items' flow (close button inserted by React)
+button + .project-item--history {
+	@include itemsFlowFixerHistory();
 }

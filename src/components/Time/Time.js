@@ -132,14 +132,6 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 						{/*<div className="rain front-row"></div>
 						<div className="rain back-row"></div>*/}
 						<div className="floats">
-							{children}
-							{/* Clouds */}
-							<div className="float float--cloud make-me-parallax" data-parallax-speed-y="-2" data-parallax-speed-x="-0.15"></div>
-							<div className="float float--cloud-2 make-me-parallax" data-parallax-speed-y="-3" data-parallax-speed-x="0.15"></div>
-							<div className="float float--cloud-3 make-me-parallax" data-parallax-speed-y="-1" data-parallax-speed-x="0"></div>
-							<div className="float float--cloud-4 make-me-parallax" data-parallax-speed-y="-2" data-parallax-speed-x="-0.15"></div>
-							<div className="float float--bottom"></div>
-
 							{/* Buoys */}
 							<div className="float-wrapper float-wrapper--buoys">
 								<div className="float float--buoy make-me-parallax" data-parallax-speed-y="-3.25" data-parallax-speed-x="0.5"></div>
@@ -149,6 +141,15 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 								<div className="float float--buoy-5 make-me-parallax" data-parallax-speed-y="-0.65" data-parallax-speed-x="-0.05"></div>
 								<div className="float float--buoy-6 make-me-parallax" data-parallax-speed-y="-0.5" data-parallax-speed-x="-0.02"></div>
 							</div>
+
+							{/* Clouds */}
+							<div className="float float--cloud make-me-parallax" data-parallax-speed-y="-2" data-parallax-speed-x="-0.15"></div>
+							<div className="float float--cloud-2 make-me-parallax" data-parallax-speed-y="-3" data-parallax-speed-x="0.15"></div>
+							<div className="float float--cloud-3 make-me-parallax" data-parallax-speed-y="-1" data-parallax-speed-x="0"></div>
+							<div className="float float--cloud-4 make-me-parallax" data-parallax-speed-y="-2" data-parallax-speed-x="-0.15"></div>
+							<div className="float float--bottom"></div>
+
+							{children}
 						</div>
 					</>
 					:

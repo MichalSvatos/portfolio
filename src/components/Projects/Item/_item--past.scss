@@ -1,6 +1,16 @@
 @use "../../../styles" as *;
 @use "sass:color";
 
+@mixin itemsFlowFixerPast() {
+	@media (min-width: $bp-xl) {
+		margin-top: -($gap * 5);
+	}
+
+	@media (min-width: $bp-xxl) {
+		margin-top: -($gap * 7);
+	}
+}
+
 .project-item--past {
 	background-color: darken($color-white, 7%);
 	padding: ($gap * .5);
@@ -18,13 +28,7 @@
 	}
 
 	& + & {
-		@media (min-width: $bp-xl) {
-			margin-top: -($gap * 5);
-		}
-
-		@media (min-width: $bp-xxl) {
-			margin-top: -($gap * 7);
-		}
+		@include itemsFlowFixerPast();
 	}
 
 	.project-item__year,
@@ -105,4 +109,9 @@
 		line-height: 1;
 		border-radius: ($gap * .5);
 	}
+}
+
+// --- Fix for the items' flow (close button inserted by React)
+button + .project-item--past {
+	@include itemsFlowFixerPast();
 }

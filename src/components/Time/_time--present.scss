@@ -21,7 +21,6 @@
 // -- clouds, buoys
 .float {
 	position: absolute;
-	z-index: 0;
 	transition: opacity 750ms $easeOutExpo;
 	will-change: transform, opacity;
 	opacity: 1;
@@ -36,7 +35,6 @@
 	bottom: 0;
 	width: 100%;
 	aspect-ratio: 80/31;
-	z-index: 2;
 
 	.load-me & {
 		background: transparent url("./images/float--bottom.png") no-repeat 0 0;
@@ -47,7 +45,6 @@
 [class*="float--cloud"],
 [class*="float--buoy"] {
 	position: absolute;
-	z-index: 2;
 
 	@media (min-width: $bp-lg) {
 		position: fixed;
@@ -106,7 +103,6 @@
 	aspect-ratio: 25/46;
 	width: 300px;
 	transform-origin: 0 0;
-	z-index: 1;
 
 	&:after {
 		content: '';

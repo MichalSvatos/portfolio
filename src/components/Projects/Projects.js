@@ -3,11 +3,9 @@ import "./_projects.scss"
 import "./_projects--present.scss"
 import "./_projects--past.scss"
 import "./_projects--history.scss"
-import Item from "../Projects/Item/Item";
+import Item from "../Projects/Item/Item"
 
 export default function Projects({projectsData}) {
-	// console.log("projectsData-projects", projectsData);
-
 	const timeperiod = projectsData[0]?.frontmatter.timeperiod ? projectsData[0].frontmatter.timeperiod : "present"
 
 	useEffect(() => {

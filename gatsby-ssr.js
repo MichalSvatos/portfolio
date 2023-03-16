@@ -81,7 +81,8 @@ export const onRenderBody = ({setHeadComponents, setBodyAttributes, setPreBodyCo
 					</g>
 				</svg>
 			</div>
-		</div>
+		</div>,
+		<div id="modal-container" key="modal-container-div"></div>
 	])
 	setPostBodyComponents([
 		<script src="/scripts/preloader.js" key="preloader-backup" />

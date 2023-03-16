@@ -1,200 +1,70 @@
-import React, {useEffect} from "react"
-import "./_modal.scss"
-import galleryHelper from "../Gallery/_Helper"
-import IconCloseWindow from "./images/closewindow.inline.svg"
+import React, {useEffect, useRef, useState} from "react"
+import "./_modal2.scss"
+import {createPortal} from "react-dom"
+import Gallery from "../Gallery/Gallery"
 
-export default function Modal() {
-	const populateModal = (projectData, modal) => {
-		if (modal) {
-			// TODO: DRY ...?
-			const title = document.getElementById("modal__title")
-			const year = document.getElementById("modal__year")
-			const owner = document.getElementById("modal__owner")
-			const status = document.getElementById("modal__status")
-			const url = document.getElementById("modal__urls")
-			const tags = document.getElementById("modal__tags")
-			const desc = document.getElementById("modal__desc")
-			const galleryShowcase = document.getElementById("modal__gallery-showcase")
-			const galleryThumbs = document.getElementById("modal__gallery-thumbs")
+export default function Modal({id, data}) {
 
-			// TODO: How to remove 1st level ...?
-			const data = projectData[0]
+	const modalRef = useRef()
+	const modalCloseRef = useRef()
 
-			title.innerHTML = data.title
-			year.innerHTML = data.year
-			desc.innerHTML = data.html
+	const {title, tags, slug, year, url, html, featured, images, statusText, statusClass, owner} = data[0]
 
-			// -- project owner
-			if (data.owner && owner) {
-				let ownerText = data.owner
-				owner.innerHTML = (ownerText.includes("Personal")) ? ownerText : `<strong>Client:</strong> ${ownerText}`
-			}
-
-			// -- project status
-			if (data.statusClass && data.statusText) {
-				status.innerHTML = `<span class="is-${data.statusClass}">Status: ${data.statusText}</span>`
-			}
-
-			// -- urls of the project
-			if (url) {
-				let linksHtml = ""
-
-				data.url.forEach(link => {
-					if (link.link !== null) {
-						linksHtml += `<li><a href="${link.link}" class="modal__url" target="_blank" rel="noopener">${link.title}</a></li>`
-					}
-				})
-
-				url.innerHTML = linksHtml
-			}
-
-			// -- handling tags
-			if (data.tags) {
-				let tagsHtml = ""
-
-				data.tags.forEach(tag => {
-					tagsHtml += `<li class="modal__tags-item">${tag}</li>`
-				})
-
-				tags.innerHTML = tagsHtml
-			}
-
-			// -- images
-			createGallery(data.images, galleryShowcase, galleryThumbs)
-
-		}
-	}
-
-	const createGallery = (imagesArray, galleryShowcase, galleryThumbs) => {
-		if (imagesArray) {
-			let showcaseHtml = ""
-			const thumbs = imagesArray.collectionThumbs
-			const images = imagesArray.collection
-
-			// -- single big image
-			if (images) {
-				showcaseHtml += `
-						<img src="/default.png" data-src="${images[0].publicURL}" class="gallery__image js-gallery-target-image js-lazyload" alt="">
-				`
-			}
-
-			// -- thumbnails
-			let thumbnailsHtml = ""
-
-			if (thumbs) {
-				Object.keys(thumbs).forEach(key => {
-					thumbnailsHtml += `
-						<a href="${images[key].publicURL}" class="gallery__link js-gallery-switch-image">
-							<img src="${thumbs[key].publicURL}" class="gallery__thumb" alt="">
-						</a>
-					`
-				});
-			}
-
-			// -- filling the gallery
-			galleryShowcase.innerHTML = showcaseHtml
-			galleryThumbs.innerHTML = thumbnailsHtml
-		}
-	}
-
-	const bodyScrollingHandler = () => {
-		const body = document.body
-		body.classList.contains("scroll-under-control") ? body.classList.remove("scroll-under-control") : body.classList.add("scroll-under-control")
-	}
-
-	const closeModal = (modal, buttons) => {
-		buttons.forEach(btn => {
-			btn.addEventListener("click", (e) => {
-				e.preventDefault()
-
-				bodyScrollingHandler()
-				modal.classList.remove("modal-is-open", "modal-is-ready")
-			})
-		})
-	}
-
-	const showModal = (modal) => {
-		bodyScrollingHandler("show")
-		modal.classList.add("modal-is-ready")
-		setTimeout(() => {
-			modal.classList.add("modal-is-open")
-		}, 500)
-	}
-
-	const clickProject = (modal, projects) => {
-		projects.forEach((project) => {
-			project.addEventListener("click", (e) => {
-				e.preventDefault()
-				let modalData = JSON.parse(project.dataset.modal)
-				populateModal(modalData, modal)
-				showModal(modal)
-				galleryHelper.lazyload(1000)
-
-				// -- handling the project gallery
-				galleryHelper.thumbsHandler(modal)
-			})
-		})
-	}
+	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
-		const modal = document.getElementById("modal")
-		const closeBtns = document.querySelectorAll(".js-modal-close")
-		const projects = document.querySelectorAll(".js-modal-show")
+		setTimeout(() => {
+			modalRef.current.classList.add("modal-is-open")
+		}, 500)
 
-		clickProject(modal, projects)
-		closeModal(modal, closeBtns)
-
-		// TODO: Maybe another function to make it clean
-		document.addEventListener("keydown", (event) => {
-			if (event.key === 'Escape') {
-				bodyScrollingHandler()
-				modal.classList.remove("modal-is-open", "modal-is-ready")
-			}
-		})
+		setMounted(true)
+		return () => setMounted(false)
 	})
 
-	return (
-		<>
-			<div className="modal" id="modal" aria-modal="true">
-				<div id="modal__body">
-					<div className="modal__inner">
-						<h2 id="modal__title">{/* populated by js */}</h2>
-						<ul id="modal__tags">{/* populated by js */}</ul>
-						<div id="modal__info">
-							<div id="modal__owner">{/* populated by js */}</div>
-							<div id="modal__year">{/* populated by js */}</div>
-							<div id="modal__status">{/* populated by js */}</div>
-						</div>
-						<ul id="modal__urls">{/* populated by js */}</ul>
-						<div id="modal__desc"></div>
+	if (mounted) {
+		return (
+			createPortal(
+				<>
+					<div className="modal" id="modal" aria-modal="true" key={id} ref={modalRef}>
+						<div id="modal__body">
+							<div className="modal__inner">
+								<h2 id="modal__title">{title}</h2>
+								<ul id="modal__tags">
+									{tags.map((tag) => {
+										return <li className="modal__tags-item" key={tag}>{tag}</li>
+									})}
+								</ul>
+								<div id="modal__info">
+									<div id="modal__owner">
+										{owner.includes("Personal") ? owner : <>Client: {owner}</>}
+									</div>
+									<div id="modal__year">{year}</div>
+									<div id="modal__status">
+										{
+											(statusClass && statusText) &&
+											<span className={"is-" + statusClass}>Status: {statusText}</span>
+										}
+									</div>
+								</div>
+								<ul id="modal__urls">
+									{url.map((link) => {
+										if (link.link !== null) {
+											return <li key={link.link}><a href={link.link} className="modal__url" target="_blank" rel="noopener">{link.title}</a></li>
+										}
+									})}
+								</ul>
+								<div id="modal__desc" dangerouslySetInnerHTML={{__html: html}}></div>
 
-						{/* TODO: Maybe separate component */}
-						<div id="modal__gallery-showcase" className="gallery__showcase">
-							{/*
-								// Generated structure from JS
-								<img src="img1.png" className="gallery__image js-gallery-target-image js-lazyload" alt="">
-							*/}
-						</div>
-						<div id="modal__gallery-thumbs" className="gallery__thumbs">
-							{/*
-								// Generated structure from JS
-								<a href="img1.png" class="gallery__link js-gallery-switch-image">
-									<img src="img1-thumb.png" class="gallery__thumb" alt="">
-								</a>
-								<a href="img2.png" class="gallery__link js-gallery-switch-image">
-									<img src="img2-thumb.png" class="gallery__thumb" alt="">
-								</a>
-							*/}
+								<Gallery images={images} />
+
+							</div>
+
 						</div>
 					</div>
-
-				</div>
-				<a href="/" className="modal__close js-modal-close">
-					<IconCloseWindow />
-					<span className="hide-me">Close</span>
-				</a>
-			</div>
-			<div className="modal-overlay js-modal-close"></div>
-		</>
-	)
+					<div className="modal-overlay js-modal-close"></div>
+				</>,
+				document.getElementById("modal-container")
+			)
+		)
+	}
 }
