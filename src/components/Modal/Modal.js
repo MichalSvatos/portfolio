@@ -8,6 +8,11 @@ export default function Modal({id, data}) {
 	const modalRef = useRef()
 	const {title, tags, year, url, html, images, statusText, statusClass, owner} = data[0]
 
+	Object.keys(url).forEach((key) => {
+		if (url[key].link !== null) return
+		delete url[key]
+	})
+
 	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
@@ -48,10 +53,8 @@ export default function Modal({id, data}) {
 									</div>
 								</div>
 								<ul id="modal__urls">
-									{url.map((link) => {
-										if (link.link !== null) {
-											return <li key={link.link}><a href={link.link} className="modal__url" target="_blank" rel="noopener noreferrer">{link.title}</a></li>
-										}
+									{url.length && url.map((link) => {
+										return <li key={link.link}><a href={link.link} className="modal__url" target="_blank" rel="noopener noreferrer">{link.title}</a></li>
 									})}
 								</ul>
 								<div id="modal__desc" dangerouslySetInnerHTML={{__html: html}}></div>
