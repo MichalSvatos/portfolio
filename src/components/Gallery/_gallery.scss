@@ -91,6 +91,7 @@ $buttonSize: ($gap * 3.5);
 
 // --- Zoom
 .gallery__zoom:not(.gallery__zoom--is-active) {
+	display: block;
 	cursor: zoom-in;
 	position: relative;
 
