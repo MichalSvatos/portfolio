@@ -68,7 +68,7 @@
 }
 
 [id="modal__body"] {
-	height: 100vh;
+	height: 100dvh;
 	overflow-y: auto;
 	padding: ($gap) ($gap) ($gap * 3) ($gap);
 	scroll-padding-bottom: ($gap * 3);
