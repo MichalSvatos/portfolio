@@ -2,6 +2,11 @@
 Code of **[svatos.dev](https://svatos.dev)** which is my portfolio and coding playground at the same time. The theme of the website is a classic - **Back To the Future**. Easter eggs for fans included ;)
 ***
 ## Changelog
+**1.1.1**
+- FIX - Header `z-index`
+- FIX - Safari `mix-blend-mode`
+- FIX - MODAL - `display: block` for right positioning of the `+` button
+
 **1.1.0**
 - NEW - MODAL - completely rewritten to use React portal
 - NEW - MODAL - added zoom functionality

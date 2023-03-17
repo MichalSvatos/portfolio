@@ -160,7 +160,7 @@ $animation-timing: 350ms;
 
 // -- Fixed variant
 .is-fixed {
-	z-index: 10;
+	z-index: initial;
 
 	.intro__subtitle,
 	.intro__hashtags {
@@ -180,6 +180,7 @@ $animation-timing: 350ms;
 		animation: slideMeDown 750ms $easeOutBack forwards;
 		transition: background-color 750ms $easeOutExpo;
 		max-width: none;
+		z-index: 20;
 
 		&:hover {
 			background-color: $color-black;
