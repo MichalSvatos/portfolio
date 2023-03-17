@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useRef, useState, useMemo} from "react"
 import "./_time.scss"
 import "./_time--present.scss"
 import "./_time--past.scss"
@@ -82,6 +82,25 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 		}
 	}
 
+	// --- observer
+	const [isIntersecting, setIntersecting] = useState(false)
+	const timePeriodRef = useRef()
+	const observerOptions = useMemo(() => {
+		return {
+			root: null,
+			rootMargin: "150px 0px",
+		}
+	}, [])
+
+	const observerTimeperiod = useMemo(
+		() =>
+			new IntersectionObserver(
+				([entry]) => setIntersecting(entry.isIntersecting),
+				observerOptions
+			),
+		[observerOptions]
+	)
+
 	useEffect(() => {
 		const deLoreanContainer = document.querySelector(".delorean__container--present")
 		const sectionPresentHeight = document.querySelector(".section--present")
@@ -94,43 +113,20 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 			parallax(parallaxElements, sectionPresentHeight)
 		})
 
-		// TODO: [NTH] - rain js - need complete rewrite!
-		/*const makeItRain = function() {
-			//clear out everything
-			document.querySelector(".rain").innerHTML = ""
+		observerTimeperiod.observe(timePeriodRef.current);
 
-			let increment = 0;
-			let drops = "";
-			let backDrops = "";
-
-			while (increment < 100) {
-				//couple random numbers to use for various randomizations
-				//random number between 98 and 1
-				let randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
-				//random number between 5 and 2
-				let randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
-				//increment
-				increment += randoFiver;
-				//add in a new raindrop with various randomizations to certain CSS properties
-				drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.6' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.6' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.6' + randoHundo + 's;"></div></div>';
-				backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.6' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.6' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.6' + randoHundo + 's;"></div></div>';
-			}
-
-			document.querySelector(".rain.front-row").innerHTML = drops;
-			document.querySelector(".rain.back-row").innerHTML = backDrops;
+		// --- remove the observer when the component is unmounted
+		return () => {
+			observerTimeperiod.disconnect();
 		}
 
-		makeItRain();
-		*/
-	})
+	}, [observerTimeperiod])
 
 	return (
 		<>
-			<div className={`time time--${timePeriod} ${customClass}`}>
+			<div ref={timePeriodRef} className={isIntersecting ? `time time--${timePeriod} ${customClass} load-me` : `time time--${timePeriod} ${customClass}`}>
 				{timePeriod === "present" ?
 					<>
-						{/*<div className="rain front-row"></div>
-						<div className="rain back-row"></div>*/}
 						<div className="floats">
 							{/* Buoys */}
 							<div className="float-wrapper float-wrapper--buoys">

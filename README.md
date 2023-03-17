@@ -2,6 +2,10 @@
 Code of **[svatos.dev](https://svatos.dev)** which is my portfolio and coding playground at the same time. The theme of the website is a classic - **Back To the Future**. Easter eggs for fans included ;)
 ***
 ## Changelog
+**1.1.2**
+- NEW - rewritten `IntersectionObserver` for sections and projects (thx [Sai Yerni Akhil Madabattula
+  ](https://saiyerniakhil.in/building-a-scrollspy-and-more-using-react-and-intersectionobserver-api))
+
 **1.1.1**
 - FIX - Header `z-index`
 - FIX - Safari `mix-blend-mode`

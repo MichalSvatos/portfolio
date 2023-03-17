@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 import "./_projects.scss"
 import "./_projects--present.scss"
 import "./_projects--past.scss"
@@ -7,38 +7,6 @@ import Item from "../Projects/Item/Item"
 
 export default function Projects({projectsData}) {
 	const timeperiod = projectsData[0]?.frontmatter.timeperiod ? projectsData[0].frontmatter.timeperiod : "present"
-
-	useEffect(() => {
-		// TODO: DRY
-		let observerTimeperiod;
-		let observerProject;
-		const projects = document.querySelectorAll('.project-item');
-		const timeperiods = document.querySelectorAll('.time');
-
-		observerProject = new IntersectionObserver((projects) => {
-			projects.forEach(project => {
-				if (project.intersectionRatio > 0) {
-					project.target.classList.add('show-me');
-				}
-			});
-		});
-
-		observerTimeperiod = new IntersectionObserver((timeperiods) => {
-			timeperiods.forEach(timeperiod => {
-				if (timeperiod.intersectionRatio > 0) {
-					timeperiod.target.classList.add('load-me');
-				}
-			});
-		});
-
-		projects.forEach(project => {
-			observerProject.observe(project);
-		});
-
-		timeperiods.forEach(timeperiod => {
-			observerTimeperiod.observe(timeperiod);
-		});
-	})
 
 	return (
 		<>

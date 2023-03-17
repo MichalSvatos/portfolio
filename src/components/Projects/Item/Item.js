@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react"
+import React, {useEffect, useRef, useState, useMemo} from "react"
 import "./_item.scss"
 import "./_item--present.scss"
 import "./_item--past.scss"
@@ -35,6 +35,7 @@ export default function Project({timeperiod, projectData}) {
 		}
 	]
 
+	// --- modal
 	const [openModalID, setOpenModalID] = useState(null)
 
 	const closeModal = () => {
@@ -50,19 +51,44 @@ export default function Project({timeperiod, projectData}) {
 		document.getElementById("modal-container").classList.add("modal-is-ready")
 	}
 
+	// --- observer
+	const [isIntersecting, setIntersecting] = useState(false)
+	const observerOptions = useMemo(() => {
+		return {
+			root: null,
+			rootMargin: "150px 0px",
+		}
+	}, [])
+
+	const observerProjectItem = useMemo(
+		() =>
+			new IntersectionObserver(
+				([entry]) => setIntersecting(entry.isIntersecting),
+				observerOptions
+			),
+		[observerOptions]
+	)
+
 	useEffect(() => {
 		document.addEventListener("keydown", (event) => {
 			if (event.key === 'Escape') {
 				closeModal()
 			}
 		})
-	})
+
+		observerProjectItem.observe(projectButton.current);
+
+		// --- remove the observer when the component is unmounted
+		return () => {
+			observerProjectItem.disconnect();
+		}
+	}, [observerProjectItem])
 
 	return (
 		<>
 			<a
 				href="/"
-				className={`project-item project-item--${timeperiod}`}
+				className={isIntersecting ? `project-item project-item--${timeperiod} show-me` : `project-item project-item--${timeperiod}`}
 				data-year={year}
 				key={id}
 				ref={projectButton}
