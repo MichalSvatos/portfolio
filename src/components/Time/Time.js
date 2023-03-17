@@ -92,15 +92,6 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 		}
 	}, [])
 
-	const observerTimeperiod = useMemo(
-		() =>
-			new IntersectionObserver(
-				([entry]) => setIntersecting(entry.isIntersecting),
-				observerOptions
-			),
-		[observerOptions]
-	)
-
 	useEffect(() => {
 		const deLoreanContainer = document.querySelector(".delorean__container--present")
 		const sectionPresentHeight = document.querySelector(".section--present")
@@ -113,6 +104,11 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 			parallax(parallaxElements, sectionPresentHeight)
 		})
 
+		const observerTimeperiod = new IntersectionObserver(
+			([entry]) => setIntersecting(entry.isIntersecting),
+			observerOptions
+		)
+
 		observerTimeperiod.observe(timePeriodRef.current);
 
 		// --- remove the observer when the component is unmounted
@@ -120,7 +116,7 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 			observerTimeperiod.disconnect();
 		}
 
-	}, [observerTimeperiod])
+	}, [observerOptions])
 
 	return (
 		<>

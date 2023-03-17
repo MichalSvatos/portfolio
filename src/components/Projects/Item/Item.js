@@ -60,15 +60,6 @@ export default function Project({timeperiod, projectData}) {
 		}
 	}, [])
 
-	const observerProjectItem = useMemo(
-		() =>
-			new IntersectionObserver(
-				([entry]) => setIntersecting(entry.isIntersecting),
-				observerOptions
-			),
-		[observerOptions]
-	)
-
 	useEffect(() => {
 		document.addEventListener("keydown", (event) => {
 			if (event.key === 'Escape') {
@@ -76,13 +67,18 @@ export default function Project({timeperiod, projectData}) {
 			}
 		})
 
+		const observerProjectItem = new IntersectionObserver(
+			([entry]) => setIntersecting(entry.isIntersecting),
+			observerOptions
+		)
+
 		observerProjectItem.observe(projectButton.current);
 
 		// --- remove the observer when the component is unmounted
 		return () => {
 			observerProjectItem.disconnect();
 		}
-	}, [observerProjectItem])
+	}, [observerOptions])
 
 	return (
 		<>
