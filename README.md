@@ -2,6 +2,9 @@
 Code of **[svatos.dev](https://svatos.dev)** which is my portfolio and coding playground at the same time. The theme of the website is a classic - **Back To the Future**. Easter eggs for fans included ;)
 ***
 ## Changelog
+**1.1.4**
+- UPDATE - New WIP "Picard" theme added to Pi-hole section
+
 **1.1.3**
 - FIX - `IntersectionObserver` moved to the `useEffect`, because of SSR of Gatsby
 
