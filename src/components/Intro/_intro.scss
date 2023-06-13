@@ -81,11 +81,12 @@ $animation-timing: 350ms;
 			animation: fadeMeInLeft 2000ms ($animation-timing * 2) $easeOutExpo forwards;
 		}
 
-		&:nth-child(2) {
+		&:nth-child(2),
+		&:nth-child(3) {
 			animation: fadeMeIn 2000ms ($animation-timing * 2) $easeOutExpo forwards;
 		}
 
-		&:nth-child(3) {
+		&:nth-child(4) {
 			animation: fadeMeInRight 2000ms ($animation-timing * 2) $easeOutExpo forwards;
 		}
 	}
@@ -205,6 +206,7 @@ $animation-timing: 350ms;
 
 		&:after {
 			content: 'MS';
+			white-space: nowrap;
 		}
 
 		span {

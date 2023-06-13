@@ -110,7 +110,7 @@ export default function TimeCircuits() {
 				</div>
 				<div className="timecircuits__year">
 					{/*TODO: [NTH] Timecircuits - dynamic year*/}
-					<span className="timecircuits__inner">2022</span>
+					<span className="timecircuits__inner">2023</span>
 				</div>
 			</div>
 			<a href="#main" className="timecircuits__back-to-the-future" title="GO UP. To the future!">

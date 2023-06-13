@@ -4,6 +4,7 @@ import {graphql, useStaticQuery} from "gatsby"
 import IconGithub from "./images/github.inline.svg"
 import IconLinkedIn from "./images/linkedin.inline.svg"
 import IconMail from "./images/mail.inline.svg"
+import IconBehance from "./images/behance.inline.svg"
 import Arrow from "./images/arrow.inline.svg"
 
 export default function Intro() {
@@ -17,6 +18,7 @@ export default function Intro() {
 		        github
 		        email
 		        linkedIn
+		        behance
 		      }
 		    }
 		  }
@@ -24,7 +26,7 @@ export default function Intro() {
 	`)
 
 	const {name, description, contact} = introData.site.siteMetadata
-	const {github, email, linkedIn} = contact
+	const {github, email, linkedIn, behance} = contact
 
 	const [state, setState] = useState({
 		visibility: false
@@ -110,6 +112,14 @@ export default function Intro() {
 								<a href={linkedIn} target="_blank" rel="noopener noreferrer" className="intro__link">
 									<IconLinkedIn />
 									<span className="hide-me">I am on LinkedIn</span>
+								</a>
+							</li>
+						}
+						{behance &&
+							<li>
+								<a href={behance} target="_blank" rel="noopener noreferrer" className="intro__link">
+									<IconBehance />
+									<span className="hide-me">Some of my work on Behance</span>
 								</a>
 							</li>
 						}

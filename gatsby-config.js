@@ -4,7 +4,8 @@ const siteMetadata = {
 	description: "Self-taught frontend developer with more than 10 years of experience. Strong flair for design and UX, privacy and digital minimalism enthusiast.",
 	email: "write@svatos.dev",
 	github: "https://github.com/MichalSvatos",
-	linkedIn: "https://www.linkedin.com/in/michalsvatos"
+	linkedIn: "https://www.linkedin.com/in/michalsvatos",
+	behance: "https://www.behance.net/michalsvatos"
 }
 
 module.exports = {
@@ -66,7 +67,8 @@ module.exports = {
 		contact: {
 			email: siteMetadata.email,
 			github: siteMetadata.github,
-			linkedIn: siteMetadata.linkedIn
+			linkedIn: siteMetadata.linkedIn,
+			behance: siteMetadata.behance
 		}
 	},
 }
