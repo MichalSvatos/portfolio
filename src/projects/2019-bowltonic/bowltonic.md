@@ -4,8 +4,8 @@ tags: ["HTML", "CSS/LESS", "Twig", "JavaScript"]
 slug: bowltonic
 year: 2019
 url:
-- title: bowltonic.cz
-  link: https://bowltonic.cz
+- title: bowlandtonic.cz
+  link: https://bowlandtonic.cz/en/
 timeperiod: past
 featured: images/featured.jpg
 collectionThumbs: ["images/collection/thumbs/bowl-menu.jpg", "images/collection/thumbs/bowl-cart.jpg", "images/collection/thumbs/bowl-thanks.jpg"]
