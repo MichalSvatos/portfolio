@@ -13,6 +13,9 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 		const deLoreanHeight = deLoreanContainer.getBoundingClientRect().height
 		const deLoreans = document.querySelectorAll(".delorean__container")
 
+		// TODO: Ugly ... unconceptual
+		const fireTrails = document.querySelectorAll(".firetrails-wrapper")
+
 		const middleSection = document.querySelector(".js-time-travel-checking")
 		const middleSectionTop = middleSection.getBoundingClientRect().top
 		const middleSectionBottom = middleSection.getBoundingClientRect().bottom
@@ -28,9 +31,17 @@ export default function Time({children, timePeriod = 'present', customClass = ''
 				car.classList.add("is-time-travelling")
 			})
 
+			fireTrails.forEach(fireTrail => {
+				fireTrail.classList.add("is-time-travelling")
+			})
+
 		} else {
 			deLoreans.forEach(car => {
 				car.classList.remove("is-time-travelling")
+			})
+
+			fireTrails.forEach(fireTrail => {
+				fireTrail.classList.remove("is-time-travelling")
 			})
 
 		}

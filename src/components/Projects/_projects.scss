@@ -36,3 +36,69 @@
 		}
 	}
 }
+
+@media (min-width: $bp-md) {
+	.firetrails-wrapper {
+		position: absolute;
+		left: 50px;
+		top: 0;
+		width: 120px;
+		height: calc($gap * 35);
+		translate: 0 -50%;
+		overflow: hidden;
+		z-index: 1;
+
+		&.is-going-back {
+			left: 13px;
+
+			.firetrails {
+				translate: 0 20%;
+				rotate: -180deg;
+				left: 0;
+			}
+
+			&.is-time-travelling {
+				.firetrails {
+					animation: trailBack 1000ms ease-in-out;
+				}
+			}
+		}
+
+		&.is-time-travelling {
+			.firetrails {
+				animation: trail 1000ms ease-in-out;
+			}
+		}
+
+		.firetrails {
+			background: transparent url("./images/firetrails.png") repeat-x 0 0;
+			background-size: 50% 50%;
+			width: 120px;
+			height: 1008px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			translate: 0 -100%;
+		}
+	}
+}
+
+@keyframes trail {
+	0% {
+		translate: 0 -50%;
+	}
+
+	100% {
+		translate: 0 50%;
+	}
+}
+
+@keyframes trailBack {
+	0% {
+		translate: 0 20%;
+	}
+
+	100% {
+		translate: 0 -100%;
+	}
+}

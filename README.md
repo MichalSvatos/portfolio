@@ -2,6 +2,10 @@
 Code of **[svatos.dev](https://svatos.dev)** which is my portfolio and coding playground at the same time. The theme of the website is a classic - **Back To the Future**. Easter eggs for fans included ;)
 ***
 ## Changelog
+**1.3.0**
+- NEW - DeLorean fire trails!
+- UPDATE - Time circuits active image
+
 **1.2.1**
 - FIX - Bowl &amp; Tonic link
 

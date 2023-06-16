@@ -34,12 +34,18 @@ export default function DeLorean({timePeriods}) {
 				const deLoreanContainerPresent = document.querySelector(".delorean__container--present")
 				const deLoreanContainerPast = document.querySelector(".delorean__container--past")
 				const deLoreanContainerHistory = document.querySelector(".delorean__container--history")
+				// TODO: Ugly ... unconceptual
+				const fireTrails = document.querySelectorAll(".firetrails-wrapper")
 
 				if ((body.getBoundingClientRect()).top > scrollPos) {
 					// -- when you go BACK TO THE FUTURE!
 					deLoreanContainers.forEach(delorean => {
 						delorean.classList.add('is-going-back')
 						deLoreanContainerHistory.classList.remove("is-hiding")
+
+						fireTrails.forEach(fireTrail => {
+							fireTrail.classList.add('is-going-back')
+						})
 					})
 
 					// -- “A flying DeLorean? I haven’t seen one of those in 30 years”
@@ -63,6 +69,10 @@ export default function DeLorean({timePeriods}) {
 					// -- turn Deloreans back to facing dowm
 					deLoreanContainers.forEach(delorean => {
 						delorean.classList.remove('is-going-back')
+
+						fireTrails.forEach(fireTrail => {
+							fireTrail.classList.remove('is-going-back')
+						})
 					})
 
 					// -- fly the Delorean to the middle of the screen

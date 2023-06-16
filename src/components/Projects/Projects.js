@@ -12,6 +12,12 @@ export default function Projects({projectsData}) {
 		<>
 			{projectsData.length ?
 				<section className={`section section--${timeperiod}`}>
+
+					{((timeperiod === "past") || (timeperiod === "history")) &&
+						<div className="firetrails-wrapper">
+							<div className="firetrails"></div>
+						</div>
+					}
 					<div className={`section__objects objects objects--${timeperiod}`}>
 
 						{timeperiod === "past" &&
