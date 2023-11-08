@@ -1,6 +1,6 @@
 ---
 title: Mr. Shareman
-tags: ["JavaScript", "CSS", "Design"]
+tags: ["JavaScript", "CSS", "Design", "FOSS"]
 slug: mrshareman
 year: 2022
 url:

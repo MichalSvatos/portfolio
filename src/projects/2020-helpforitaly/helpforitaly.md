@@ -1,6 +1,6 @@
 ---
 title: Help For Italy #COVID19
-tags: ["HTML", "CSS/LESS", "JavaScript", "Figma"]
+tags: ["HTML", "CSS/LESS", "JavaScript", "Figma", "FOSS"]
 slug: helpforitaly
 year: 2020
 url:

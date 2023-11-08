@@ -5,12 +5,12 @@ slug: reality-svacina
 year: 2021
 url:
 - title: reality-svacina.cz
-  link: https://reality-svacina.cz
+  link: https://reality-svacina.cz/en/
 timeperiod: present
 featured: images/featured.png
 collectionThumbs: ["images/collection/thumbs/web1.jpg", "images/collection/thumbs/web2.jpg"]
 collection: ["images/collection/web1.jpg", "images/collection/web2.jpg"]
-statusText: under active development, currently preparing implementation of the English version
+statusText: active
 status: active
 owner: Realtor Jindřich Svačina
 ---
@@ -24,5 +24,7 @@ owner: Realtor Jindřich Svačina
 - Custom post types
 - Administration of properties and their characteristics
 - Blog
+- Polylang implementation
+- Estimation price form
 
 

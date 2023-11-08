@@ -19,8 +19,8 @@ owner: Cihelna Concept Store, Prague
 <br><br>
 ##### Features
 - Advanced Custom Fields
-- MySQL database
 - Custom post types
+- MySQL database
 - Artists administration
 - Artworks administration
 - Collections administration
