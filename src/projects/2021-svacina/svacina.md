@@ -13,6 +13,8 @@ collection: ["images/collection/web1.jpg", "images/collection/web2.jpg"]
 statusText: active
 status: active
 owner: Realtor Jindřich Svačina
+color: "#00398c"
+background: "#ffffff"
 ---
 
 ### Wordpress template for real-estate agent

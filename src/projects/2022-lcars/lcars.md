@@ -17,6 +17,8 @@ collection: ["images/collection/picard-hp.png", "images/collection/picard-system
 statusText: under active development
 status: active
 owner: Personal FOSS project
+color: "#d55136"
+background: "#000000"
 ---
 As a fan, **I coded and designed new UIs** for the **open source project Pi-hole** based on the Start Trek's computer interface (LCARS).
 

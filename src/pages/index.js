@@ -154,6 +154,8 @@ query AllProjects {
         statusText
         status
         owner
+        color
+        background
       }
       id
       html

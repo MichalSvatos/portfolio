@@ -15,6 +15,8 @@ collection: ["images/collection/hp.png", "images/collection/share.png"]
 statusText: under active development
 status: active
 owner: Personal project
+color: "#65be4e"
+background: "#111f13"
 ---
 
 Have you ever been in the situation in which you need to give someone your contact information, but struggling to do so because you left home you business card? To avoid any misspelling and uncomfortable situations, **I coded and designed Mr. Shareman**.<br><br>Mr. Shareman is a small and simple PWA that allows people to quickly share texts on their devices screen.

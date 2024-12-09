@@ -15,6 +15,8 @@ collection: ["images/collection/lmc-alma.png"]
 statusText: external cooperation
 status: active
 owner: LMC s.r.o.
+color: "#000000"
+background: "#ffffff"
 ---
 
 LMC (Alma Media) runs and owns the two biggest recruitment portals in the Czech Republic (Jobs.cz and Prace.cz) along with the HR recruitment platform Teamio.

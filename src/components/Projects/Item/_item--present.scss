@@ -85,8 +85,8 @@
 
 	.project-item__title {
 		text-transform: uppercase;
-		color: $color-present-text-primary;
-		background-color: $color-present-ui-primary;
+		color: var(--_title-color, $color-present-text-primary);
+		background-color: var(--_title-background, $color-present-ui-primary);
 		padding: ($gap) ($gap);
 	}
 

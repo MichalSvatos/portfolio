@@ -10,7 +10,7 @@ import IconCloseWindow from "../../Modal/images/closewindow.inline.svg"
 
 export default function Project({timeperiod, projectData}) {
 
-	const {title, tags, slug, year, url, featured, collection, collectionThumbs, statusText, status, owner} = projectData.frontmatter
+	const {title, tags, slug, year, url, featured, collection, collectionThumbs, statusText, status, owner, color, background} = projectData.frontmatter
 	const html = projectData.html
 	const featuredImage = featured.childrenImageSharp[0].gatsbyImageData
 	const id = projectData.id
@@ -105,7 +105,7 @@ export default function Project({timeperiod, projectData}) {
 					}
 				</div>
 
-				<h3 className="project-item__title">{title}</h3>
+				<h3 className="project-item__title" style={{"--_title-color": color, "--_title-background" : background}}>{title}</h3>
 				{featuredImage && <GatsbyImage image={featuredImage} className="project-item__image" alt={title} />}
 
 				<div className="project-item__year">{year}</div>
