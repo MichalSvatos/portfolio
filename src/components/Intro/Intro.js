@@ -6,6 +6,9 @@ import IconLinkedIn from "./images/linkedin.inline.svg"
 import IconMail from "./images/mail.inline.svg"
 import IconBehance from "./images/behance.inline.svg"
 import Arrow from "./images/arrow.inline.svg"
+import EeBttfLogoTop from "./images/ee-bttf-logo--top.inline.svg"
+import EeBttfLogoMid from "./images/ee-bttf-logo--mid.inline.svg"
+import EeBttfLogoBtm from "./images/ee-bttf-logo--btm.inline.svg"
 
 export default function Intro() {
 	const introData = useStaticQuery(graphql`
@@ -81,6 +84,25 @@ export default function Intro() {
 		})
 	}
 
+	const [count, setCount] = useState(0)
+	const [hidden, setHidden] = useState(false)
+	const [shaking, setShaking] = useState(false)
+	const eeClickThreshold = 3
+
+	const clickCount = () => {
+		setCount((count) => count + 1)
+	}
+
+	const hideMe = () => {
+		if (count > eeClickThreshold) {
+			setHidden(!hidden)
+		}
+	}
+
+	const toggleShake = () => {
+		setShaking(!shaking)
+	}
+
 	useEffect(() => {
 		const intro = document.querySelector('.intro');
 
@@ -96,9 +118,24 @@ export default function Intro() {
 		<>
 			<div className="intro">
 				<div className="intro__inner">
-					<h1 className="intro__title fade-me-in"><span>{name}</span></h1>
-					<h2 className="intro__subtitle fade-me-in">{description}</h2>
-					<ul className="intro__links fade-me-in">
+					{count > eeClickThreshold && hidden &&
+						<div className="intro__ee">
+							<EeBttfLogoTop />
+							<EeBttfLogoMid />
+							<EeBttfLogoBtm />
+						</div>
+					}
+
+					{!hidden &&
+						<div className={count > eeClickThreshold ? 'fade-me-out' : ''} onAnimationEnd={hideMe}>
+							<h1 className={`intro__title`} onClick={clickCount} data-text={name} role="button">
+								<span className={shaking ? `shake-me` : ``} onClick={toggleShake} role="button" onAnimationEnd={toggleShake}>{name}</span>
+							</h1>
+							<h2 className="intro__subtitle">{description}</h2>
+						</div>
+					}
+
+					<ul className="intro__links">
 						{github &&
 							<li>
 								<a href={github} target="_blank" rel="noopener noreferrer" className="intro__link">

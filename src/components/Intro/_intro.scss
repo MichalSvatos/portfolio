@@ -12,6 +12,7 @@ $animation-timing: 350ms;
 	::selection {
 		background-color: $color-black;
 	}
+
 }
 
 .intro__inner {
@@ -19,25 +20,13 @@ $animation-timing: 350ms;
 	color: $color-intro-text-secondary;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	max-width: ($gap * 45);
 	width: calc(100% - ($gap * 2));
 	position: absolute;
 	translate: -50% -50%;
 	top: 40%;
 	left: 50%;
-
-	// TODO: [NTH] - alternative logo easter egg - on X clicks?
-	&:after {
-		display: none;
-		content: '';
-		position: absolute;
-		inset: 0;
-		background-image: url("../../../static/logo-alternative.svg");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: contain;
-		opacity: .2;
-	}
 }
 
 // -- titles
@@ -55,6 +44,86 @@ $animation-timing: 350ms;
 	font-size: font-fluid(md);
 	text-transform: uppercase;
 	animation-delay: $animation-timing;
+	cursor: default;
+	user-select: none;
+	position: relative;
+
+	&:before,
+	&:after {
+		display: none;
+		content: attr(data-text);
+		width: 100%;
+		position: absolute;
+		translate: -50% -50%;
+		z-index: -1;
+		text-shadow: none;
+		top: 50%;
+	}
+
+	&:before {
+		left: calc(50% - 3px);
+		color: #ff00ff;
+	}
+
+	&:after {
+		left: calc(50% + 3px);
+		color: #efff00;
+	}
+
+	&:hover {
+		&:before,
+		&:after {
+			display: block;
+			animation: glitch-advanced 2000ms ease infinite;
+		}
+
+		&::before {
+			animation-direction: reverse;
+		}
+	}
+}
+
+.shake-me {
+	display: block;
+	animation: shake-me 1000ms cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@keyframes shake-me {
+	0%,
+	100% {
+		translate: 0 0;
+	}
+	10%,
+	30%,
+	50%,
+	70% {
+		translate: -2px 0;
+	}
+	20%,
+	40%,
+	60% {
+		translate: 2px 0;
+	}
+	80% {
+		translate: 1px 0;
+	}
+	90% {
+		translate: -1px 0;
+	}
+}
+
+$topLimit: 70;
+$bottomLimit: 50;
+
+@keyframes glitch-advanced {
+	$steps: 35;
+	@for $step from 0 through $steps {
+		#{percentage(calc($step / $steps))} {
+			$top: random($topLimit);
+			$bottom: random($bottomLimit);
+			clip-path: inset(#{$top}px 0px #{$bottom}px 0px);
+		}
+	}
 }
 
 .intro__subtitle {
@@ -62,6 +131,82 @@ $animation-timing: 350ms;
 	letter-spacing: ($gap * .05);
 	line-height: 1.35;
 	margin-top: ($gap * 1.5);
+}
+
+.fade-me-out {
+	animation: fadeMeIn 1000ms $easeOutExpo forwards;
+	animation-direction: reverse;
+}
+
+// -- easter egg logo
+.intro__ee {
+	width: 90%;
+	max-width: ($gap * 31);
+	display: flex;
+	flex-direction: column;
+	--eeBttfStroke: #83a4ff;
+	--eeBttfShadow: #285be6;
+	--eeBttfDelay: 500ms;
+}
+
+.intro__ee-top {
+	translate: 0 0;
+	opacity: 0;
+	animation: eeBttfTop 1500ms var(--eeBttfDelay) cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	filter: drop-shadow(0px 3px 10px var(--eeBttfShadow));
+	stroke: var(--eeBttfStroke);
+	stroke-width: 1;
+}
+
+.intro__ee-mid {
+	opacity: 0;
+	animation: eeBttfMid 1500ms calc(var(--eeBttfDelay) * 2) cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	filter: drop-shadow(-1px -2px 10px var(--eeBttfShadow));
+	stroke: var(--eeBttfStroke);
+	stroke-width: 1;
+}
+
+.intro__ee-btm {
+	translate: -100% 0%;
+	opacity: 0;
+	animation: eeBttfBtm 2000ms calc(var(--eeBttfDelay) * 3) cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	filter: drop-shadow(0px -1px 10px var(--eeBttfShadow));
+	stroke: var(--eeBttfStroke);
+	stroke-width: 1;
+}
+
+@keyframes eeBttfTop {
+	0% {
+		translate: 50% 0;
+		opacity: 0;
+	}
+
+	100% {
+		translate: 0 0;
+		opacity: 1;
+	}
+}
+
+@keyframes eeBttfMid {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes eeBttfBtm {
+	0% {
+		translate: -30% 20%;
+		opacity: 0;
+	}
+
+	100% {
+		translate: 0 -20%;
+		opacity: 1;
+	}
 }
 
 // -- contact links
@@ -166,6 +311,11 @@ $animation-timing: 350ms;
 	.intro__subtitle,
 	.intro__hashtags {
 		display: none;
+	}
+
+	.intro__ee {
+		margin-top: auto;
+		width: ($gap * 7);
 	}
 
 	.intro__inner {
