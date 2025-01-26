@@ -355,8 +355,11 @@ $bottomLimit: 50;
 		}
 
 		&:after {
+			display: block;
 			content: 'MS';
 			white-space: nowrap;
+			color: $color-white;
+			pointer-events: none;
 		}
 
 		span {
