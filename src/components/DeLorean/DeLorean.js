@@ -4,7 +4,7 @@ import DeLoreanTimeVariant from "./DeLoreanTimeVariant";
 
 const isBrowser = typeof window !== "undefined"
 
-export default function DeLorean({timePeriods}) {
+export default function DeLorean({timePeriods, toggleEgg}) {
 	const {present, past, history} = timePeriods
 	const deLoreanVisibilityThreshold = 767
 
@@ -87,6 +87,7 @@ export default function DeLorean({timePeriods}) {
 
 					// -- hide Delorean in the cave + change the "past" timeline
 					if (window.scrollY > ((body.offsetHeight - window.innerHeight) - 100)) {
+						toggleEgg('egg3')
 						deLoreanContainerHistory.classList.add("is-hiding")
 						body.classList.add("you-space-bastard-you-killed-my-pine")
 					}

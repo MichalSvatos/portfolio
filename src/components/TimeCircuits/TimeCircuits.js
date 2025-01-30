@@ -2,7 +2,7 @@ import React, {useEffect} from "react"
 import "./_timecircuits.scss"
 import GoBackToTheFuture from "./images/gbttf.inline.svg"
 
-export default function TimeCircuits() {
+export default function TimeCircuits({toggleEgg}) {
 
 	const timeCircuits = (yearCircuit, monthCircuit, yearsArray, timecircuits, height) => {
 		const yearsAsNumbers = yearsArray.map(Number);
@@ -80,6 +80,7 @@ export default function TimeCircuits() {
 		})
 
 		timecircuits.addEventListener("click", () => {
+			toggleEgg('egg2')
 			let originalYear = yearCircuit.innerHTML
 			let originalMonth = monthCircuit.innerHTML
 

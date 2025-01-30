@@ -10,7 +10,7 @@ import EeBttfLogoTop from "./images/ee-bttf-logo--top.inline.svg"
 import EeBttfLogoMid from "./images/ee-bttf-logo--mid.inline.svg"
 import EeBttfLogoBtm from "./images/ee-bttf-logo--btm.inline.svg"
 
-export default function Intro() {
+export default function Intro({ toggleEgg }) {
 	const introData = useStaticQuery(graphql`
 		query IntroInfo {
 		  site {
@@ -95,6 +95,7 @@ export default function Intro() {
 
 	const hideMe = () => {
 		if (count > eeClickThreshold) {
+			toggleEgg('egg1')
 			setHidden(!hidden)
 		}
 	}
