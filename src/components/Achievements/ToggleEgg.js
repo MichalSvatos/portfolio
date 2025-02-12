@@ -1,51 +1,58 @@
 import AllEggs from "../../../static/allEggs.mp3"
+import {create} from 'zustand'
 
-export const areAllEggsTrue = (eggs) => {
-	return Object.values(eggs).every(value => value === true)
+const playAllEggs = (audioFile) => {
+	const audio = new Audio(audioFile)
+	setTimeout(() => {
+		audio.play()
+	}, 500)
 }
 
-export const toggleEgg = (eggName) => {
-	// Are eggs already set in storage?
-	let eggs = JSON.parse(sessionStorage.getItem('eggs'))
+const useEggStore = create((set) => ({
+	egg1: {
+		discovered: false,
+		text: "Tell me, Doctor, where are we going this time?"
+	},
+	egg2: {
+		discovered: false,
+		text: "Damn! Got to fix that thing"
+	},
+	egg3: {
+		discovered: false,
+		text: "You space bastard! You killed our pine!"
+	},
+	egg4: {
+		discovered: false,
+		text: "I finally invent something that works!"
+	},
+	eggsDiscovered: 0,
+	eggsTotal: 4,
+	currentEggTitle: '',
+	showAchievement: false,
+	setEggToTrue: (eggName) => set((state) => {
+		const egg = state[eggName];
+		if (state[eggName].discovered === false) {
+			set({showAchievement: true})
 
-	// Set eggs if not set
-	if (!eggs) {
-		eggs = {
-			egg1: false,
-			egg2: false,
-			egg3: false,
-			egg4: false,
-		}
-		sessionStorage.setItem('eggs', JSON.stringify(eggs))
-		const event = new CustomEvent('storage-update')
-		window.dispatchEvent(event)
-	}
+			setTimeout(() => {
+				set({showAchievement: false})
+			}, 5000);
 
-	if (eggs[eggName] === false) {
-		eggs[eggName] = true
-		sessionStorage.setItem('eggs', JSON.stringify(eggs))
-		const event = new CustomEvent('storage-update', {
-			detail: { whichEgg: eggName }
-		})
-		window.dispatchEvent(event)
-
-		if (areAllEggsTrue(eggs)) {
-			// All eggs found
-			const audio = new Audio(AllEggs)
-
-			const playAudioAfterDelay = async (delay) => {
-				return new Promise((resolve) => {
-					setTimeout(() => {
-						audio.play().catch(error => {
-							console.error("Error playing audio:", error)
-						})
-						resolve()
-					}, delay)
-				})
-			}
-
-			playAudioAfterDelay(2000)
+			return {
+				[eggName]: {
+					...egg,
+					discovered: true
+				},
+				currentEggTitle: egg.text,
+				eggsDiscovered: state.eggsDiscovered + 1 // Yeah, I know. This should be dynamic ... ain't nobody got time for that :)
+			};
 		}
 
-	}
-}
+		if (state.eggsDiscovered >= state.eggsTotal) {
+			playAllEggs(AllEggs)
+		}
+		return state
+	}),
+}))
+
+export default useEggStore

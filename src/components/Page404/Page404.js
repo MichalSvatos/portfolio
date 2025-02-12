@@ -2,19 +2,15 @@ import React from "react"
 import "./_page404.scss"
 import Image404 from "./images/404.jpg"
 import Sound404 from "../../../static/page404.mp3"
-import Achievements from "../Achievements/Achievements"
-import { toggleEgg } from "../Achievements/ToggleEgg"
 
 export default function Page404() {
 	const playSound = () => {
 		const audio = new Audio(Sound404)
 		audio.play()
-		toggleEgg('egg4')
 	}
 
 	return (
 		<>
-			<Achievements />
 			<div className="page404">
 				<h1 className="page404__title">404</h1>
 				<button onClick={playSound} className="page404__sound">

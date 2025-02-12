@@ -16,7 +16,6 @@ import Cloud2 from "../components/Time/images/float--cloud-2.png"
 import Cloud3 from "../components/Time/images/float--cloud-3.png"
 import Cloud4 from "../components/Time/images/float--cloud-4.png"
 import Achievements from "../components/Achievements/Achievements"
-import { toggleEgg } from "../components/Achievements/ToggleEgg"
 
 export default function Homepage({data}) {
 	const projectSorter = (timeperiod) => {
@@ -80,11 +79,11 @@ export default function Homepage({data}) {
 				<img src={Cloud4} alt="" />
 			</div>
 			<Achievements />
-			<DeLorean timePeriods={timePeriods} toggleEgg={toggleEgg} />
-			<TimeCircuits toggleEgg={toggleEgg} />
+			<DeLorean timePeriods={timePeriods} />
+			<TimeCircuits/>
 
 			<Time timePeriod={present} customClass="load-me">
-				<Intro toggleEgg={toggleEgg} />
+				<Intro />
 				<Projects projectsData={projectSorter("present")} />
 				<Skills />
 			</Time>

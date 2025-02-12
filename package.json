@@ -20,7 +20,8 @@
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "gatsby-plugin-manifest": "^4.24.0",

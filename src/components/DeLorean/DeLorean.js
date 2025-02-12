@@ -1,10 +1,11 @@
 import React, {useEffect} from "react"
 import "./_delorean.scss"
 import DeLoreanTimeVariant from "./DeLoreanTimeVariant";
+import useEggStore from "../Achievements/ToggleEgg";
 
 const isBrowser = typeof window !== "undefined"
 
-export default function DeLorean({timePeriods, toggleEgg}) {
+export default function DeLorean({timePeriods}) {
 	const {present, past, history} = timePeriods
 	const deLoreanVisibilityThreshold = 767
 
@@ -23,6 +24,7 @@ export default function DeLorean({timePeriods, toggleEgg}) {
 	// Scroll direction checker
 	// Thanks - https://codepen.io/lehollandaisvolant/pen/ryrrGx
 	let scrollPos = 0
+	const { setEggToTrue } = useEggStore()
 
 	if (isBrowser) {
 		window.addEventListener('scroll', () => {
@@ -87,7 +89,7 @@ export default function DeLorean({timePeriods, toggleEgg}) {
 
 					// -- hide Delorean in the cave + change the "past" timeline
 					if (window.scrollY > ((body.offsetHeight - window.innerHeight) - 100)) {
-						toggleEgg('egg3')
+						setEggToTrue('egg3')
 						deLoreanContainerHistory.classList.add("is-hiding")
 						body.classList.add("you-space-bastard-you-killed-my-pine")
 					}

@@ -9,6 +9,9 @@ const siteMetadata = {
 }
 
 module.exports = {
+	flags: {
+		DEV_SSR: true
+	},
 	plugins: [
 		`gatsby-plugin-sass`,
 		`gatsby-transformer-remark`,

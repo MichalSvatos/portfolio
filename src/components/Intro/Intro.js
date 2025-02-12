@@ -9,6 +9,7 @@ import Arrow from "./images/arrow.inline.svg"
 import EeBttfLogoTop from "./images/ee-bttf-logo--top.inline.svg"
 import EeBttfLogoMid from "./images/ee-bttf-logo--mid.inline.svg"
 import EeBttfLogoBtm from "./images/ee-bttf-logo--btm.inline.svg"
+import useEggStore from "../Achievements/ToggleEgg"
 
 export default function Intro({ toggleEgg }) {
 	const introData = useStaticQuery(graphql`
@@ -93,9 +94,10 @@ export default function Intro({ toggleEgg }) {
 		setCount((count) => count + 1)
 	}
 
+	const { setEggToTrue } = useEggStore()
 	const hideMe = () => {
 		if (count > eeClickThreshold) {
-			toggleEgg('egg1')
+			setEggToTrue('egg1')
 			setHidden(!hidden)
 		}
 	}

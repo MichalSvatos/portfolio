@@ -1,10 +1,12 @@
 import React from "react"
 import "./_footer.scss"
 import {graphql, useStaticQuery} from "gatsby"
+import useEggStore from "../Achievements/ToggleEgg";
 
 export default function Footer() {
 	const date = new Date()
 	let currentYear = date.getFullYear()
+	const { setEggToTrue } = useEggStore()
 
 	const siteData = useStaticQuery(graphql`
 	query SiteInfo {
@@ -59,7 +61,7 @@ export default function Footer() {
 			<footer>
 				<p className="footer__copy">
 					&copy; {currentYear}, Made
-					with <span className="footer__flux" title="Flux capacitor"></span> and <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a> by {siteData.site.siteMetadata.name}. <strong>Privacy respecting - no cookies, no tracking!</strong>
+					with <span className="footer__flux" title="Flux capacitor" onClick={() => setEggToTrue('egg4')}></span> and <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a> by {siteData.site.siteMetadata.name}. <strong>Privacy respecting - no cookies, no tracking!</strong>
 				</p>
 				<div className="footer__sw">
 					<p>Speaking of privacy. Few apps I use and recommend.</p>
