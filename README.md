@@ -2,6 +2,9 @@
 Code of **[svatos.dev](https://svatos.dev)** which is my portfolio and coding playground at the same time. The theme of the website is a classic - **Back To the Future**. Easter eggs for fans included ;)
 ***
 ## Changelog
+**1.5.0**
+- NEW - Open Graph
+
 **1.4.0**
 - NEW - Easter egg hunt; thanks [Chris Naismith](https://github.com/Naismith) for [zustand](https://github.com/pmndrs/zustand) recommendation
 
